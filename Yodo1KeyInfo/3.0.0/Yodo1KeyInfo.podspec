@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
 
     s.homepage         = 'https://github.com'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-    s.license          = { :type => 'MIT', :file => 'LICENSE' }
+    s.license          = { :type => 'MIT', :file => "#{s.version}" + "/LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     s.source           = { :http => "http://cocoapods.static.yodo1api.com/foundation/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
