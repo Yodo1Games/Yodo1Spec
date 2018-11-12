@@ -14,17 +14,16 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
 
-    # s.source_files = "#{s.version}" + '/BaiduMobAdSDK.framework/Headers/*.h'
+    s.source_files = "#{s.version}" + '/BaiduMobAdSDK.framework/Headers/*.h'
     
-    # s.public_header_files = "#{s.version}" + '/BaiduMobAdSDK.framework/Headers/*.h'
+    s.public_header_files = "#{s.version}" + '/BaiduMobAdSDK.framework/Headers/*.h'
     
     s.vendored_frameworks = "#{s.version}" + '/BaiduMobAdSDK.framework'
     
     s.resources = "#{s.version}" +'/*.bundle'
 
-    # s.preserve_paths = "#{s.version}" + '/ChangeLog.txt',"#{s.version}" + '/BaiduMobAdSDK.framework'
+    s.preserve_paths = "#{s.version}" + '/ChangeLog.txt'
     
-    #s.frameworks = 'AdSupport','AudioToolbox','AVFoundation','CoreTelephony','CoreLocation','Foundation','MediaPlayer','MessageUI','StoreKit','Social','SystemConfiguration','Security','SafariServices','UIKit','CoreMotion.framework','CoreMedia.framework'
     s.frameworks = 'CoreLocation', 'SystemConfiguration', 'CoreGraphics', 'CoreMotion', 'CoreTelephony', 'AdSupport', 'SystemConfiguration', 'QuartzCore', 'WebKit', 'MessageUI','SafariServices','AVFoundation','EventKit','QuartzCore','CoreMedia'
     s.weak_frameworks = 'WebKit'
     
