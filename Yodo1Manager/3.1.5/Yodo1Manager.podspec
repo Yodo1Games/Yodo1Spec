@@ -422,6 +422,20 @@ Pod::Spec.new do |s|
         ss.dependency 'VideoToutiao','3.0.12'
         ss.dependency 'Yodo1Manager/Yodo1_Manager',"#{s.version}"
     end
+    s.subspec 'Video_Baidu' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS_VIDEO'
+        }
+        ss.dependency 'VideoBaidu','3.0.0'
+        ss.dependency 'Yodo1Manager/Yodo1_Manager',"#{s.version}"
+    end
+    s.subspec 'Video_GDTMob' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS_VIDEO'
+        }
+        ss.dependency 'VideoGDTMob','3.0.0'
+        ss.dependency 'Yodo1Manager/Yodo1_Manager',"#{s.version}"
+    end
 
     ######## Supersonic Video ########
 
