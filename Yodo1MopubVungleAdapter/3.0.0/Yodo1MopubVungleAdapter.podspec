@@ -38,6 +38,6 @@ Pod::Spec.new do |s|
     s.weak_frameworks = 'AdSupport'
 
     s.dependency 'Yodo1AdsMopub','3.0.0'
-    s.dependency 'Yodo1AdsVungle','3.0.1'
+    s.dependency 'Yodo1AdsVungle','3.0.2'
     # s.libraries = 'c++'
 end
