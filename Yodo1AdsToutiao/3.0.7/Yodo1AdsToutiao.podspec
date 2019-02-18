@@ -38,9 +38,7 @@ Pod::Spec.new do |s|
                     "CoreMotion"
                     ]
 
-    #'CoreMotion','UIKit', 'Foundation','AVFoundation','CoreMedia','CoreVideo','QuartzCore','SystemConfiguration','CoreGraphics','CFNetwork','MobileCoreServices','StoreKit','AdSupport','CoreLocation','CoreTelephony','Security','WebKit','MediaPlayer'
-
-    # s.weak_frameworks = 'AdSupport','SafariServices'
+    # s.weak_frameworks = 'AdSupport'
 
     s.libraries = ["c++",
                     "resolv.9",
