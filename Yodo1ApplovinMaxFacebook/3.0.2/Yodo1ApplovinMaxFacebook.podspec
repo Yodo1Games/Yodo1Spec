@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1ApplovinMaxFacebook'
     s.version          = '3.0.2'
-    s.summary          = 'Applovin sdk v6.3.0 聚合'
+    s.summary          = 'Applovin sdk v6.4.2 聚合'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
                        DESC
