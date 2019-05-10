@@ -1,11 +1,12 @@
 Pod::Spec.new do |s|
     s.name             = 'ISFacebook'
     s.version          = '3.1.0'
-    s.summary          = 'Facebook SDK 和Adapter 分离'
+    s.summary          = 'Adapter和SDK分离'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
                        DESC
 
+    
     s.homepage         = 'https://github.com'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => "#{s.version}" + "/LICENSE" }
@@ -15,13 +16,13 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
 
-    # s.source_files = "#{s.version}" + '/ISFacebookAdapter.framework/Versions/A/Headers/*.h'
+    # s.source_files =  "#{s.version}" + '/ISTapjoyAdapter.framework/Versions/A/Headers/*.h'
 
-    # s.public_header_files = "#{s.version}" + '/ISFacebookAdapter.framework/Versions/A/Headers/*.h'
+    # s.public_header_files =  "#{s.version}" + '/ISTapjoyAdapter.framework/Versions/A/Headers/*.h'
 
-    s.preserve_path = "#{s.version}" + '/ChangeLog.txt'
-
-    # s.vendored_frameworks = "#{s.version}" + '/ISFacebookAdapter.framework'
+    s.preserve_path =  "#{s.version}" + '/ChangeLog.txt'
+        
+    # s.vendored_frameworks =  "#{s.version}" + '/ISTapjoyAdapter.framework'
 
     s.requires_arc = true
 
@@ -31,13 +32,14 @@ Pod::Spec.new do |s|
         'ONLY_ACTIVE_ARCH' => 'NO'
     }
 
-    s.frameworks = 'Accounts', 'AssetsLibrary','AVFoundation', 'CoreTelephony','CoreLocation', 'CoreMotion' ,'CoreMedia', 'EventKit','EventKitUI', 'iAd', 'ImageIO','MobileCoreServices', 'MediaPlayer' ,'MessageUI','MapKit','Social','StoreKit','Twitter','WebKit','SystemConfiguration','AudioToolbox','Security','CoreBluetooth'
+    s.frameworks = 'Accounts', 'AssetsLibrary','AVFoundation', 'CoreTelephony','CoreLocation', 'CoreMotion' ,'CoreMedia', 'EventKit','EventKitUI', 'iAd', 'ImageIO','MobileCoreServices', 'MediaPlayer' ,'MessageUI','MapKit','Social','StoreKit','Twitter','WebKit','SystemConfiguration','AudioToolbox','Security','CoreBluetooth','UIKit','CoreGraphics'
 
     s.weak_frameworks = 'AdSupport','SafariServices','ReplayKit','CloudKit','GameKit'
-    s.libraries = 'sqlite3', 'z'
-    
+
+    s.libraries = 'sqlite3.0','z'
+
     s.dependency 'YD1IronSource','3.1.0'
 
-    s.dependency 'Yodo1IronSourceFacebook','3.0.1'
-    
+    s.dependency 'Yodo1IronSourceTapjoy', '3.0.2'
+
 end
