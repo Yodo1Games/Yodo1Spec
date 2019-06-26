@@ -1,8 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsChartboost'
     s.version          = '3.0.0'
-    s.summary          = 'A short description of Yodo1Chartboost.'
-
+    s.summary          = 'Chartboost v7.5.0'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
                        DESC
@@ -13,25 +12,30 @@ Pod::Spec.new do |s|
     s.source           = { :http => "https://cocoapods.yodo1api.com/thirdsdks/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-    s.ios.deployment_target = '7.0'
+    s.ios.deployment_target = '8.0'
 
     s.source_files = "#{s.version}" + '/Chartboost.framework/Versions/A/Headers/*.h'
     
     s.public_header_files = "#{s.version}" + '/Chartboost.framework/Versions/A/Headers/*.h'
     
-    s.preserve_path = "#{s.version}" + '/ChangeLog.txt'
-    
     s.vendored_frameworks = "#{s.version}" + '/Chartboost.framework'
+    
+    # s.resources = "#{s.version}" +'/*.bundle'
+    s.vendored_libraries = "#{s.version}" + '/*.a'
 
-    s.requires_arc = false
-
+    s.preserve_paths = "#{s.version}" + '/ChangeLog.txt'
+    
+    s.frameworks = 'CoreLocation', 'SystemConfiguration', 'CoreGraphics', 'CoreMotion', 'CoreTelephony', 'AdSupport', 'SystemConfiguration', 'QuartzCore', 'WebKit', 'MessageUI','SafariServices','AVFoundation','EventKit','QuartzCore','CoreMedia','StoreKit'
+    s.weak_frameworks = 'WebKit'
+    
+    s.libraries = 'c++'
+    
+    s.requires_arc = true
+    
     s.xcconfig = {
-        'OTHER_LDFLAGS' => '-ObjC',
-        'ENABLE_BITCODE' => 'NO',
-        'ONLY_ACTIVE_ARCH' => 'NO'
+        "OTHER_LDFLAGS" => "-ObjC",
+        "ENABLE_BITCODE" => "NO",
+        "ONLY_ACTIVE_ARCH" => "NO"
     }
 
-    s.frameworks = 'Accounts', 'AssetsLibrary','AVFoundation', 'CoreTelephony','CoreLocation', 'CoreMotion' ,'CoreMedia', 'EventKit','EventKitUI', 'iAd', 'ImageIO','MobileCoreServices', 'MediaPlayer' ,'MessageUI','MapKit','Social','StoreKit','Twitter','WebKit','SystemConfiguration','AudioToolbox','Security','CoreBluetooth'
-
-    s.weak_frameworks = 'AdSupport','SafariServices','ReplayKit','CloudKit','GameKit'
 end
