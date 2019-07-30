@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     s.version          = '3.1.4'
     s.summary          = 'Admob 更新v7.40.0，Facebook SDK v5.2.0'
     s.description      = <<-DESC
-    TODO: Add long description of the pod here 测试.
+    TODO: Add long description of the pod here 测试 .
                        DESC
     s.homepage         = 'https://github.com'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
