@@ -3,20 +3,7 @@ Pod::Spec.new do |s|
     s.version          = '3.6.1'
     s.summary          = 'v3.6.1 - 2019-11-21
                             ---------------------------
-                            1.更新支持各平台的iOS 13 ==>
-                            ApplovinMAX 已适配 v6.9.5  
-                            Chartboost  已适配 v8.0.3  
-                            Applovin    已适配 v6.9.5
-                            Tapjoy      已适配 v12.3.4 [iPad 有个冻结的BUG]
-                            Facebook    已适配 v5.6.0 
-                            Admob       已适配 v7.51.0 
-                            IronSource  已适配 v6.8.7.0    
-                            UnityAds    已适配 v3.3.0
-                            Vungle      已适配 v6.4.5
-                            今日头条（TIKTOK）    已适配 v2.4.6.7    
-                            Mintegral   已适配 v5.8.2
-                            AdColony    已适配 v4.1.2
-
+                            1.更新支持各平台的iOS 13
                             2.更新微信，QQ SDK [支持iOS 13]
                             3.修复隐私UI的BUG [支持iOS 13]
                             4.更新Umeng V6.0.5 [去掉Dplus接口]
@@ -29,9 +16,10 @@ Pod::Spec.new do |s|
                             3.更新 Toutiao v2.5.1.5
                             4.更新 IronSource v6.10.0
                             5.更新 Mintegral v5.8.4
-                            6.更新 Soomla v5.4.0
-                            7.更新 Inmobi 9.0.1
-                            8.更新 GDT 4.10.19
+                            6.更新 Inmobi 9.0.1
+                            7.更新 GDT 4.10.19
+                            8.更新Soomla v5.4.2 [移除UIWebView]
+                            备注:Tapjoy [iPad 有个冻结的BUG],微信SDK没有移除UIWebView
                             ---------------------------
                           '
     s.description      = <<-DESC
@@ -235,7 +223,7 @@ Pod::Spec.new do |s|
         ss.xcconfig = {
             "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_SOOMLA'
         }
-        ss.dependency 'Yodo1Soomla','3.1.8'
+        ss.dependency 'Yodo1Soomla','3.2.0'
         ss.dependency 'Yodo1Manager/Yodo1_Manager',"#{s.version}"
     end
 
