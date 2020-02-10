@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsInmobi'
     s.version          = '3.2.0'
-    s.summary          = 'Inmobi v9.0.1'
+    s.summary          = 'Inmobi v9.0.4'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
                        DESC
@@ -14,10 +14,10 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '8.0'
 
-    s.source_files = "#{s.version}" + '/*.framework/Headers/*.h'
-    s.public_header_files = "#{s.version}" + '/*.framework/Headers/*.h'
-    s.vendored_frameworks = "#{s.version}" + '/*.framework'
-    s.preserve_paths = "#{s.version}" + '/*.framework', 'ChangeLog.txt'
+    s.source_files = "#{s.version}" + '/InMobiSDK.framework/Headers/*.h',"#{s.version}" + '/INMMoatMobileAppKit.framework/Headers/*.h'
+    s.public_header_files = "#{s.version}" + '/InMobiSDK.framework/Headers/*.h',"#{s.version}" + '/INMMoatMobileAppKit.framework/Headers/*.h'
+    s.vendored_frameworks = "#{s.version}" + '/InMobiSDK.framework',"#{s.version}" + '/INMMoatMobileAppKit.framework'
+    s.preserve_paths = "#{s.version}" + '/InMobiSDK.framework', 'ChangeLog.txt',"#{s.version}" + '/INMMoatMobileAppKit.framework'
     
     s.frameworks = 'AdSupport','AudioToolbox','AVFoundation','CoreTelephony','CoreLocation','Foundation','MediaPlayer','MessageUI','StoreKit','Social','SystemConfiguration','Security','SafariServices','UIKit'
     s.weak_frameworks = 'WebKit'
