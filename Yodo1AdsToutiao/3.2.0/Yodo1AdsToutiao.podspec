@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
     s.preserve_path = "#{s.version}" + '/ChangeLog.txt'
     s.vendored_frameworks = "#{s.version}" + '/BUAdSDK.framework'
     
-    valid_archs = ['armv7', 'armv7s', 'x86_64', 'arm64']
+    valid_archs = ['armv7', 'x86_64', 'arm64']
 
     s.xcconfig = {
         'OTHER_LDFLAGS' => '-ObjC',
