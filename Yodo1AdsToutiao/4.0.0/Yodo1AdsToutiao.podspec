@@ -26,9 +26,7 @@ Pod::Spec.new do |s|
         "ONLY_ACTIVE_ARCH" => "NO",
         'VALID_ARCHS' =>  valid_archs.join(' ')
     }
-    s.pod_target_xcconfig = {
-        'ARCHS[sdk=iphonesimulator*]'=>'$(ARCHS_STANDARD_64_BIT)'
-    }
+
     s.frameworks = ["UIKit",
                     "MapKit",
                     "WebKit",
