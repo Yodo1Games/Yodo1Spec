@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsApplovin'
     s.version          = '4.0.0'
-    s.summary          = 'sdk v6.11.1'
+    s.summary          = 'sdk v6.11.3'
     s.description      = <<-DESC
                         TODO: Add long description of the pod here.
                        DESC
@@ -32,7 +32,9 @@ Pod::Spec.new do |s|
         "ONLY_ACTIVE_ARCH" => "NO",
         'VALID_ARCHS' =>  valid_archs.join(' ')
     }
-
+    s.pod_target_xcconfig = {
+        'ARCHS[sdk=iphonesimulator*]'=>'$(ARCHS_STANDARD_64_BIT)'
+    }
     s.frameworks = 'AdSupport', 'AVFoundation', 'CoreTelephony', 'CoreGraphics', 'CoreMedia', 'StoreKit', 'SystemConfiguration', 'UIKit','WebKit','AudioToolbox'
 
     s.weak_frameworks = 'SafariServices'
