@@ -44,10 +44,10 @@ Pod::Spec.new do |s|
     s.libraries = 'sqlite3', 'z'
     s.compiler_flags = '-Dunix'
     
-    s.dependency 'Yodo1OnlineParameter','4.2.4'
+    s.dependency 'Yodo1OnlineParameter'
     s.dependency 'Yodo1UCenter'
-    s.dependency 'Yodo1AFNetworking','4.1.0'
-    s.dependency 'Yodo1Commons','4.1.0'
+    s.dependency 'Yodo1AFNetworking'
+    s.dependency 'Yodo1Commons'
     s.dependency 'FMDB'
     s.dependency 'Masonry'
     s.dependency 'Toast'
