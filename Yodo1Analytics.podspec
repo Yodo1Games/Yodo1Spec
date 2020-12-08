@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Analytics'
     s.version          = '5.0.0'
-    s.summary          = ' '
+    s.summary          = ' v5.0.0 '
 
     s.description      = <<-DESC
 TODO: Add long description of the pod here.
@@ -14,13 +14,13 @@ TODO: Add long description of the pod here.
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files  = ['*.h']
+    s.source_files  = ["*.h"]
     
-    s.public_header_files = [ '*.h' ]
+    s.public_header_files = [ "*.h" ]
     
-    s.vendored_libraries = [ '*.a' ]
+    s.vendored_libraries = [ "*.a" ]
     
-    s.preserve_paths = [ 'ChangeLog.txt' ]
+    s.preserve_paths = [ "ChangeLog.txt" ]
     
     s.requires_arc = true
 
