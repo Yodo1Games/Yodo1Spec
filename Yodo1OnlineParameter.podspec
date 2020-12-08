@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
         "Yodo1Reachability/*.{h,m}",
         "Yodo1YYCache/*.{h,m}",
         "Yodo1YYModel/*.{h,m}",
+        "Yodo1SaAnalytics/Yodo1SaAnalyticsSDK.framework/Headers/*.h",
         "Yodo1Commons/*.{h,m,mm}"]
 
     s.public_header_files = [
