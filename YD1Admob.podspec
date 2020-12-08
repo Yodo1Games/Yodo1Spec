@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     # s.source           = { :http => "https://cocoapods.yodo1api.com/advert/YD1/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
-    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => '#{s.name}' }
+    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
 
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
