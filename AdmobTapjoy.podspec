@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobTapjoy'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -74,5 +74,4 @@ Pod::Spec.new do |s|
 
     s.dependency 'TapjoySDK','12.7.1'
     s.dependency 'YD1Admob', '5.0.1'
-    s.dependency 'GoogleMobileAdsMediationTapjoy','12.7.1.0'
 end
