@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobIronSource'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -74,5 +74,4 @@ Pod::Spec.new do |s|
 
     s.dependency 'IronSourceSDK','7.0.4.0'
     s.dependency 'YD1Admob', '5.0.1'
-    s.dependency 'GoogleMobileAdsMediationIronSource','7.0.4.0'
 end
