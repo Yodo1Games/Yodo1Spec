@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    # s.vendored_frameworks = ["*.framework"]
 
     s.requires_arc = true
 
@@ -74,4 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'FBAudienceNetwork','6.2.0'
     s.dependency 'YD1Admob', '5.0.2'
+    s.dependency 'GoogleMobileAdsMediationFacebook','6.2.0.0'
 end
