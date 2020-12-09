@@ -11,18 +11,17 @@ Pod::Spec.new do |s|
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
-    # s.source           = { :http => "https://cocoapods.yodo1api.com/advert/YD1/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
     s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
 
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '9.0'
 
-    #s.source_files = "#{s.version}" +'/*.{h,m}'
+    # s.source_files = [ "*.h" ]
 
-    #s.public_header_files = "#{s.version}" +'/*.h'
-    
-    s.vendored_libraries = '*.a'
+    # s.public_header_files = [ "*.h" ]
+
+    s.vendored_libraries = [ "*.a" ]
     
     s.requires_arc = true
 
@@ -34,11 +33,43 @@ Pod::Spec.new do |s|
         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
     }
 
-    s.frameworks = 'Accounts', 'AssetsLibrary','AVFoundation', 'CoreTelephony','CoreLocation', 'CoreMotion' ,'CoreMedia', 'EventKit','EventKitUI', 'iAd', 'ImageIO','MobileCoreServices', 'MediaPlayer' ,'MessageUI','MapKit','Social','StoreKit','Twitter','WebKit','SystemConfiguration','AudioToolbox','Security','CoreBluetooth'
+   s.frameworks = [
+        'Accounts', 
+        'AssetsLibrary',
+        'AVFoundation', 
+        'CoreTelephony',
+        'CoreLocation', 
+        'CoreMotion',
+        'CoreMedia',
+        'EventKit',
+        'EventKitUI', 
+        'iAd', 
+        'ImageIO',
+        'MobileCoreServices',
+        'MediaPlayer',
+        'MessageUI',
+        'MapKit',
+        'Social',
+        'StoreKit',
+        'Twitter',
+        'WebKit',
+        'SystemConfiguration',
+        'AudioToolbox',
+        'Security',
+        'CoreBluetooth']
 
-    s.weak_frameworks = 'AdSupport','SafariServices','ReplayKit','CloudKit','GameKit'
+    s.weak_frameworks = [
+        'AdSupport',
+        'SafariServices',
+        'ReplayKit',
+        'CloudKit',
+        'GameKit']
 
-    s.dependency 'Yodo1AdvertSDK','4.2.8'
-    # s.dependency 'Yodo1AdsAdmob','4.1.8'
+    s.libraries = [
+        'sqlite3.0',
+        'c++',
+        'z']
+
+    s.dependency 'Yodo1AdvertSDK','5.0.0'
     s.dependency 'Google-Mobile-Ads-SDK', '7.69.0'
 end
