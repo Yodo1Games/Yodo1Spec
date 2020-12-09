@@ -8,16 +8,16 @@ Pod::Spec.new do |s|
 
     s.homepage         = 'https://github.com'
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-    s.license          = { :type => 'MIT', :file => "#{s.version}" + "/LICENSE" }
+    s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = [ "*.h'" ]
+    s.source_files = [ "*.h" ]
 
-    s.public_header_files = [ "*.h'" ]
+    s.public_header_files = [ "*.h" ]
 
     s.vendored_libraries = [ "*.a" ]
 
