@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponAdmob'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    # s.vendored_frameworks = ["*.framework"]
 
     s.requires_arc = true
 
@@ -74,4 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'YD1Topon', '5.0.0'
     s.dependency 'Google-Mobile-Ads-SDK','7.69.0'
+    s.dependency 'AnyThinkiOS/AnyThinkAdmobAdapter','5.7.5'
 end
