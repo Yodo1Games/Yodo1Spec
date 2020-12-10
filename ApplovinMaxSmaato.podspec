@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxSmaato'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,11 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'smaato-ios-sdk','21.6.2'
+    s.dependency 'smaato-ios-sdk/Full','21.6.2'
+    s.dependency 'smaato-ios-sdk/Banner','21.6.2'
+    s.dependency 'smaato-ios-sdk/Interstitial','21.6.2'
+    s.dependency 'smaato-ios-sdk/RewardedAds','21.6.2'
+    s.dependency 'smaato-ios-sdk/Native','21.6.2'
+
     s.dependency 'YD1ApplovinMax', '5.0.0'
 end
