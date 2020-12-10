@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxSmaato'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -77,6 +77,17 @@ Pod::Spec.new do |s|
     s.dependency 'smaato-ios-sdk/Interstitial','21.6.2'
     s.dependency 'smaato-ios-sdk/RewardedAds','21.6.2'
     s.dependency 'smaato-ios-sdk/Native','21.6.2'
+    s.dependency 'smaato-ios-sdk/InApp','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/Core','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/Banner','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/Native','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/Interstitial','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/UnifiedBidding','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/RewardedAds','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/RichMedia','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/Vide','21.6.2'
+    s.dependency 'smaato-ios-sdk/Modules/OpenMeasurement','21.6.2'
 
     s.dependency 'YD1ApplovinMax', '5.0.0'
 end
