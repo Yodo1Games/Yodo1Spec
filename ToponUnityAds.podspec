@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponUnityAds'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    # s.vendored_frameworks = ["*.framework"]
 
     s.requires_arc = true
 
