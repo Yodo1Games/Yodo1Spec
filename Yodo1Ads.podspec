@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Fyber_Marketplace_SDK','7.7.3'
-    s.dependency 'YD1ApplovinMax', '5.0.0'
+    s.dependency 'Bugly','2.5.71'
+    s.dependency 'Yodo1SaAnalytics', '5.0.0'
 end
