@@ -31,9 +31,7 @@
 #import "Yodo1SplashDelegate.h"
 #endif
 
-#ifdef YODO1_ANALYTICS
 #import "Yodo1AnalyticsManager.h"
-#endif
 
 
 #import <Yodo1SaAnalyticsSDK/Yodo1SensorsAnalyticsSDK.h>
@@ -635,23 +633,19 @@ static NSString* yd1AppKey = @"";
         [Yodo1SensorsAnalyticsSDK.sharedInstance trackTimerStart:@"end"];
         [Yodo1SaManager track:@"startup" properties:@{}];
     }
-    #ifdef YODO1_ANALYTICS
     if (Yodo1AnalyticsManager.enable) {
         [Yodo1AnalyticsManager.sharedInstance beginEvent:@"end"];
         [Yodo1AnalyticsManager.sharedInstance eventAnalytics:@"startup" eventData:@{}];
     }
-    #endif
 }
 
 + (void)endTime {
     if ([Yodo1AdConfigHelper.instance isSensorsSwitch]) {
         [Yodo1SensorsAnalyticsSDK.sharedInstance trackTimerEnd:@"end"];
     }
-    #ifdef YODO1_ANALYTICS
     if (Yodo1AnalyticsManager.enable) {
         [Yodo1AnalyticsManager.sharedInstance endEvent:@"end"];
     }
-    #endif
 }
 
 + (void)onlineParamete:(NSNotification *)notif {
@@ -707,9 +701,7 @@ static NSString* yd1AppKey = @"";
         int code = [[object objectForKey:@"code"]intValue];
         NSString * result = (code == 0 || code == 10) ? @"success" : @"fail";
         [Yodo1SaManager track:@"onlineParameter" properties:@{@"result":result,@"errorCode":[NSString stringWithFormat:@"%d",code ? : 10]}];
-        #ifdef YODO1_ANALYTICS
         [Yodo1AnalyticsManager.sharedInstance eventAnalytics:@"onlineParameter" eventData:@{@"result":result,@"errorCode":[NSNumber numberWithInt:code]}];
-        #endif
     }
     [NSNotificationCenter.defaultCenter removeObserver:[Yodo1Ads class] name:kYodo1OnlineConfigFinishedNotification object:nil];
     ///Bugly
@@ -736,11 +728,9 @@ static NSString* yd1AppKey = @"";
     }
     
     //初始化第三方统计 mas sdk 才初始化
-#ifdef YODO1_ANALYTICS
     if ([Yd1OnlineParameter.shared.publishType hasPrefix:@"mas_"]) {
         [Yodo1AnalyticsManager.sharedInstance initializeAnalyticsWithConfig:nil];
     }
-#endif
     
     //在线参数控制ATT是否弹出
     if (@available(iOS 14, *)) {
@@ -767,7 +757,6 @@ static NSString* yd1AppKey = @"";
                         [[Yodo1Tool.shared cached]setObject:[NSNumber numberWithBool:NO] forKey:@"ShenCeShowATTDialogEnabled"];
                 }
             }
-            #ifdef YODO1_ANALYTICS
             //友盟统计
                 if (![Yodo1AdConfigHelper.instance UmengATTDialogRunOneTimes]) {
                     NSNumber* bRunOneTimes = (NSNumber *)[[Yodo1Tool.shared cached]objectForKey:@"UmengShowATTDialogEnabled"];
@@ -782,11 +771,9 @@ static NSString* yd1AppKey = @"";
                 [Yodo1AdConfigHelper.instance setUmengATTDialogRunOneTimes:YES];
                     [[Yodo1Tool.shared cached]setObject:[NSNumber numberWithBool:NO] forKey:@"UmengShowATTDialogEnabled"];
             }
-            #endif
             }];
         }
     }
-    #ifdef YODO1_ANALYTICS
     if (Yodo1AnalyticsManager.enable) {
         [Yodo1AnalyticsManager.sharedInstance eventAnalytics:@"setCOPPA"
                                                    eventData:@{@"result":[Yodo1AdConfigHelper.instance isTagForUnderAgeOfConsent]?@"Yes":@"No"}];
@@ -795,7 +782,6 @@ static NSString* yd1AppKey = @"";
        [Yodo1AnalyticsManager.sharedInstance eventAnalytics:@"setCCPA"
                                                   eventData:@{@"result":[Yodo1AdConfigHelper.instance isDoNotSell]?@"No":@"Yes"}];
     }
-    #endif
     //启动统计
     [Yodo1Ads startTime];
 }
@@ -1043,9 +1029,7 @@ static NSString* yd1AppKey = @"";
 //Show Reward Game
 + (void)showRewardGame:(Yodo1RewardGameCallback)reward {
     
-#ifdef YODO1_ANALYTICS
     [Yodo1AnalyticsManager.sharedInstance eventAnalytics:@"RewardGameShow" eventData:@{}];
-#endif
     
 #ifdef YODO1_ADS
     if (![self rewardGameIsEnable]) {
