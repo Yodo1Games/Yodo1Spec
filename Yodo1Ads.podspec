@@ -239,7 +239,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1Pangle','5.0.0'
+        ss.dependency 'YD1Pangle','5.0.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
