@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '0.0.2'
+    s.version          = '0.0.3'
     s.summary          = 'v 
                             1.更新各渠道广告-->
                             Applovin v6.14.9
@@ -96,7 +96,6 @@ Pod::Spec.new do |s|
         'z']
 
         ss.dependency 'Yodo1AdvertSDK','5.0.0'
-        ss.dependency 'Yodo1SaAnalytics','5.0.0'
         ss.dependency 'Bugly','2.5.71'
     end
 
