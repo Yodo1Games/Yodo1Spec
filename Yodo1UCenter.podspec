@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = 'Yodo1AntiIndulged'
+    s.name             = 'Yodo1UCenter'
     s.version          = '5.0.0'
     s.summary          = 'v'
 
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
 
-    # s.resources = ["*.bundle"]
+    s.resources = ["*.bundle"]
 
     # s.vendored_frameworks = [
     #     "*.framework"
@@ -76,6 +76,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1UCenter','5.0.0'
+    s.dependency 'Yodo1ThirdsAnalytics','5.0.0'
 
 end
