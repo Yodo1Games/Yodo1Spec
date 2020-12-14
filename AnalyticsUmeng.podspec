@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = 'AnalyticsAdapterUmeng'
+    s.name             = 'AnalyticsUmeng'
     s.version          = '5.0.0'
     s.summary          = 'v7.2.4+G'
 
@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    # s.source_files = [ "*.h" ]
+    s.source_files = [ "*.{h,m}" ]
 
-    # s.public_header_files = [ "*.h" ]
+    s.public_header_files = [ "*.h"]
 
-    s.vendored_libraries = [ "*.a" ]
+    # s.vendored_libraries = [ "*.a" ]
     
     s.requires_arc = true
 
