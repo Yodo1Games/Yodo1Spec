@@ -7,7 +7,7 @@
 //
 
 #import "RealNameCertification.h"
-#import <Yodo1AFNetworking/Yodo1AFNetworking.h>
+#import "Yodo1AFNetworking.h"
 #import "Yodo1Tool+Commons.h"
 #define RNDEBUG     0
 
