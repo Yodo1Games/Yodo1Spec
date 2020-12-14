@@ -123,6 +123,97 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
+    s.subspec 'Yodo1_Privacy' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'PRIVACY',
+             'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'Yodo1Privacy','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'Yodo1_AntiIndulged' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'ANTI_ADDICTION',
+             'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'Yodo1AntiIndulged','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+#  ################# 统计 ##################
+    s.subspec 'Analytics_AppsFlyer' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+                         'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AnalyticsAppsFlyer','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'Analytics_TalkingData' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AnalyticsTalkingData','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    
+    s.subspec 'Analytics_Umeng' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AnalyticsUmeng','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'Analytics_Swrve' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AnalyticsSwrve','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'Yodo1_Soomla' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_SOOMLA',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'Soomla-SDK-Agent','5.14.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
 #  ################# YD1 广告 ##############
     s.subspec 'YD1_Admob' do |ss|
