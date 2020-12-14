@@ -73,6 +73,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'YD1Topon', '5.0.0'
-    s.dependency 'GDTMobSDK','4.11.12'
+    s.dependency 'GDTMobSDK','4.12.0'
     s.dependency 'AnyThinkiOS/AnyThinkGDTAdapter','5.7.5'
 end
