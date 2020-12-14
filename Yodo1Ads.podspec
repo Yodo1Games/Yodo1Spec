@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.0.1'
+    s.version          = '5.0.0'
     s.summary          = 'v 
                             1.更新各渠道广告-->
                             Applovin v6.14.9
