@@ -67,6 +67,7 @@ Pod::Spec.new do |s|
         'SafariServices',
         'ReplayKit',
         'CloudKit',
+        'Accelerate',
         'GameKit']
 
     s.libraries = [
