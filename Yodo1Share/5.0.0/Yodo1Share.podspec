@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1OnlineParameter','5.0.0'
     s.dependency 'Yodo1Qrencode','5.0.0'
     s.dependency 'Yodo1QQSDK','5.0.0'
-    s.dependency 'FBSDKShareKit','8.2.0'
+    s.dependency 'Yodo1FBSDKShareKit','5.0.0'
     s.dependency 'Weibo_SDK', '3.3.0'
     s.dependency 'WechatOpenSDK', '1.8.7.1'
 
