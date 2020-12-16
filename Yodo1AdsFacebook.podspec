@@ -60,6 +60,7 @@ Pod::Spec.new do |s|
         'SystemConfiguration',
         'AudioToolbox',
         'Security',
+        'VideoToolbox',
         'CoreBluetooth']
 
     s.weak_frameworks = [
