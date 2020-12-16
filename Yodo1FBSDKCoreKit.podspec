@@ -72,6 +72,7 @@ Pod::Spec.new do |s|
     s.libraries = [
         'sqlite3.0',
         'c++',
+        'stdc++',
         'z']
 
 end
