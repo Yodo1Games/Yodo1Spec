@@ -71,5 +71,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','5.0.0'
-    s.dependency 'FBAudienceNetwork', '6.2.0'
+    s.dependency 'Yodo1AdsFacebook', '5.0.0'
 end
