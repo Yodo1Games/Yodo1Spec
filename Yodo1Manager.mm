@@ -13,7 +13,7 @@
 #import "Yd1OnlineParameter.h"
 #import "Yodo1Tool+Storage.h"
 #import "AnalyticsYodo1Track.h"
-#import "Bugly.h"
+#import <Bugly/Bugly.h>
 
 #import "Yodo1Ads.h"
 
