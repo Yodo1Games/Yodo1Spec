@@ -74,6 +74,7 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'stdc++',
+        'xml2',
         'z']
     
     s.dependency 'Yodo1FBSDKCoreKit','5.0.0'
