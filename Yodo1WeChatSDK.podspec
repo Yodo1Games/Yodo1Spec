@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1WeChatSDK'
-    s.version          = '5.0.0'
-    s.summary          = 'v1.8.6.2'
+    s.version          = '5.0.1'
+    s.summary          = 'v1.8.7.1'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
