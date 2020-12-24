@@ -2,7 +2,9 @@ Pod::Spec.new do |s|
     s.name             = 'MasSdk'
     s.version          = '4.0.0-alpha'
     s.summary          = 'v4.0.0-alpha'
-    s.customVersion    = "5.0.4"
+    
+    customVersion    = "5.0.4"
+
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
                        DESC
