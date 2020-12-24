@@ -28,6 +28,7 @@ typedef void (^OPCachedCompletionHandler)(void);
 @interface Yd1OnlineParameter : NSObject
 
 @property (nonatomic,assign,readonly)BOOL bTestDevice;
+@property (nonatomic,assign,readonly)BOOL bDebugModel;
 @property (nonatomic,assign,readonly)BOOL bFromPA;
 @property (nonatomic,assign,readonly)BOOL bFromMAS;
 @property (nonatomic,assign,readonly)BOOL bAdListEmpty;
