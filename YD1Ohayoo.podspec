@@ -69,10 +69,10 @@ Pod::Spec.new do |s|
     s.libraries = [
         'sqlite3.0',
         'c++',
-        'libc++abi',
-        'libarchive',
-        'libresolv.9',
-        'libcompression',
+        'c++abi',
+        'archive',
+        'resolv.9',
+        'compression',
         'z']
 
     s.dependency 'Yodo1AdvertSDK','5.0.0'
