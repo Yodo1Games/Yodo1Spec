@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
 
-    s.resources = ["*.bundle"]
+    # s.resources = ["*.bundle"]
 
     s.vendored_frameworks = [
         "*.framework"
