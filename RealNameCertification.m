@@ -747,7 +747,7 @@ NSString* const kAntiConsumeOrderid = @"consume_orderid";
     [colover addSubview:titleName];
     
     UITextView* subText = [UITextView new];
-    [subText setText:@"根据文化部《网络游戏管理暂行办法》规定，网络游戏用户需使用有效身份证进行实名认证，方可支付。"];
+    [subText setText:@"亲爱的玩家，根据《国家新闻出版署关于防止未成年人沉迷网络游戏的通知》要求，玩家进入游戏前需要进行实名认证。在您认证通过前，您将无法登录游戏，请尽快完善信息。"];
     subText.frame = CGRectMake(20, CGRectGetMaxY(colover.frame), w - 40, 60);
     subText.showsHorizontalScrollIndicator = NO;
     subText.showsVerticalScrollIndicator = NO;
