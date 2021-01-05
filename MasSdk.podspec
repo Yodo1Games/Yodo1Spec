@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     s.version          = '4.0.0-alpha'
     s.summary          = 'v4.0.0-alpha'
     
-    customVersion    = "5.0.4"
+    customVersion    = "5.0.5"
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
