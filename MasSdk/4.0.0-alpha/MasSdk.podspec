@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1Ads/ApplovinMax_Smaato', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Tapjoy', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_UnityAds', "#{customVersion}"
-    s.dependency 'Yodo1Ads/ApplovinMax_Verizon', "#{customVersion}"
+    # s.dependency 'Yodo1Ads/ApplovinMax_Verizon', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Vungle', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Yandex', "#{customVersion}"
     # Yodo1
