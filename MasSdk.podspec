@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
-    s.version          = '4.0.1-alpha'
-    s.summary          = 'v4.0.1-alpha'
+    s.version          = '4.0.0-alpha'
+    s.summary          = 'v4.0.0-alpha'
     
     customVersion    = "5.0.5"
 
@@ -64,7 +64,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1Ads/ApplovinMax_Smaato', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Tapjoy', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_UnityAds', "#{customVersion}"
-    s.dependency 'Yodo1Ads/ApplovinMax_Verizon', "#{customVersion}"
+    # s.dependency 'Yodo1Ads/ApplovinMax_Verizon', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Vungle', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Yandex', "#{customVersion}"
     # Yodo1
