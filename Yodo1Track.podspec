@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Track'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v'
 
     s.description      = <<-DESC
@@ -77,5 +77,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1TalkingData','5.0.0'
-    s.dependency 'Yodo1OnlineParameter','5.0.0'
+    s.dependency 'Yodo1OnlineParameter','5.0.1'
 end
