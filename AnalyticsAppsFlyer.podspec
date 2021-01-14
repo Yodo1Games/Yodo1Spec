@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsAppsFlyer'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v6.1.2'
 
     s.description      = <<-DESC
@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','5.0.0'
+    s.dependency 'Yodo1ThirdsAnalytics','5.0.1'
     s.dependency 'AppsFlyerFramework', '6.1.2'
 
 end
