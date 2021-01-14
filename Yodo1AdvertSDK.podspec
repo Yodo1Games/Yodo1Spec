@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdvertSDK'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'Yodo1AdvertSDK Have Banner,Intersttial,Video [修改广点通特殊处理逻辑]'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -68,8 +68,8 @@ Pod::Spec.new do |s|
         'c++',
         'z']
  
-    s.dependency 'Yodo1Analytics','5.0.0'
-    s.dependency 'Yodo1FeedbackError','5.0.0'
-    s.dependency 'Yodo1ThirdsAnalytics','5.0.0'
+    s.dependency 'Yodo1Analytics','5.0.1'
+    s.dependency 'Yodo1FeedbackError','5.0.1'
+    s.dependency 'Yodo1ThirdsAnalytics','5.0.1'
     
 end
