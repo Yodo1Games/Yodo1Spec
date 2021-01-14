@@ -43,7 +43,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_frameworks = ["Yodo1SaAnalytics/*.framework"]
 
-    s.resources = ["Yodo1SaAnalytics/*.bundle"]
+    # s.resources = ["Yodo1SaAnalytics/*.bundle"]
 
     s.requires_arc = true
 
