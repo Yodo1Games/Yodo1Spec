@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1OnlineParameter'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = '修复关闭广告之后崩溃的BUG'
 
     s.description      = <<-DESC
