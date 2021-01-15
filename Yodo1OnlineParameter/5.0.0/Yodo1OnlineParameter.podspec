@@ -27,7 +27,6 @@ Pod::Spec.new do |s|
         "Yodo1Reachability/*.{h,m}",
         "Yodo1YYCache/*.{h,m}",
         "Yodo1YYModel/*.{h,m}",
-        "Yodo1SaAnalytics/Yodo1SaAnalyticsSDK.framework/Headers/*.h",
         "Yodo1Commons/*.{h,m,mm}"]
 
     s.public_header_files = [
@@ -38,14 +37,13 @@ Pod::Spec.new do |s|
         "Yodo1Reachability/*.h",
         "Yodo1YYCache/*.h",
         "Yodo1YYModel/*.h",
-        "Yodo1Commons/*.h",
-        "Yodo1SaAnalytics/Yodo1SaAnalyticsSDK.framework/Headers/*.h"]
+        "Yodo1Commons/*.h"]
     
     s.vendored_libraries = ["Yodo1Commons/*.a","Yodo1OnlineParameter/*.a"]
 
-    s.vendored_frameworks = ["Yodo1SaAnalytics/*.framework"]
+    # s.vendored_frameworks = ["Yodo1SaAnalytics/*.framework"]
 
-    s.resources = ["Yodo1SaAnalytics/*.bundle"]
+    # s.resources = ["Yodo1SaAnalytics/*.bundle"]
 
     s.requires_arc = true
 
@@ -93,5 +91,6 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
+    s.dependency 'Yodo1SaAnalytics', '5.0.1'
 
 end
