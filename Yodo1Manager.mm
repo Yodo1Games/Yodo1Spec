@@ -76,6 +76,10 @@ static NSString* __kAppKey = @"";
     }
     __kAppKey = sdkConfig.appKey;
     isInitialized = true;
+    
+    //init online parameter
+    [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"AppStore"];
+    
 #ifdef YODO1_SOOMLA
     [[SoomlaTraceback getInstance]setUserConsent:[Yodo1Ads isUserConsent]];
     NSString *soomlaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kSoomlaAppKey];
