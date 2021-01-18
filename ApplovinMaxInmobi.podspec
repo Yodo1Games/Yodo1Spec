@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxInmobi'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'InMobiSDK/Core','9.1.1'
-    s.dependency 'YD1ApplovinMax', '5.0.0'
+    s.dependency 'YD1ApplovinMax', '5.0.1'
 end
