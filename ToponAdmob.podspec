@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponAdmob'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Topon', '5.0.0'
+    s.dependency 'YD1Topon', '5.0.1'
     s.dependency 'Google-Mobile-Ads-SDK','7.69.0'
     s.dependency 'AnyThinkiOS/AnyThinkAdmobAdapter','5.7.5'
 end
