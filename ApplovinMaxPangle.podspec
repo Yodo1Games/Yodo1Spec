@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxPangle'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Bytedance-UnionAD','3.3.6.0'
-    s.dependency 'YD1ApplovinMax', '5.0.0'
+    s.dependency 'YD1ApplovinMax', '5.0.1'
 end
