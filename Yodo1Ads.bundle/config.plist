@@ -3,8 +3,8 @@
 <plist version="1.0">
 <dict>
 	<key>PublishType</key>
-	<string>yodo1_global</string>
+	<string>mas_global</string>
 	<key>PublishVersion</key>
-	<string>5.1.0</string>
+	<string>5.1.1</string>
 </dict>
 </plist>

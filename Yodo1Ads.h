@@ -3,7 +3,7 @@
 //
 //
 //  Created by hyx on 17/7/14.
-//  v5.1.0
+//  v5.1.1
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
@@ -11,10 +11,10 @@
 FOUNDATION_EXPORT NSString* const kYodo1AdsVersion;
 
 typedef enum {
-    Yodo1AdsEventClose      = 0,//Close
-    Yodo1AdsEventFinish     = 1,//Finish playing
-    Yodo1AdsEventClick      = 2,//Click ad
-    Yodo1AdsEventLoaded     = 3,//Ad load finish
+    Yodo1AdsEventClose          = 0,   //Close
+    Yodo1AdsEventFinish         = 1,   //Finish playing
+    Yodo1AdsEventClick          = 2,   //Click ad
+    Yodo1AdsEventLoaded         = 3,   //Ad load finish
     Yodo1AdsEventShowSuccess    = 4,   //Display success
     Yodo1AdsEventShowFail       = 5,   //display fail
     Yodo1AdsEventSkip           = 6,   //skip

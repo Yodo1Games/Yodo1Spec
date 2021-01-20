@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.0'
+    s.version          = '5.1.1'
     s.summary          = 'v 
                             1.更新各渠道广告-->
                             Applovin v6.14.9
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
                             Inmobi v9.1.1  
                             Tapjoy v12.7.1
                             Admob v7.68.0  
-                            Facebook v6.2.0
+                            Facebook v6.2.1
                             AdColony v4.4.1.1
                             Baidu v4.72
                             Chartboost v8.4.0
@@ -603,7 +603,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AdmobFacebook','5.0.3'
+        ss.dependency 'AdmobFacebook','5.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     s.subspec 'Admob_IronSource' do |ss|
@@ -732,7 +732,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxFacebook','5.0.1'
+        ss.dependency 'ApplovinMaxFacebook','5.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -1067,7 +1067,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ISFacebook','5.0.1'
+        ss.dependency 'ISFacebook','5.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
