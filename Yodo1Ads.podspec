@@ -277,7 +277,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AnalyticsAppsFlyer','5.0.1'
+        ss.dependency 'AnalyticsAppsFlyer','5.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -316,7 +316,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AnalyticsSwrve','5.0.1'
+        ss.dependency 'AnalyticsSwrve','5.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -329,7 +329,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Soomla-SDK-Agent','5.14.0'
+        ss.dependency 'Soomla-SDK-Agent','5.16.0'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
