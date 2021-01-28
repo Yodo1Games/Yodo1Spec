@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '3.14.0'
-    s.summary          = 'v 
-                            1.更新各渠道广告-->
+    s.version          = '5.1.2'
+    s.summary          = '  Mas SDK V3.14.0
+                            -->
                             Applovin v6.14.9
-                            GDT v4.11.12
+                            GDT v4.12.0
                             MyTarget v5.9.7
                             IronSource v7.0.4.0
-                            Mintegral v6.6.9
+                            Mintegral v6.7.0
                             Pangle v3.3.6.0
                             Soomla v5.13.10
                             UnityAds v3.5.1  
@@ -24,6 +24,8 @@ Pod::Spec.new do |s|
                             Sigmob v2.22.0
                             Topon v5.7.5
                             Verizon v1.8.1
+                            -->
+                            Suit v5.1.2
                         '
 
     s.description      = <<-DESC
