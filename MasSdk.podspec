@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
     s.version          = '3.14.0'
-    s.summary          = '3.14.0'
+    s.summary          = '5.1.2'
     
-    customVersion    = "3.14.0"
+    customVersion    = "5.1.2"
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
