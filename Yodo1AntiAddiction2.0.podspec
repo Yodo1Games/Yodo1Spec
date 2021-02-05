@@ -16,16 +16,16 @@ Pod::Spec.new do |s|
     
     s.ios.deployment_target = '9.0'
 
-    s.source_files = "#{s.version}" + '/Yodo1AntiAddiction/Classes/**/*'
-    s.public_header_files = "#{s.version}" + '/Yodo1AntiAddiction/Classes/**/*.h'
+    s.source_files = '/Yodo1AntiAddiction/Classes/**/*'
+    s.public_header_files = '/Yodo1AntiAddiction/Classes/**/*.h'
 
     # 用于解决Unity2019.3.0(包含2019.3.0)以上无法读取问题，Unity会添加CCopy资源脚本
     s.resource_bundles = {
-        'Yodo1AntiAddictionResource' => ["#{s.version}" + '/Yodo1AntiAddiction/Assets/*']
+        'Yodo1AntiAddictionResource' => ['/Yodo1AntiAddiction/Assets/*']
     }
 
     # 用于解决Unity2019.3.0(不包含2019.3.0)以下以及native原生资源无法读取问题
-    s.resources = "#{s.version}" + '/Yodo1AntiAddiction/Assets/*.png'
+    s.resources = '/Yodo1AntiAddiction/Assets/*.png'
 
     s.requires_arc = true
 
