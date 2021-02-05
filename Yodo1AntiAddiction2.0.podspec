@@ -44,8 +44,6 @@ Pod::Spec.new do |s|
     
     s.dependency 'Yodo1OnlineParameter'
     s.dependency 'Yodo1UCenter'
-    s.dependency 'Yodo1AFNetworking'
-    s.dependency 'Yodo1Commons'
     s.dependency 'FMDB'
     s.dependency 'Masonry'
     s.dependency 'Toast'
