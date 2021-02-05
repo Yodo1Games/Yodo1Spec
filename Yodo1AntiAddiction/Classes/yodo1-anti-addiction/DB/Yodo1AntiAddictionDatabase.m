@@ -6,10 +6,10 @@
 //
 
 #import "Yodo1AntiAddictionDatabase.h"
-#import <Yodo1OnlineParameter/Yd1OnlineParameter.h>
-#import <Yodo1OnlineParameter/Yodo1Tool.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Commons.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Storage.h>
+#import "Yd1OnlineParameter.h"
+#import "Yodo1Tool.h"
+#import "Yodo1Tool+Commons.h"
+#import "Yodo1Tool+Storage.h"
 
 #import "Yodo1AntiAddictionUser.h"
 #import "Yodo1AntiAddictionRecord.h"

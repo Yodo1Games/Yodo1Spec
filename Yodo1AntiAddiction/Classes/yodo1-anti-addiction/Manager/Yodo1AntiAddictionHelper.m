@@ -7,8 +7,8 @@
 
 #import "Yodo1AntiAddictionHelper.h"
 
-#import <Yodo1OnlineParameter/Yd1OnlineParameter.h>
-#import <Yodo1YYModel/Yodo1Model.h>
+#import "Yd1OnlineParameter.h"
+#import "Yodo1Model.h"
 
 #import "Yodo1AntiAddictionDatabase.h"
 #import "Yodo1AntiAddictionNet.h"

@@ -6,11 +6,11 @@
 //
 
 #import "Yodo1AntiAddictionUserManager.h"
-#import <Yodo1YYModel/Yodo1Model.h>
-#import <Yodo1YYCache/Yodo1YYCache.h>
-#import <Yodo1OnlineParameter/Yodo1Tool.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Commons.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Storage.h>
+#import "Yodo1Model.h"
+#import "Yodo1YYCache.h"
+#import "Yodo1Tool.h"
+#import "Yodo1Tool+Commons.h"
+#import "Yodo1Tool+Storage.h"
 #import "Yd1UCenter.h"
 #import "Yd1UCenterManager.h"
 #import "Yodo1AntiAddictionDatabase.h"

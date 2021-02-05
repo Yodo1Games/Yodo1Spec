@@ -7,10 +7,10 @@
 
 #import "Yodo1AntiAddictionRulesManager.h"
 #import "Yodo1AntiAddictionNet.h"
-#import <Yodo1YYModel/Yodo1Model.h>
-#import <Yodo1OnlineParameter/Yodo1Tool.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Commons.h>
-#import <Yodo1OnlineParameter/Yodo1Tool+Storage.h>
+#import "Yodo1Model.h"
+#import "Yodo1Tool.h"
+#import "Yodo1Tool+Commons.h"
+#import "Yodo1Tool+Storage.h"
 #import "Yodo1AntiAddictionUtils.h"
 
 #define kAntiAddictionRules @"Yodo1AntiAddictionRules" // 规则
