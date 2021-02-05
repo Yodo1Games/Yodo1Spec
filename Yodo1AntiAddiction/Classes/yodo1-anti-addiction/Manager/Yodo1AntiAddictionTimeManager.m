@@ -11,7 +11,7 @@
 #import "Yodo1AntiAddictionDatabase.h"
 #import "Yodo1AntiAddictionNet.h"
 #import "Yodo1Reachability.h"
-#import "odo1Model.h"
+#import "Yodo1Model.h"
 #import <Toast/Toast.h>
 
 #import "Yodo1AntiAddictionUtils.h"
