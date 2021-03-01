@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1FBSDKShareKit'
-    s.version          = '5.0.0.1 测试'
-    s.summary          = 'v '
+    s.version          = '5.0.0.1'
+    s.summary          = 'v 测试'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
