@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Share'
-    s.version          = '5.0.1'
-    s.summary          = 'v'
+    s.version          = '5.0.1.1'
+    s.summary          = 'v 测试'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -79,7 +79,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1OnlineParameter','5.0.1'
     s.dependency 'Yodo1Qrencode','5.0.0'
     s.dependency 'Yodo1QQSDK','5.0.1'
-    s.dependency 'Yodo1FBSDKShareKit','5.0.0'
+    s.dependency 'Yodo1FBSDKShareKit','5.0.0.1'
     s.dependency 'Yodo1WeiboSDK', '5.0.0'
     s.dependency 'Yodo1WeChatSDK', '5.0.0'
 
