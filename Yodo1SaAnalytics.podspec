@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1SaAnalytics'
-    s.version          = '5.0.2'
+    s.version          = '5.0.3'
     s.summary          = '神策SDK'
 
     s.description      = <<-DESC
@@ -33,7 +33,6 @@ Pod::Spec.new do |s|
 
     s.xcconfig = {
         "OTHER_LDFLAGS" => "-ObjC",
-        "ENABLE_BITCODE" => "YES",
         "VALID_ARCHS": "armv7 arm64",
         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
