@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1SaAnalytics'
-    s.version          = '5.0.3'
-    s.summary          = '神策SDK'
+    s.version          = '5.0.4'
+    s.summary          = '神策SDK 修复bitcode 的问题'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
