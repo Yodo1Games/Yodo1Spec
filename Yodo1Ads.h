@@ -3,12 +3,12 @@
 //
 //
 //  Created by hyx on 17/7/14.
-//  v3.14.0
+//
 //
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-FOUNDATION_EXPORT NSString* const kYodo1AdsVersion;
+#define K_YODO1_ADS_VERSION  @"3.14.1"
 
 typedef enum {
     Yodo1AdsEventClose          = 0,   //Close
