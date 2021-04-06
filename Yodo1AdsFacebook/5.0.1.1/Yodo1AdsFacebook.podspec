@@ -78,6 +78,6 @@ Pod::Spec.new do |s|
         'xml2',
         'z']
     
-    # s.dependency 'Yodo1FBSDKCoreKit','5.0.0'
+    s.dependency 'Yodo1FBSDKCoreKit','5.0.0'
 
 end
