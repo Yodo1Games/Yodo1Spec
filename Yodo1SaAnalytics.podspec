@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1SaAnalytics'
-    s.version          = '5.0.4'
+    s.version          = '5.0.5'
     s.summary          = '神策SDK 修复bitcode 的问题'
 
     s.description      = <<-DESC
@@ -39,36 +39,10 @@ Pod::Spec.new do |s|
     }
 
     s.frameworks = [
-        'Accounts', 
-        'AssetsLibrary',
-        'AVFoundation', 
         'CoreTelephony',
-        'CoreLocation', 
-        'CoreMotion',
-        'CoreMedia',
-        'EventKit',
-        'EventKitUI', 
-        'iAd', 
-        'ImageIO',
-        'MobileCoreServices',
-        'MediaPlayer',
-        'MessageUI',
-        'MapKit',
-        'Social',
-        'StoreKit',
-        'Twitter',
-        'WebKit',
-        'SystemConfiguration',
-        'AudioToolbox',
-        'Security',
-        'CoreBluetooth']
+        'SystemConfiguration']
 
-    s.weak_frameworks = [
-        'AdSupport',
-        'SafariServices',
-        'ReplayKit',
-        'CloudKit',
-        'GameKit']
+    s.weak_frameworks = ['AdSupport']
 
     s.libraries = [
         'sqlite3.0',
