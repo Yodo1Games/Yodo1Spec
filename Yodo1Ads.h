@@ -8,7 +8,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#define K_YODO1_ADS_VERSION  @"3.14.1"
+#define K_YODO1_ADS_VERSION  @"3.15.0"
 
 typedef enum {
     Yodo1AdsEventClose          = 0,   //Close
