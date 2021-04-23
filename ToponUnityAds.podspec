@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponUnityAds'
-    s.version          = '5.0.3'
+    s.version          = '5.0.4'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Topon', '5.0.1'
-    s.dependency 'UnityAds','3.5.1'
-    s.dependency 'AnyThinkiOS/AnyThinkUnityAdsAdapter','5.7.5'
+    s.dependency 'YD1Topon', '5.0.2'
+    s.dependency 'UnityAds','3.6.2'
+    s.dependency 'AnyThinkiOS/AnyThinkUnityAdsAdapter','5.7.41'
 end
