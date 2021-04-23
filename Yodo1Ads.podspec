@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
                             IronSource v7.1.5
                             Mintegral v6.7.6
                             Pangle v3.3.6.2
-                            Soomla v5.13.10
+                            Soomla v5.21.0
                             UnityAds v3.6.2  
                             Inmobi v9.1.7  
                             Tapjoy v12.8.0
