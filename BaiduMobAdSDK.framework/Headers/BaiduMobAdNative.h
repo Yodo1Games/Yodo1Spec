@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "BaiduMobAdNativeAdDelegate.h"
-@class BaiduMobAdNativeAdView;
+#import "BaiduMobAdFeedRequestParameters.h"
 
-typedef NS_ENUM(NSInteger, BaiduMobAdType) {
-    BaiduMobAdTypeFeed = 0, // 默认 请求普通信息流广告
-    BaiduMobAdTypePortrait = 1  // 竖版小视频广告
-};
+@class BaiduMobAdNativeAdView;
 
 @interface BaiduMobAdNative : NSObject
 
@@ -73,6 +70,12 @@ typedef NS_ENUM(NSInteger, BaiduMobAdType) {
  *  注意广告的展示存在有效期，单次检索后须在一定时间内展示在页面上
  */
 - (void)requestNativeAds;
+
+/**
+ *带参数请求原生广告
+ *注意广告的展示存在有效期，单次检索后须在一定时间内展示在页面上
+*/
+- (void)requestNativeAdsWithParameters:(BaiduMobAdFeedRequestParameters *)requestParameters;
 
 /**
  *  预加载视频素材  如果有多条素材会在所以素材均缓存完毕后回调nativeVideoAdCacheSuccess

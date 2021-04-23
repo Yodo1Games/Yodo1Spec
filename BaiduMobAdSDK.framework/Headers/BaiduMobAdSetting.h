@@ -30,5 +30,17 @@
  */
 - (void)setDebugLogEnable:(BOOL)debugLogEnable;
 
+/**
+ 打开或关闭百度SDK的开关
+
+ @param enable YES开启  默认YES
+ */
+- (void)setBDPermissionEnable:(BOOL)enable;
+
+/**
+ * 获取开关状态，默认开启。
+ */
+- (BOOL)getBDPermission;
+
 @end
 
