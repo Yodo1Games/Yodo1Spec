@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.4'
+    s.version          = '5.1.4.1'
     s.summary          = '  Mas SDK V3.14.0
                             -->
                             Applovin v6.15.2
@@ -1187,7 +1187,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ISAdColony','5.0.1'
+        ss.dependency 'ISAdColony','5.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
