@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsFacebook'
-    s.version          = '5.0.1.1'
+    s.version          = '5.0.2'
     s.summary          = 'v6.2.1 测试 '
 
     s.description      = <<-DESC
