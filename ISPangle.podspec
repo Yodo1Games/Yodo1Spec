@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISPangle'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Bytedance-UnionAD','3.3.6.0'
-    s.dependency 'YD1IronSource', '5.0.1'
+    s.dependency 'Bytedance-UnionAD','3.3.6.2'
+    s.dependency 'YD1IronSource', '5.0.2'
 end
