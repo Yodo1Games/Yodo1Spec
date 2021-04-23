@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsPangle'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v6'
 
     s.description      = <<-DESC
@@ -61,7 +61,8 @@ Pod::Spec.new do |s|
         'AudioToolbox',
         'Security',
         'VideoToolbox',
-        'CoreBluetooth']
+        'CoreBluetooth'
+    ]
 
     s.weak_frameworks = [
         'AdSupport',
@@ -69,7 +70,8 @@ Pod::Spec.new do |s|
         'ReplayKit',
         'CloudKit',
         'Accelerate',
-        'GameKit']
+        'GameKit'
+    ]
 
     s.libraries = [
         'sqlite3.0',
@@ -77,6 +79,9 @@ Pod::Spec.new do |s|
         'stdc++',
         'c++abi',
         'xml2',
-        'z']
+        'bz2',
+        'resolv.9',
+        'z'
+    ]
     
 end
