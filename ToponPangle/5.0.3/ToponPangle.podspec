@@ -73,6 +73,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'YD1Topon', '5.0.2'
-    s.dependency 'Bytedance-UnionAD','3.3.6.2'
+    s.dependency 'Yodo1AdsPangle', '5.0.2'
     s.dependency 'AnyThinkiOS/AnyThinkTouTiaoAdapter','5.7.41'
 end
