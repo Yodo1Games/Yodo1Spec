@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsPangle'
-    s.version          = '5.0.1'
+    s.version          = '5.0.2'
     s.summary          = 'v6'
 
     s.description      = <<-DESC
@@ -61,6 +61,7 @@ Pod::Spec.new do |s|
         'AudioToolbox',
         'Security',
         'VideoToolbox',
+        'JavaScriptCore',
         'CoreBluetooth'
     ]
 
