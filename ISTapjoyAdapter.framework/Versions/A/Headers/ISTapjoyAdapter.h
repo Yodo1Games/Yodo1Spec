@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "IronSource/ISBaseAdapter+Internal.h"
 
-static NSString * const TapjoyAdapterVersion = @"4.1.14";
-static NSString * GitHash = @"28519dd8b";
+static NSString * const TapjoyAdapterVersion = @"4.1.15";
+static NSString * GitHash = @"3c4a1767c";
 
 //System Frameworks For Tapjoy Adapter
 
