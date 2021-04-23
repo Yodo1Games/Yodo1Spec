@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Bytedance-UnionAD','3.3.6.2'
+    s.dependency 'Yodo1AdsPangle', '5.0.2'
     s.dependency 'YD1IronSource', '5.0.2'
 end
