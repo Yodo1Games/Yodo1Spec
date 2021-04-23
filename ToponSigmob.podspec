@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponSigmob'
-    s.version          = '5.0.2'
+    s.version          = '5.0.3'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Topon', '5.0.1'
+    s.dependency 'YD1Topon', '5.0.2'
     s.dependency 'SigmobAd-iOS','2.22.0'
-    s.dependency 'AnyThinkiOS/AnyThinkSigmobAdapter','5.7.5'
+    s.dependency 'AnyThinkiOS/AnyThinkSigmobAdapter','5.7.41'
 end
