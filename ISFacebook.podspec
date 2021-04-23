@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISFacebook'
-    s.version          = '5.0.2.2'
+    s.version          = '5.0.2.3'
     s.summary          = 'v '
 
     s.description      = <<-DESC
