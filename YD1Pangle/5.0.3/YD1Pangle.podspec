@@ -71,5 +71,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','5.0.1'
-    s.dependency 'Bytedance-UnionAD', '3.3.6.2'
+    s.dependency 'Yodo1AdsPangle', '5.0.2'
 end
