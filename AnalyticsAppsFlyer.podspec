@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsAppsFlyer'
-    s.version          = '5.0.3'
+    s.version          = '5.0.4'
     s.summary          = 'v6.2.4'
 
     s.description      = <<-DESC

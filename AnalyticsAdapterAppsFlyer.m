@@ -10,6 +10,9 @@
 #import <AppsFlyerLib/AppsFlyerLib.h>
 #import "Yodo1Commons.h"
 #import "Yodo1KeyInfo.h"
+#import <AdSupport/AdSupport.h>
+
+#import "Yd1OnlineParameter.h"
 
 NSString* const YODO1_ANALYTICS_APPSFLYER_DEV_KEY       = @"AppsFlyerDevKey";
 NSString* const YODO1_ANALYTICS_APPSFLYER_APPLE_APPID   = @"AppleAppId";
@@ -32,6 +35,7 @@ NSString* const YODO1_ANALYTICS_APPSFLYER_APPLE_APPID   = @"AppleAppId";
 - (id)initWithAnalytics:(AnalyticsInitConfig *)initConfig {
     self = [super init];
     if (self) {
+        NSLog(@"idfa:%@",ASIdentifierManager.sharedManager.advertisingIdentifier.UUIDString);
         if([[Yodo1AnalyticsManager sharedInstance]isAppsFlyerInstalled]){
             NSString* devkey = [[Yodo1KeyInfo shareInstance] configInfoForKey:YODO1_ANALYTICS_APPSFLYER_DEV_KEY];
             NSString* appleAppId = [[Yodo1KeyInfo shareInstance] configInfoForKey:YODO1_ANALYTICS_APPSFLYER_APPLE_APPID];
@@ -40,6 +44,17 @@ NSString* const YODO1_ANALYTICS_APPSFLYER_APPLE_APPID   = @"AppleAppId";
             AppsFlyerLib.shared.appsFlyerDevKey = devkey;
             AppsFlyerLib.shared.appleAppID = appleAppId;
             AppsFlyerLib.shared.delegate = self;
+#ifdef DEBUG
+            AppsFlyerLib.shared.isDebug = YES;
+#endif
+            
+            if (@available(iOS 14, *)) {
+                NSString* timeInterval = [Yd1OnlineParameter.shared stringConfigWithKey:@"AF_waitForATT_TimeoutInterval" defaultValue:@"60"];
+                if ([timeInterval isEqualToString:@""]||!timeInterval) {
+                    timeInterval = @"60";
+                }
+                [AppsFlyerLib.shared waitForATTUserAuthorizationWithTimeoutInterval:timeInterval.floatValue];
+            }
             NSString* useId = [[NSUserDefaults standardUserDefaults]objectForKey:@"YODO1_SWRVE_USEID"];
             if (useId) {
                AppsFlyerLib.shared.customerUserID = useId;
