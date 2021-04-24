@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'YD1Topon', '5.0.2'
     s.dependency 'Google-Mobile-Ads-SDK','7.69.0'
-    s.dependency 'AnyThinkiOS/AnyThinkAdmobAdapter','5.7.41'
+    s.dependency 'AnyThinkiOS/AnyThinkAdmobAdapter','5.7.5'
 end
