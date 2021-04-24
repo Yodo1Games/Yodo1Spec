@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'YD1Topon', '5.0.2'
     s.dependency 'VungleSDK-iOS','6.9.2'
-    s.dependency 'AnyThinkiOS/AnyThinkVungleAdapter','5.7.41'
+    s.dependency 'AnyThinkiOS/AnyThinkVungleAdapter','5.7.5'
 end
