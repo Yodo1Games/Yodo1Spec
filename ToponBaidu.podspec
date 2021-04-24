@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'YD1Topon', '5.0.2'
     s.dependency 'Yodo1AdsBaidu','5.0.1'
-    s.dependency 'AnyThinkiOS/AnyThinkBaiduAdapter','5.7.41'
+    s.dependency 'AnyThinkiOS/AnyThinkBaiduAdapter','5.7.5'
 end
