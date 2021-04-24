@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1SaAnalytics'
     s.version          = '5.0.1'
-    s.summary          = '神策SDK'
+    s.summary          = '神策SDK 修复bitcode 的问题'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -33,43 +33,16 @@ Pod::Spec.new do |s|
 
     s.xcconfig = {
         "OTHER_LDFLAGS" => "-ObjC",
-        "ENABLE_BITCODE" => "NO",
         "VALID_ARCHS": "armv7 arm64",
         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
     }
 
     s.frameworks = [
-        'Accounts', 
-        'AssetsLibrary',
-        'AVFoundation', 
         'CoreTelephony',
-        'CoreLocation', 
-        'CoreMotion',
-        'CoreMedia',
-        'EventKit',
-        'EventKitUI', 
-        'iAd', 
-        'ImageIO',
-        'MobileCoreServices',
-        'MediaPlayer',
-        'MessageUI',
-        'MapKit',
-        'Social',
-        'StoreKit',
-        'Twitter',
-        'WebKit',
-        'SystemConfiguration',
-        'AudioToolbox',
-        'Security',
-        'CoreBluetooth']
+        'SystemConfiguration']
 
-    s.weak_frameworks = [
-        'AdSupport',
-        'SafariServices',
-        'ReplayKit',
-        'CloudKit',
-        'GameKit']
+    s.weak_frameworks = ['AdSupport']
 
     s.libraries = [
         'sqlite3.0',
