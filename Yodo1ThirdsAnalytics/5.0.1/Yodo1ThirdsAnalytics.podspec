@@ -55,8 +55,7 @@ TODO: Add long description of the pod here.
         'WebKit',
         'SystemConfiguration',
         'AudioToolbox',
-        'Security',
-        'CoreBluetooth'
+        'Security'
     ]
 
     s.weak_frameworks = [
