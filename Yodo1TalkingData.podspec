@@ -55,8 +55,7 @@ Pod::Spec.new do |s|
         'WebKit',
         'SystemConfiguration',
         'AudioToolbox',
-        'Security',
-        'CoreBluetooth']
+        'Security']
 
     s.weak_frameworks = [
         'AdSupport',
