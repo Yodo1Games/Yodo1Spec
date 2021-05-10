@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.4.8'
+    s.version          = '5.1.5'
     s.summary          = '  Mas SDK V3.14.0
                             -->
                             Applovin v6.15.2
@@ -27,6 +27,7 @@ Pod::Spec.new do |s|
                             更新AppsFlyer v6.2.4
                             -->
                             Suit v5.1.2
+                            更新Soomla 到v5.21.1
                         '
 
     s.description      = <<-DESC
@@ -332,7 +333,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Soomla-SDK-Agent','5.21.0'
+        ss.dependency 'Soomla-SDK-Agent','5.21.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
