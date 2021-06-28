@@ -81,10 +81,8 @@
             self->lockBehavior = NO;
             if (result) {
                 Yodo1AntiAddictionHelper.shared.enterGameFlag = YES;
-                callback(result,@"");
-            } else {
-                callback(result,@"网络连接已断开，请稍候重试");
             }
+            callback(result,content);
         }];
     }
 }
@@ -98,10 +96,8 @@
             if (result) {
                 Yodo1AntiAddictionHelper.shared.enterGameFlag = NO;
                 [weakSelf stopTimer];//停止计时
-                callback(YES,@"");
-            } else {
-                callback(NO,@"网络连接已断开，请稍候重试");
             }
+            callback(result,content);
         }];
     }
 }
