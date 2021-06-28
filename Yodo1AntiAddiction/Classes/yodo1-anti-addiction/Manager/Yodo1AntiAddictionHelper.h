@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define Yodo1AntiAddictionChannel @"AppStore"
+#define Yodo1AntiAddictionChannel @"appstore"
 
 @interface Yodo1AntiAddictionHelper : NSObject
 
@@ -18,7 +18,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak, readonly) id<Yodo1AntiAddictionDelegate> delegate;
 @property (nonatomic, copy, readonly) Yodo1AntiAddictionSuccessful certSucdessfulCallback;
 @property (nonatomic, copy, readonly) Yodo1AntiAddictionFailure certFailureCallback;
-
+@property (nonatomic, assign) BOOL isOnline;// 是否在线
+@property (nonatomic, assign) BOOL systemSwitch;//在线开关
+@property (nonatomic, assign) BOOL enterGameFlag;//进游戏
 
 + (Yodo1AntiAddictionHelper *)shared;
 
@@ -50,6 +52,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///上报消费信息 - 支付信息&商品信息
 - (void)reportProductReceipts:(NSArray<Yodo1AntiAddictionProductReceipt *> *)receipts success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure;
+
+///上线行为
+- (void)online:(OnBehaviourResult)callback;
+
+
+///下线行为
+- (void)offline:(OnBehaviourResult)callback;
 
 @end
 

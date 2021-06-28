@@ -159,6 +159,83 @@ extern "C" {
         }];
     }
     
+    void UnityOnline(const char* gameObjectName, const char*  methodName)
+    {
+        NSString* ocGameObjName = Yodo1CreateNSString(gameObjectName);
+        NSString* ocMethodName = Yodo1CreateNSString(methodName);
+        [Yodo1AntiAddiction.shared online:^(BOOL result, NSString * _Nonnull content) {
+            
+            NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+            [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyBehaviorReult] forKey:kRESULT_TYPE];
+            [dict setObject:[[NSNumber alloc]initWithBool:result] forKey:kRESULT_BOOL];
+            [dict setObject:content? :@"" forKey:kRESULT_CONTENT];
+            
+            NSError* parseJSONError = nil;
+            NSString* msg = [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            if(parseJSONError){
+                [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyPurchase] forKey:kRESULT_TYPE];
+                [dict setObject:[[NSNumber alloc]initWithBool:result] forKey:kRESULT_BOOL];
+                [dict setObject:@"Convert result to json failed!" forKey:kRESULT_CONTENT];
+                msg =  [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            }
+            UnitySendMessage([ocGameObjName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [ocMethodName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [msg cStringUsingEncoding:NSUTF8StringEncoding]);
+
+        }];
+        
+    }
+
+    void UnityOffline(const char* gameObjectName, const char*  methodName)
+    {
+        NSString* ocGameObjName = Yodo1CreateNSString(gameObjectName);
+        NSString* ocMethodName = Yodo1CreateNSString(methodName);
+        [Yodo1AntiAddiction.shared offline:^(BOOL result, NSString * _Nonnull content) {
+            NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+            [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyBehaviorReult] forKey:kRESULT_TYPE];
+            [dict setObject:[[NSNumber alloc]initWithBool:result] forKey:kRESULT_BOOL];
+            [dict setObject:content? :@"" forKey:kRESULT_CONTENT];
+            
+            NSError* parseJSONError = nil;
+            NSString* msg = [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            if(parseJSONError){
+                [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyPurchase] forKey:kRESULT_TYPE];
+                [dict setObject:[[NSNumber alloc]initWithBool:result] forKey:kRESULT_BOOL];
+                [dict setObject:@"Convert result to json failed!" forKey:kRESULT_CONTENT];
+                msg =  [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            }
+            UnitySendMessage([ocGameObjName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [ocMethodName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [msg cStringUsingEncoding:NSUTF8StringEncoding]);
+
+        }];
+    }
+
+    void UnityPlayerDisconnection(const char* gameObjectName, const char*  methodName)
+    {
+        NSString* ocGameObjName = Yodo1CreateNSString(gameObjectName);
+        NSString* ocMethodName = Yodo1CreateNSString(methodName);
+        [Yodo1AntiAddiction.shared setDisconnection:^(NSString * _Nonnull title, NSString * _Nonnull content) {
+            NSMutableDictionary* dict = [NSMutableDictionary dictionary];
+            [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyDisconnected] forKey:kRESULT_TYPE];
+            [dict setObject:content? :@"" forKey:kRESULT_CONTENT];
+            [dict setObject:title? :@"" forKey:kRESULT_TITLE];
+            
+            NSError* parseJSONError = nil;
+            NSString* msg = [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            if(parseJSONError){
+                [dict setObject:[NSNumber numberWithInteger:ResulTypeVerifyPurchase] forKey:kRESULT_TYPE];
+                [dict setObject:@"Convert result to json failed!" forKey:kRESULT_CONTENT];
+                [dict setObject:title? :@"" forKey:kRESULT_TITLE];
+                msg =  [Yodo1AntiAddictionUtils stringWithJSONObject:dict error:&parseJSONError];
+            }
+            UnitySendMessage([ocGameObjName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [ocMethodName cStringUsingEncoding:NSUTF8StringEncoding],
+                             [msg cStringUsingEncoding:NSUTF8StringEncoding]);
+
+        }];
+    }
+
 
     void UnityVerifyPurchase(double price, const char*  currency, const char* gameObjectName, const char*  methodName)
     {

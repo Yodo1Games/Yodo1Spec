@@ -13,6 +13,7 @@
 
 #import "Yodo1AntiAddictionUser.h"
 #import "Yodo1AntiAddictionRecord.h"
+#import "Yodo1AntiAddictionBehaviour.h"
 
 @interface Yodo1AntiAddictionDatabase()
 
@@ -46,6 +47,7 @@
             NSMutableString *statements = [NSMutableString string];
             [statements appendFormat:@"%@\n", [Yodo1AntiAddictionUser createSql]];
             [statements appendFormat:@"%@\n", [Yodo1AntiAddictionRecord createSql]];
+            [statements appendFormat:@"%@\n", [Yodo1AntiAddictionBehaviour createSql]];
             [_database executeStatements:statements];
         }
     }

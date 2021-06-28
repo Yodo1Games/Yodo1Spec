@@ -36,7 +36,8 @@
     
     NSString *email = [Yodo1AntiAddictionRulesManager manager].currentRules.csEmail;
     NSString *yid = [Yodo1AntiAddictionUserManager manager].currentUser.yid;
-    self.contentLabel.text = [NSString stringWithFormat:@"邮件内容如下：\n发送至：%@\n标题：实名验证 %@\n\n邮件正文\n姓名：\n证件类型：护照/身份证/驾照等（可以正确显示您的出生年月日的有效证件）\n\n邮件附件\n附件1：证件扫描件\n附件2：本人手持证件照片", email, yid];
+    NSString *uid = [Yodo1AntiAddictionUserManager manager].currentUser.uid;
+    self.contentLabel.text = [NSString stringWithFormat:@"邮件内容如下：\n发送至：%@\n标题：实名验证 %@-%@-%@\n\n邮件正文\n姓名：\n证件类型：护照/身份证/驾照等（可以正确显示您的出生年月日的有效证件）\n\n邮件附件\n附件1：证件扫描件\n附件2：本人手持证件照片", email, uid,yid,Yodo1AntiAddictionChannel];
     [self changePartColorWithAllText:self.contentLabel.text andSpecialText:@[@"邮件内容如下：",@"邮件正文",@"邮件附件"] andfont:[UIFont boldSystemFontOfSize:18] andColor:[UIColor blackColor] andLable:self.contentLabel];
 }
 

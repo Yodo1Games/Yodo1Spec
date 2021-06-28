@@ -16,6 +16,16 @@ typedef BOOL (^Yodo1AntiAddictionSuccessful)(id _Nullable);
 /// return YES 表示游戏自己处理错误逻辑，NO表示由SDK默认处理
 typedef BOOL (^Yodo1AntiAddictionFailure)(NSError * _Nonnull);
 
+/// result: true-成功, false-失败
+/// content: 返回给游戏，提供弹窗内容。当前返回时写为"网络连接已断开，请稍候重试"
+typedef void (^OnBehaviourResult)(BOOL result,NSString* content);
+
+/// 当玩家掉线，触发该回调
+/// title 需要游戏展示的通知标题
+/// content 需要游戏展示的通知内容
+typedef void (^PlayerDisconnection)(NSString* title, NSString* content);
+
+
 typedef enum: NSInteger {
     Yodo1AntiAddictionProductTypeNonConsumables = 0,
     Yodo1AntiAddictionProductTypeConsumables = 1,
@@ -83,6 +93,8 @@ typedef enum: NSInteger {
 @interface Yodo1AntiAddiction : NSObject
 
 @property (nonatomic, assign) BOOL autoTimer; // 自动开启计时
+@property (nonatomic, copy) PlayerDisconnection disconnection;
+
 
 + (Yodo1AntiAddiction *)shared;
 
@@ -114,6 +126,13 @@ typedef enum: NSInteger {
 ///上报消费信息 - 支付信息&商品信息
 /// receipt.money 商品金额, 单位分
 - (void)reportProductReceipt:(Yodo1AntiAddictionProductReceipt *)receipt success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure;
+
+///上线行为
+- (void)online:(OnBehaviourResult)callback;
+
+
+///下线行为
+- (void)offline:(OnBehaviourResult)callback;
 
 @end
 

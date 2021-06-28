@@ -16,6 +16,11 @@
 
 @end
 
+@interface Yodo1AntiAddiction () {
+    BOOL lockBehavior;
+}
+
+@end
 
 @implementation Yodo1AntiAddiction
 
@@ -67,6 +72,38 @@
 
 - (void)reportProductReceipt:(Yodo1AntiAddictionProductReceipt *)receipt success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
     [[Yodo1AntiAddictionHelper shared] reportProductReceipts:@[receipt] success:success failure:failure];
+}
+
+- (void)online:(OnBehaviourResult)callback {
+    if (!lockBehavior) {
+        lockBehavior = YES;
+        [Yodo1AntiAddictionHelper.shared online:^(BOOL result, NSString * _Nonnull content) {
+            self->lockBehavior = NO;
+            if (result) {
+                Yodo1AntiAddictionHelper.shared.enterGameFlag = YES;
+                callback(result,@"");
+            } else {
+                callback(result,@"网络连接已断开，请稍候重试");
+            }
+        }];
+    }
+}
+
+- (void)offline:(OnBehaviourResult)callback {
+    if (!lockBehavior) {
+        lockBehavior = YES;
+        __weak typeof(self) weakSelf = self;
+        [Yodo1AntiAddictionHelper.shared offline:^(BOOL result, NSString * _Nonnull content) {
+            self->lockBehavior = NO;
+            if (result) {
+                Yodo1AntiAddictionHelper.shared.enterGameFlag = NO;
+                [weakSelf stopTimer];//停止计时
+                callback(YES,@"");
+            } else {
+                callback(NO,@"网络连接已断开，请稍候重试");
+            }
+        }];
+    }
 }
 
 @end

@@ -18,11 +18,22 @@
 #import "Yodo1AntiAddictionTimeManager.h"
 #import "Yodo1AntiAddictionMainVC.h"
 #import "Yodo1AntiAddictionDialogVC.h"
+#import "Yodo1Tool+Storage.h"
+#import "Yodo1Tool+Commons.h"
+#import "Yodo1AntiAddictionBehaviour.h"
 
-@interface Yodo1AntiAddictionHelper()
+
+/// code:成功:200, 失败:-1,用户登录错误:-2,网络错误:-100
+/// response: 服务器返回内容
+typedef void (^OnBehaviourCallback)(int code,id response);
+
+@interface Yodo1AntiAddictionHelper() {
+    
+}
 
 @property (nonatomic, copy) NSString *version;
 @property (nonatomic, copy) NSString *regionCode;
+@property (nonatomic, strong) Yodo1AntiAddictionBehaviour *behaviour;
 
 @end
 
@@ -37,20 +48,98 @@
     return sharedInstance;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        // 监听进入前台
+        [NSNotificationCenter.defaultCenter  addObserver:self
+                                                selector:@selector(onlineBehaviour) name:UIApplicationWillEnterForegroundNotification
+                                                  object:nil];
+        // 监听进入后台
+        [NSNotificationCenter.defaultCenter  addObserver:self
+                                                selector:@selector(offlineBehaviour) name:UIApplicationDidEnterBackgroundNotification
+                                                  object:nil];
+        // 监听销毁APP
+        [NSNotificationCenter.defaultCenter addObserver:self
+                                               selector:@selector(appTerminate) name:UIApplicationWillTerminateNotification
+                                                 object:nil];
+    }
+    return self;
+}
+
+- (void)dealloc {
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:UIApplicationWillEnterForegroundNotification
+                                                object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:UIApplicationDidEnterBackgroundNotification
+                                                object:nil];
+    [NSNotificationCenter.defaultCenter removeObserver:self
+                                                  name:UIApplicationWillTerminateNotification
+                                                object:nil];
+}
+
+
+- (Yodo1AntiAddictionBehaviour *)behaviour {
+    if (_behaviour == nil) {
+        _behaviour = [[Yodo1AntiAddictionBehaviour alloc]init];
+    }
+    return  _behaviour;
+}
+
+- (void)onlineBehaviour {
+    if (self.enterGameFlag && !self.isOnline) {
+        __weak typeof(self) weakSelf = self;
+        [self online:^(BOOL result, NSString * _Nonnull content) {
+            if (result) {
+                //不必有特殊处理
+                [weakSelf startTimer];
+            } else {
+                //通知游戏上线失败
+                if (Yodo1AntiAddiction.shared.disconnection) {
+                    Yodo1AntiAddiction.shared.disconnection(@"提示", @"网速不给力，请确保网络通畅后重试");
+                }
+            }
+        }];
+    }
+}
+
+- (void)offlineBehaviour {
+    if (self.isOnline) {
+        __weak typeof(self) weakSelf = self;
+        [self offline:^(BOOL result, NSString * _Nonnull content) {
+            NSLog(@"enter Background, auto-offline. result = %d,%@",result,content);
+            [weakSelf stopTimer];
+        }];
+    }
+}
+
+- (void)appTerminate {
+    if (self.isOnline) {
+        [self stopTimer];
+        [self offline:^(BOOL result, NSString * _Nonnull content) {
+            NSLog(@"appTerminate, auto-offline. result = %d,%@",result,content);
+        }];
+    }
+}
+
 - (void)init:(NSString *)appKey channel:(NSString *)channel regionCode:(NSString *)regionCode delegate:(id<Yodo1AntiAddictionDelegate>)delegate {
     _delegate = delegate;
     _autoTimer = YES;
     _regionCode = regionCode ? regionCode : @"00000000";
+    _systemSwitch = NO;
     
     [[Yd1OnlineParameter shared] initWithAppKey:appKey channelId:channel];
     [Yodo1AntiAddictionDatabase shared];
     [Yodo1AntiAddictionNet manager];
     
+    __weak __typeof(self)weakSelf = self;
     // 获取防沉迷规则 获取失败则使用本地默认
     [[Yodo1AntiAddictionRulesManager manager] requestRules:^(id data) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
             [self.delegate onInitFinish:YES message:@"初始化方沉迷系统成功"];
         }
+        weakSelf.systemSwitch = [Yodo1AntiAddictionRulesManager manager].currentRules.switchStatus;
     } failure:^(NSError * error) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
             [self.delegate onInitFinish:NO message:error.localizedDescription];
@@ -106,17 +195,17 @@
 }
 
 - (void)verifyCertificationInfo:(NSString *)accountId success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
-    
+    if (!self.systemSwitch) {
+        Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
+        event.eventCode = Yodo1AntiAddictionEventCodeNone;
+        event.action = Yodo1AntiAddictionActionResumeGame;
+        success(event);
+        return;
+    }
     _certSucdessfulCallback = success;
     _certFailureCallback = failure;
     
-    BOOL switchStatus = YES;
-    Yodo1AntiAddictionRules *rules = [Yodo1AntiAddictionRulesManager manager].currentRules;
-    if (rules) {
-        switchStatus = rules.switchStatus;
-    }
-    
-    if (switchStatus) {
+    if (self.systemSwitch) {
         [[Yodo1AntiAddictionUserManager manager] get:accountId success:^(Yodo1AntiAddictionUser *user) {
             if (user.certificationStatus != UserCertificationStatusNot && user.age != -1) {
                 Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
@@ -153,7 +242,10 @@
 
 ///是否已限制消费
 - (void)verifyPurchase:(NSInteger)money success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
-
+    if (!self.systemSwitch) {
+        success(@{@"hasLimit": @(NO), @"alertMsg": @""});
+        return;
+    }
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"money"] = @(money);
     parameters[@"currency"] = @"CNY";
@@ -167,6 +259,7 @@
         return;
     }
     
+    ///hyx 是否已限制消费 /ais/money/info
     [[Yodo1AntiAddictionNet manager] GET:@"money/info" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:data];
         if (res && res.success && res.data) {
@@ -199,6 +292,9 @@
 }
 
 - (void)reportProductReceipts:(NSArray<Yodo1AntiAddictionProductReceipt *> *)receipts success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
+    if (!self.systemSwitch) {
+        return;
+    }
     if (receipts.count == 0) {
         return;
     }
@@ -213,7 +309,7 @@
     long long timestamp = [NSDate date].timeIntervalSince1970 * 1000;
     parameters[@"sign"] = [Yodo1AntiAddictionUtils md5String:[NSString stringWithFormat:@"anti%@", @(timestamp)]];
     parameters[@"timestamp"] = @(timestamp);
-    
+    ///hyx 上报消费信息 - 支付信息&商品信息 /ais/money/receipt
     [[Yodo1AntiAddictionNet manager] POST:@"money/receipt" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
         Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:data];
         if (res && res.success) {
@@ -230,6 +326,213 @@
             failure([Yodo1AntiAddictionUtils convertError:error]);
         }
     }];
+}
+
+- (void)online:(OnBehaviourResult)callback {
+    //1.防沉迷开关关闭状态的话直接回调成功
+    if (!self.systemSwitch) {
+        if (callback) {
+            callback(YES,@"");
+        }
+        return;
+    }
+    //2.玩家已处于在线状态直接回调成功
+    if (self.isOnline) {
+        if (callback) {
+            callback(YES,@"");
+        }
+        return;
+    }
+    //3.玩家没有进行实名制或游客模式登录回调失败
+    Yodo1AntiAddictionUser *user = [Yodo1AntiAddictionUserManager manager].currentUser;
+    if (!user|| !user.yid || [user.yid isEqualToString:@""]) {
+        callback(NO,@"请先登录并获取实名信息后重试");
+        return;
+    }
+    self.behaviour.yid = user.yid;
+    self.behaviour.uid = user.uid;
+    self.behaviour.behaviorType = 1;
+    self.behaviour.userType = user.certificationStatus == UserCertificationStatusNot ? 1 : 1;
+    self.behaviour.happenTimestamp = Yodo1Tool.shared.nowTimeTenTimestamp;
+    self.behaviour.sessionId = @"";
+    self.behaviour.deviceId = Yodo1Tool.shared.keychainDeviceId;
+    
+    __weak __typeof(self)weakSelf = self;
+    // 4.上报本次上线行为之前，应先处理之前上报失败的行为
+    [self reportBeforeOfflineBehaviour:self.behaviour
+                              callback:^(BOOL result, NSString * _Nonnull content) {
+        if (result) {
+            [weakSelf reportCNUserBehavior:weakSelf.behaviour
+                                  callback:^(int code, id response) {
+                if (code == 200) {
+                    Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:response];
+                    if (res.success && res.data) {
+                        id sessionId = res.data[@"sessionId"];
+                        if (sessionId) {
+                            NSLog(@"sessionId:%@",sessionId);
+                            weakSelf.behaviour.sessionId = sessionId;
+                            [weakSelf update:weakSelf.behaviour];
+                        }
+                        weakSelf.isOnline = YES;
+                        callback(YES,res.message);
+                    }else{
+                        callback(NO,@"上线请求失败，账户异常");
+                    }
+                }else{
+                    callback(NO,@"上线请求失败，请检查网络情况");
+                }
+            }];
+        }else{
+            if (callback) {
+                callback(NO,@"上线请求失败，请检查网络情况");
+            }
+        }
+    }];
+    
+}
+
+- (void)offline:(OnBehaviourResult)callback {
+    if (!self.systemSwitch) {
+        if (callback) {
+            callback(YES,@"");
+        }
+        NSLog(@"Yodo1AntiAddiction offline, anti switchStatus = false, return");
+        return;
+    }
+    if (!self.isOnline) {
+        if (callback) {
+            callback(YES,@"");
+        }
+        NSLog(@"Yodo1AntiAddiction call offline, player is offline, not-repeated");
+        return;
+    }
+    
+    if (self.behaviour == nil || [self.behaviour.sessionId isEqualToString:@""]) {
+        if (callback) {
+            callback(NO,@"sessionId为空");
+        }
+        NSLog(@"Yodo1AntiAddiction call offline, failed, sessionid is null");
+        return;
+    }
+    
+    Yodo1AntiAddictionUser *user = [Yodo1AntiAddictionUserManager manager].currentUser;
+    if (!user|| !user.yid || [user.yid isEqualToString:@""]) {
+        callback(NO,@"请先登录并获取实名信息后重试");
+        return;
+    }
+    __weak __typeof(self)weakSelf = self;
+    self.behaviour.yid = user.yid;
+    self.behaviour.uid = user.uid;
+    self.behaviour.behaviorType = 0;
+    self.behaviour.userType = user.certificationStatus == UserCertificationStatusNot ? 2 : 1;//2 是游客
+    self.behaviour.happenTimestamp = Yodo1Tool.shared.nowTimeTenTimestamp;
+    self.behaviour.sessionId = self.behaviour.sessionId;
+    self.behaviour.deviceId = Yodo1Tool.shared.keychainDeviceId;
+    
+    [self reportCNUserBehavior:self.behaviour callback:^(int code, id response) {
+        NSLog(@"user offline, reportBehaviour content:%@",response);
+        Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:response];
+        if (code == 200) {
+            if (res.success && res.data) {
+                weakSelf.isOnline = NO;
+                weakSelf.behaviour.sessionId = @"";
+                callback(YES,res.message);
+            }
+        } else {
+            //保存未成功的
+            [weakSelf update:weakSelf.behaviour];
+            callback(NO,@"下线请求失败，请检查网络情况");
+        }
+    }];
+}
+
+///上报时应整理之前未上报的下线行为。
+- (void)reportBeforeOfflineBehaviour:(Yodo1AntiAddictionBehaviour*)behaviour
+                            callback:(OnBehaviourResult)callback {
+    Yodo1AntiAddictionBehaviour* beforeBehaviour = [self query:behaviour.uid yid:behaviour.yid];
+    if(beforeBehaviour == nil){
+        callback(YES,@"");
+        return;
+    }
+    
+    if ([beforeBehaviour.sessionId isEqualToString:@""]) {
+        [self delete:beforeBehaviour.sessionId];
+        callback(YES,@"");
+        return;
+    }
+    
+    [self reportCNUserBehavior:beforeBehaviour callback:^(int code, id response) {
+        if (code == 200) {
+            callback(YES,@"");
+        } else {
+            callback(NO,@"请求失败，请检查网络情况");
+        }
+    }];
+}
+
+///hyx 上报已玩时间, 成年用户不需要上报 /ais/time/reportPlayingTime
+/// 上报用户行为
+- (void)reportCNUserBehavior:(Yodo1AntiAddictionBehaviour*)behaviour
+                    callback:(OnBehaviourCallback)callback {
+    NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
+    parameters[@"happenTimestamp"] = [NSNumber numberWithInteger:[behaviour.happenTimestamp integerValue]];
+    parameters[@"deviceId"] = behaviour.deviceId;
+    parameters[@"sessionId"] = behaviour.sessionId;
+    parameters[@"behaviorType"] = [NSNumber numberWithInteger:behaviour.behaviorType];
+    parameters[@"userType"] = [NSNumber numberWithInteger:behaviour.userType];
+    
+    NSLog(@"parameters:%@",parameters);
+    
+    [[Yodo1AntiAddictionNet manager] POST:@"behavior/info" parameters:parameters success:^(NSURLSessionDataTask *task, id data) {
+        Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:data];
+        if (res.success && res.data) {
+            callback((int)res.code,data);
+        }else{
+            callback(-1,@"");
+        }
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (callback) {
+            callback(-100,error.localizedDescription);
+        }
+    }];
+}
+
+#pragma mark - 数据库操作
+- (Yodo1AntiAddictionBehaviour *)query:(NSString *)uid yid:(NSString *)yid {
+    FMResultSet *result = [[Yodo1AntiAddictionDatabase shared] query:BEHAVIOUR_TABLE projects:nil where:@"uid = ? AND yid = ?" args:@[uid,yid] order:nil];
+    
+    if ([result next]) {
+        return [Yodo1AntiAddictionBehaviour yodo1_modelWithDictionary:result.resultDictionary];
+    }
+    return nil;
+}
+
+- (BOOL)insert:(Yodo1AntiAddictionBehaviour *)user {
+    NSMutableDictionary *content = [NSMutableDictionary dictionary];
+    if (user.uid) content[@"uid"] = user.uid;
+    if (user.yid) content[@"yid"] = user.yid;
+    content[@"sessionId"] = user.sessionId;
+    content[@"deviceId"] = user.deviceId;
+    content[@"happenTimestamp"] = user.happenTimestamp;
+    content[@"behaviorType"] = @(user.behaviorType);
+    content[@"userType"] = @(user.userType);
+    return [[Yodo1AntiAddictionDatabase shared] insertInto:BEHAVIOUR_TABLE content:content];
+}
+
+- (BOOL)update:(Yodo1AntiAddictionBehaviour *)user {
+    NSMutableDictionary *content = [NSMutableDictionary dictionary];
+    if (user.uid) content[@"uid"] = user.uid;
+    if (user.yid) content[@"yid"] = user.yid;
+    content[@"sessionId"] = user.sessionId;
+    content[@"deviceId"] = user.deviceId;
+    content[@"happenTimestamp"] = user.happenTimestamp;
+    content[@"behaviorType"] = @(user.behaviorType);
+    content[@"userType"] = @(user.userType);
+    return [[Yodo1AntiAddictionDatabase shared] update:BEHAVIOUR_TABLE content:content where:@"sessionId = ?" args:@[user.sessionId]];
+}
+
+- (BOOL)delete:(NSString *)sessionId {
+    return [[Yodo1AntiAddictionDatabase shared] deleteFrom:BEHAVIOUR_TABLE where:@"sessionId = ?" args:@[sessionId]];
 }
 
 @end
