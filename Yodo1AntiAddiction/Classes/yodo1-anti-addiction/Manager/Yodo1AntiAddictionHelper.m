@@ -140,6 +140,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
             [self.delegate onInitFinish:YES message:@"初始化方沉迷系统成功"];
         }
         weakSelf.systemSwitch = [Yodo1AntiAddictionRulesManager manager].currentRules.switchStatus;
+        [Yodo1AntiAddictionTimeManager.manager didNeedGetAppTime];
     } failure:^(NSError * error) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
             [self.delegate onInitFinish:NO message:error.localizedDescription];
@@ -205,45 +206,36 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     _certSucdessfulCallback = success;
     _certFailureCallback = failure;
     
-    if (self.systemSwitch) {
-        [[Yodo1AntiAddictionUserManager manager] get:accountId success:^(Yodo1AntiAddictionUser *user) {
-            if (user.certificationStatus != UserCertificationStatusNot && user.age != -1) {
-                Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
-                event.eventCode = Yodo1AntiAddictionEventCodeNone;
-                event.action = Yodo1AntiAddictionActionResumeGame;
-                if (self->_certSucdessfulCallback) {
-                    self->_certSucdessfulCallback(event);
-                }
-                // 自动开启计时
-                if (self.autoTimer) {
-                    [self startTimer];
-                }
-            } else {
-                // 未实名
-                [Yodo1AntiAddictionUtils showVerifyUI];
+    [[Yodo1AntiAddictionUserManager manager] get:accountId success:^(Yodo1AntiAddictionUser *user) {
+        if (user.certificationStatus != UserCertificationStatusNot && user.age != -1) {
+            Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
+            event.eventCode = Yodo1AntiAddictionEventCodeNone;
+            event.action = Yodo1AntiAddictionActionResumeGame;
+            if (self->_certSucdessfulCallback) {
+                self->_certSucdessfulCallback(event);
             }
-        } failure:^(NSError *error) {
-            // 发生错误一律认为未实名
-            if ([Yodo1AntiAddictionUtils isNetError:error]) {
-                [Yodo1AntiAddictionDialogVC showDialog:Yodo1AntiAddictionDialogStyleError error:[Yodo1AntiAddictionUtils convertError:error].localizedDescription];
-            } else {
-                [Yodo1AntiAddictionUtils showVerifyUI];
+            // 自动开启计时
+            if (self.autoTimer) {
+                [self startTimer];
             }
-        }];
-    } else {
-        Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
-        event.eventCode = Yodo1AntiAddictionEventCodeNone;
-        event.action = Yodo1AntiAddictionActionResumeGame;
-        if (self->_certSucdessfulCallback) {
-            self->_certSucdessfulCallback(event);
+        } else {
+            // 未实名
+            [Yodo1AntiAddictionUtils showVerifyUI];
         }
-    }
+    } failure:^(NSError *error) {
+        // 发生错误一律认为未实名
+        if ([Yodo1AntiAddictionUtils isNetError:error]) {
+            [Yodo1AntiAddictionDialogVC showDialog:Yodo1AntiAddictionDialogStyleError error:[Yodo1AntiAddictionUtils convertError:error].localizedDescription];
+        } else {
+            [Yodo1AntiAddictionUtils showVerifyUI];
+        }
+    }];
 }
 
 ///是否已限制消费
 - (void)verifyPurchase:(NSInteger)money success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
     if (!self.systemSwitch) {
-        success(@{@"hasLimit": @(NO), @"alertMsg": @""});
+        success(@{@"hasLimit": @(NO), @"alertMsg": @"AntiAddiction of switch is off!"});
         return;
     }
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
@@ -266,10 +258,10 @@ typedef void (^OnBehaviourCallback)(int code,id response);
             
             id hasLimit = res.data[@"hasLimit"];
             BOOL limit = hasLimit ? [hasLimit boolValue] : false; // 是否被限制
-    
+            
             id alertMsg = res.data[@"alertMsg"];
             NSString *msg = (alertMsg && ![alertMsg isKindOfClass:[NSNull class]]) ? alertMsg : res.message;
-
+            
             BOOL show = false;
             if (success) {
                 show = success(@{@"hasLimit": @(limit), @"alertMsg": msg});
@@ -293,6 +285,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
 
 - (void)reportProductReceipts:(NSArray<Yodo1AntiAddictionProductReceipt *> *)receipts success:(Yodo1AntiAddictionSuccessful)success failure:(Yodo1AntiAddictionFailure)failure {
     if (!self.systemSwitch) {
+        success(@"AntiAddiction of switch is off!");
         return;
     }
     if (receipts.count == 0) {
@@ -332,7 +325,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     //1.防沉迷开关关闭状态的话直接回调成功
     if (!self.systemSwitch) {
         if (callback) {
-            callback(YES,@"");
+            callback(YES,@"AntiAddiction of switch is off!");
         }
         return;
     }
@@ -352,8 +345,11 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     self.behaviour.yid = user.yid;
     self.behaviour.uid = user.uid;
     self.behaviour.behaviorType = 1;
-    self.behaviour.userType = user.certificationStatus == UserCertificationStatusNot ? 1 : 1;
-    self.behaviour.happenTimestamp = Yodo1Tool.shared.nowTimeTenTimestamp;
+    self.behaviour.userType = user.certificationStatus == UserCertificationStatusNot ? 2 : 1;
+    
+    NSTimeInterval interval = [Yodo1AntiAddictionTimeManager.manager getNowTime];
+    NSLog(@"interval:%lf",interval);
+    self.behaviour.happenTimestamp = interval;
     self.behaviour.sessionId = @"";
     self.behaviour.deviceId = Yodo1Tool.shared.keychainDeviceId;
     
@@ -370,6 +366,9 @@ typedef void (^OnBehaviourCallback)(int code,id response);
                         id sessionId = res.data[@"sessionId"];
                         if (sessionId) {
                             NSLog(@"sessionId:%@",sessionId);
+                            if ([sessionId isKindOfClass:[NSNull class]]) {
+                                sessionId = @"";
+                            }
                             weakSelf.behaviour.sessionId = sessionId;
                             [weakSelf update:weakSelf.behaviour];
                         }
@@ -394,20 +393,27 @@ typedef void (^OnBehaviourCallback)(int code,id response);
 - (void)offline:(OnBehaviourResult)callback {
     if (!self.systemSwitch) {
         if (callback) {
-            callback(YES,@"");
+            callback(YES,@"Yodo1AntiAddiction offline, anti switchStatus = false, return");
         }
         NSLog(@"Yodo1AntiAddiction offline, anti switchStatus = false, return");
         return;
     }
     if (!self.isOnline) {
         if (callback) {
-            callback(YES,@"");
+            callback(YES,@"Yodo1AntiAddiction call offline, player is offline, not-repeated");
         }
         NSLog(@"Yodo1AntiAddiction call offline, player is offline, not-repeated");
         return;
     }
     
-    if (self.behaviour == nil || [self.behaviour.sessionId isEqualToString:@""]) {
+    if (self.behaviour == nil) {
+        if (callback) {
+            callback(NO,@"用户为空");
+        }
+        NSLog(@"Yodo1AntiAddiction call offline, failed, sessionid is null");
+        return;
+    }
+    if ([self.behaviour.sessionId isEqualToString:@""]) {
         if (callback) {
             callback(NO,@"sessionId为空");
         }
@@ -425,7 +431,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     self.behaviour.uid = user.uid;
     self.behaviour.behaviorType = 0;
     self.behaviour.userType = user.certificationStatus == UserCertificationStatusNot ? 2 : 1;//2 是游客
-    self.behaviour.happenTimestamp = Yodo1Tool.shared.nowTimeTenTimestamp;
+    self.behaviour.happenTimestamp = [Yodo1AntiAddictionTimeManager.manager getNowTime];
     self.behaviour.sessionId = self.behaviour.sessionId;
     self.behaviour.deviceId = Yodo1Tool.shared.keychainDeviceId;
     
@@ -475,8 +481,8 @@ typedef void (^OnBehaviourCallback)(int code,id response);
 - (void)reportCNUserBehavior:(Yodo1AntiAddictionBehaviour*)behaviour
                     callback:(OnBehaviourCallback)callback {
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
-    parameters[@"happenTimestamp"] = [NSNumber numberWithInteger:[behaviour.happenTimestamp integerValue]];
-    parameters[@"deviceId"] = behaviour.deviceId;
+    parameters[@"happenTimestamp"] = [NSNumber numberWithInteger:behaviour.happenTimestamp];
+    parameters[@"deviceId"] = [Yodo1AntiAddictionUtils md5String:behaviour.deviceId];
     parameters[@"sessionId"] = behaviour.sessionId;
     parameters[@"behaviorType"] = [NSNumber numberWithInteger:behaviour.behaviorType];
     parameters[@"userType"] = [NSNumber numberWithInteger:behaviour.userType];
@@ -513,7 +519,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     if (user.yid) content[@"yid"] = user.yid;
     content[@"sessionId"] = user.sessionId;
     content[@"deviceId"] = user.deviceId;
-    content[@"happenTimestamp"] = user.happenTimestamp;
+    content[@"happenTimestamp"] = @(user.happenTimestamp);
     content[@"behaviorType"] = @(user.behaviorType);
     content[@"userType"] = @(user.userType);
     return [[Yodo1AntiAddictionDatabase shared] insertInto:BEHAVIOUR_TABLE content:content];
@@ -525,7 +531,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     if (user.yid) content[@"yid"] = user.yid;
     content[@"sessionId"] = user.sessionId;
     content[@"deviceId"] = user.deviceId;
-    content[@"happenTimestamp"] = user.happenTimestamp;
+    content[@"happenTimestamp"] = @(user.happenTimestamp);
     content[@"behaviorType"] = @(user.behaviorType);
     content[@"userType"] = @(user.userType);
     return [[Yodo1AntiAddictionDatabase shared] update:BEHAVIOUR_TABLE content:content where:@"sessionId = ?" args:@[user.sessionId]];

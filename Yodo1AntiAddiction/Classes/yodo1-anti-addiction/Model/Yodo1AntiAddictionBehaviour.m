@@ -19,7 +19,7 @@
     [createSql appendFormat:@" %@ VARCHAR, ", @"yid"];
     [createSql appendFormat:@" %@ VARCHAR, ", @"sessionId"];
     [createSql appendFormat:@" %@ VARCHAR, ", @"deviceId"];
-    [createSql appendFormat:@" %@ VARCHAR, ", @"happenTimestamp"];
+    [createSql appendFormat:@" %@ DOUBLE, ", @"happenTimestamp"];
     [createSql appendFormat:@" %@ INTEGER, ", @"behaviorType"];
     [createSql appendFormat:@" %@ INTEGER ", @"userType"];
     

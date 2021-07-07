@@ -18,13 +18,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (Yodo1AntiAddictionTimeManager *)manager;
 
+/// 获取服务器时间
+- (void)didNeedGetAppTime;
+
 /// 开启计时
 /// 当前无登录用户时，忽略
 /// 已开启计时时，忽略
 - (void)startTimer;
+
 /// 停止计时，同时会上报时间
 /// 无正在计时的任务，忽略
 - (void)stopTimer;
+
 /// 是否正在计时，未登录则默认NO
 - (BOOL)isTimer;
 

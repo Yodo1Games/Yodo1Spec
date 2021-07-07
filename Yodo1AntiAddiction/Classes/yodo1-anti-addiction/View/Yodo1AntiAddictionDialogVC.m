@@ -70,15 +70,15 @@
             
             _iconView.image = [UIImage imageNamed:@"error"];
             _titleLabel.text = @"当前为禁玩时间，无法继续游戏";
-            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定，未成年人禁玩时间段为%@请合理安排游戏时间", [NSString stringWithFormat:@"%@-%@", ranges[1], ranges[0]]];
+            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定，未成年人禁玩时间段为%@请合理安排游戏时间", [NSString stringWithFormat:@"%@-%@", ranges[0], ranges[1]]];
             _checkButton.hidden = YES;
             [_exitButton setTitle:@"→ 退出游戏" forState:UIControlStateNormal];
             break;
         }
         case Yodo1AntiAddictionDialogStyleTimeOverstep: { // 时间超出
             Yodo1AntiAddictionRecord *record = [Yodo1AntiAddictionTimeManager manager].record;
-            NSInteger regularTime = 5400; // 工作日可玩时长
-            NSInteger holidayTime = 10800; // 假日可玩时长
+            float regularTime = 5400; // 工作日可玩时长
+            float holidayTime = 10800; // 假日可玩时长
             for (GroupPlayingTime *range in rules.groupPlayingTimeList) {
                 if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
                     regularTime = range.regularTime;
@@ -104,7 +104,9 @@
         }
         case Yodo1AntiAddictionDialogStyleVisitorOver: {
             // 游客模式结束
-            
+            [Yodo1AntiAddiction.shared offline:^(BOOL result, NSString * _Nonnull content) {
+                NSLog(@"游客体验结束，下线！");
+            }];
             _iconView.image = [UIImage imageNamed:@"error"];
             _titleLabel.text = @"游客体验模式已结束";
             _contentLabel.text = [NSString stringWithFormat:@"尊敬的玩家您好，您当前处于试玩模式 每%@天能试玩%@分钟，当前已无可继续游戏的时间，为了获得更好的游戏体验，请完成实名认证。", @(rules.guestModeConfig.effectiveDay), @(rules.guestModeConfig.playingTime / 60)];
@@ -160,7 +162,9 @@
 #pragma mark - Event
 // 去验证
 - (IBAction)onCkeckClicked:(id)sender {
-    [Yodo1AntiAddictionUtils showVerifyUI: YES];
+    [self dismissViewControllerAnimated:YES completion:^{
+        [Yodo1AntiAddictionUtils showVerifyUI: YES];
+    }];
 }
 
 // 退出游戏

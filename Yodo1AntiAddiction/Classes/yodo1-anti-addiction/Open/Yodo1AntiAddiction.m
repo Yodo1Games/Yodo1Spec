@@ -33,6 +33,10 @@
     return sharedInstance;
 }
 
+- (BOOL)systemSwitch {
+    return Yodo1AntiAddictionHelper.shared.systemSwitch;
+}
+
 - (void)init:(NSString *)appKey delegate:(id<Yodo1AntiAddictionDelegate>)delegate {
     [self init:appKey channel:Yodo1AntiAddictionChannel regionCode:@"" delegate:delegate];
 }
@@ -77,10 +81,12 @@
 - (void)online:(OnBehaviourResult)callback {
     if (!lockBehavior) {
         lockBehavior = YES;
+        __weak typeof(self) weakSelf = self;
         [Yodo1AntiAddictionHelper.shared online:^(BOOL result, NSString * _Nonnull content) {
             self->lockBehavior = NO;
             if (result) {
                 Yodo1AntiAddictionHelper.shared.enterGameFlag = YES;
+                [weakSelf startTimer];
             }
             callback(result,content);
         }];

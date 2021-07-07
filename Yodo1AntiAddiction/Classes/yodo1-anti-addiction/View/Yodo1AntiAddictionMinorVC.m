@@ -44,8 +44,8 @@
     }
     
     // 获取可玩时长
-    NSInteger regularTime = 5400; // 工作日可玩时长
-    NSInteger holidayTime = 10800; // 假日可玩时长
+    float regularTime = 5400; // 工作日可玩时长
+    float holidayTime = 10800; // 假日可玩时长
     for (GroupPlayingTime *range in rules.groupPlayingTimeList) {
         if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
             regularTime = range.regularTime;
@@ -61,8 +61,8 @@
     }
     
     // 获取消费限制
-    NSInteger moneyLimit = 0; // 每月消费限制
-    NSInteger dayLimit = 0; // 每日消费限制
+    float moneyLimit = 0; // 每月消费限制
+    float dayLimit = 0; // 每日消费限制
     for (GroupMoneyLimitation *range in rules.groupMoneyLimitationList) {
         if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
             moneyLimit = range.monthLimit / 100;
@@ -70,8 +70,11 @@
             break;
         }
     }
-
-    NSString *content = [NSString stringWithFormat:@"工作日：可玩时段 %@，每天最多可玩%@小时\n节假日：可玩时段 %@，每天最多可玩%@小时\n单笔金额不可超过%@元，每月累计不可超过%@元。", regularRange, @(regularTime / 3600), holidayRange, @(holidayTime / 3600), @(dayLimit), @(moneyLimit)];
+    
+    NSString* holidayTimeSt = [NSString stringWithFormat:@"%.1f",holidayTime / 3600];
+    NSString* regularTimeSt = [NSString stringWithFormat:@"%.1f",regularTime / 3600];
+    
+    NSString *content = [NSString stringWithFormat:@"工作日：可玩时段 %@，每天最多可玩%@小时\n节假日：可玩时段 %@，每天最多可玩%@小时\n单笔金额不可超过%@元，每月累计不可超过%@元。", regularRange, regularTimeSt, regularRange, holidayTimeSt, @(dayLimit), @(moneyLimit)];
     _contentLabel.text = content;
 }
 

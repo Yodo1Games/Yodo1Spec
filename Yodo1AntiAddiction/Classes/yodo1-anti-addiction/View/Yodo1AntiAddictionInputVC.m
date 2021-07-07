@@ -144,10 +144,10 @@
     [_identifyField resignFirstResponder];
     
     NSString *name = [_nameField.text stringByReplacingOccurrencesOfString:@" " withString:@""];
-    if (![Yodo1AntiAddictionUtils isChineseName:name]) {
-        [self.view makeToast:@"请输入中文姓名"];
-        return;
-    }
+//    if (![Yodo1AntiAddictionUtils isChineseName:name]) {
+//        [self.view makeToast:@"请输入中文姓名"];
+//        return;
+//    }
     
     if (!name || name.length < 2) {
         [self.view makeToast:@"至少输入2个中文"];
@@ -203,6 +203,9 @@
         if ([Yodo1AntiAddictionHelper shared].autoTimer) {
             [[Yodo1AntiAddictionHelper shared] startTimer];
         }
+        [Yodo1AntiAddiction.shared online:^(BOOL result, NSString * _Nonnull content) {
+                    
+        }];
     }];
 }
 
@@ -235,9 +238,10 @@
                 } else {
                     _nameHint.text = nil;
                 }
-            } else {
-                _nameHint.text = @"请输入中文";
             }
+//            else {
+//                _nameHint.text = @"请输入中文";
+//            }
         } else {
             _nameHint.text = nil;
         }

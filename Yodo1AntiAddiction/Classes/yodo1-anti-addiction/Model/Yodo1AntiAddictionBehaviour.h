@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy) NSString *yid;
 @property (nonatomic, copy) NSString *sessionId;
 @property (nonatomic, copy) NSString *deviceId;
-@property (nonatomic, copy) NSString *happenTimestamp;
+@property (nonatomic, assign) NSTimeInterval happenTimestamp;
 @property (nonatomic, assign) NSInteger behaviorType;//1:上线 ，0:下线
 @property (nonatomic, assign) NSInteger userType;
 

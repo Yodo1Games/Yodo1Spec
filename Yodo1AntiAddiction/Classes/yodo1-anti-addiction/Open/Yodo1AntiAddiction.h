@@ -94,7 +94,7 @@ typedef enum: NSInteger {
 
 @property (nonatomic, assign) BOOL autoTimer; // 自动开启计时
 @property (nonatomic, copy) PlayerDisconnection disconnection;
-
+@property (nonatomic, assign,readonly) BOOL systemSwitch;//在线开关
 
 + (Yodo1AntiAddiction *)shared;
 
