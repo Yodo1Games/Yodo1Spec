@@ -296,6 +296,13 @@ typedef void (^OnBehaviourCallback)(int code,id response);
             receipt.region = _regionCode;
         }
     }
+    
+    Yodo1AntiAddictionUser *user = [Yodo1AntiAddictionUserManager manager].currentUser;
+    //成年人不上报
+    if (user.certificationStatus == UserCertificationStatusAault) {
+        return;
+    }
+    
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"groupReceiptAndGoodsInfo"] = [receipts yodo1_modelToJSONObject];
     
