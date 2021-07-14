@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsAppsFlyer'
-    s.version          = '5.0.4'
-    s.summary          = 'v6.2.4'
+    s.version          = '5.0.5'
+    s.summary          = 'v6.3.2 [库的格式改变]'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','5.0.1'
-    s.dependency 'AppsFlyerFramework', '6.2.4'
+    s.dependency 'Yodo1ThirdsAnalytics','5.0.2'
+    s.dependency 'AppsFlyerFramework', '6.3.2'
 
 end
