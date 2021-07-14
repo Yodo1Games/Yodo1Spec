@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1ThirdsAnalytics'
-    s.version          = '5.0.1'
-    s.summary          = '拆分单独模块.'
+    s.version          = '5.0.2'
+    s.summary          = '添加Thinking 统计测试'
 
     s.description      = <<-DESC
 TODO: Add long description of the pod here.

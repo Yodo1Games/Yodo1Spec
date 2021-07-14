@@ -23,7 +23,8 @@ typedef NS_ENUM(NSInteger, AnalyticsType) {
     AnalyticsTypeTalkingData,   //TalkingData数据统计
     AnalyticsTypeGameAnalytics, //GameAnalytics数据统计
     AnalyticsTypeAppsFlyer,     //AppsFlyer 数据统计
-    AnalyticsTypeSwrve          //Swrve统计
+    AnalyticsTypeSwrve,          //Swrve统计
+    AnalyticsTypeThinking,         //Thinking 
 };
 
 @interface Yodo1AnalyticsManager : NSObject

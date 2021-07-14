@@ -360,7 +360,8 @@ static BOOL _enable = NO;
 - (void)track:(NSString *)eventName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==AnalyticsTypeUmeng){
+        NSInteger _key = [key integerValue];
+        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter track:eventName];
             break;
@@ -472,7 +473,8 @@ static BOOL _enable = NO;
 - (void)registerSuperProperty:(NSDictionary *)property
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==AnalyticsTypeUmeng){
+        NSInteger _key = [key integerValue];
+        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter registerSuperProperty:property];
             break;
@@ -483,7 +485,8 @@ static BOOL _enable = NO;
 - (void)unregisterSuperProperty:(NSString *)propertyName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==AnalyticsTypeUmeng){
+        NSInteger _key = [key integerValue];
+        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter unregisterSuperProperty:propertyName];
             break;
@@ -506,7 +509,8 @@ static BOOL _enable = NO;
 - (NSDictionary *)getSuperProperties
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==AnalyticsTypeUmeng){
+        NSInteger _key = [key integerValue];
+        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             return [adapter getSuperProperties];
         }
@@ -517,7 +521,8 @@ static BOOL _enable = NO;
 - (void)clearSuperProperties
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==AnalyticsTypeUmeng){
+        NSInteger _key = [key integerValue];
+        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter clearSuperProperties];
             break;
