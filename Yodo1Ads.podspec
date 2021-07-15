@@ -1,33 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.5-test4'
-    s.summary          = '  Mas SDK V3.14.0
-                            -->
-                            Applovin v6.15.2
-                            GDT v4.12.60
-                            MyTarget v5.9.11
-                            IronSource v7.1.5
-                            Mintegral v6.7.6
-                            Pangle v3.3.6.2
-                            Soomla v5.21.0
-                            UnityAds v3.6.2  
-                            Inmobi v9.1.7  
-                            Tapjoy v12.8.0
-                            Admob v7.69.0  
-                            Facebook v6.2.1
-                            AdColony v4.5.0
-                            Baidu v4.77
-                            Chartboost v8.4.0
-                            Smaato v21.6.2
-                            Vungle v6.9.2 
-                            Yandex v2.20.0
-                            Sigmob v2.22.0
-                            Topon v5.7.41
-                            Verizon v1.7.1
-                            更新AppsFlyer v6.2.4
-                            -->
-                            Suit v5.1.2
-                            更新Soomla 到v5.21.1
+    s.version          = '5.1.5-test5'
+    s.summary          = '    
+                            最低支持iOS 10.0
                         '
 
     s.description      = <<-DESC
@@ -38,7 +13,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.0'
 
     s.subspec 'Yodo1_Ads' do |ss|
         ss.source_files = [ "*.{h,mm,m}" ]
