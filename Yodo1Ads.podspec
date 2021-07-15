@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.5-test3'
+    s.version          = '5.1.5-test4'
     s.summary          = '  Mas SDK V3.14.0
                             -->
                             Applovin v6.15.2
