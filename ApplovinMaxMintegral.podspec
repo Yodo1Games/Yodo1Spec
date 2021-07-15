@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxMintegral'
-    s.version          = '5.0.2'
+    s.version          = '5.0.3'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'MintegralAdSDK','6.7.6'
-    s.dependency 'YD1ApplovinMax', '5.0.2'
+    s.dependency 'YD1ApplovinMax', '5.0.3'
 end
