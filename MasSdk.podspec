@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
-    s.version          = '3.15.2-test'
+    s.version          = '3.15.2-test1'
     s.summary          = '5.1.6-test'
     
     customVersion    = "5.1.6-test"
