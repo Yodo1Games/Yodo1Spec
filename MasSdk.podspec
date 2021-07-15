@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
-    s.version          = '3.15.1'
-    s.summary          = '5.1.5'
+    s.version          = '3.15.2-test'
+    s.summary          = '5.1.6-test'
     
-    customVersion    = "5.1.5"
+    customVersion    = "5.1.6-test"
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.0'
 
     s.subspec 'MasSdk_iOS' do |ss|
         ss.xcconfig = {
