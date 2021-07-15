@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1Applovin'
-    s.version          = '5.0.3'
+    s.version          = '5.0.4'
     s.summary          = 'v6.15.2'
 
     s.description      = <<-DESC
@@ -70,6 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','5.0.1'
-    s.dependency 'AppLovinSDK', '6.15.2'
+    s.dependency 'Yodo1AdvertSDK','5.0.2'
+    s.dependency 'AppLovinSDK', '10.3.2'
 end
