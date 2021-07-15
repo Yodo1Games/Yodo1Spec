@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxSmaato'
-    s.version          = '5.0.5'
+    s.version          = '5.0.6'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -90,5 +90,5 @@ Pod::Spec.new do |s|
     s.dependency 'smaato-ios-sdk/Modules/Video','21.6.2'
     s.dependency 'smaato-ios-sdk/Modules/OpenMeasurement','21.6.2'
 
-    s.dependency 'YD1ApplovinMax', '5.0.2'
+    s.dependency 'YD1ApplovinMax', '5.0.3'
 end
