@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISFyber'
-    s.version          = '5.0.0'
+    s.version          = '5.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Fyber_Marketplace_SDK','7.8.1'
-    s.dependency 'YD1IronSource', '5.0.2'
+    s.dependency 'YD1IronSource', '5.0.3'
 end
