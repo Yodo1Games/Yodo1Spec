@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponMintegral'
-    s.version          = '5.0.4'
+    s.version          = '5.0.5'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,8 +72,8 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Topon', '5.0.2'
+    s.dependency 'YD1Topon', '5.0.3'
     s.dependency 'MintegralAdSDK','6.7.6'
-    s.dependency 'AnyThinkiOS/AnyThinkMintegralAdapter','5.7.5'
+    s.dependency 'AnyThinkiOS/AnyThinkMintegralAdapter','5.7.62'
     
 end
