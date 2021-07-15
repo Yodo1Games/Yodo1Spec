@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponBaidu'
-    s.version          = '5.0.3'
+    s.version          = '5.0.4'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Topon', '5.0.2'
+    s.dependency 'YD1Topon', '5.0.3'
     s.dependency 'Yodo1AdsBaidu','5.0.1'
-    s.dependency 'AnyThinkiOS/AnyThinkBaiduAdapter','5.7.5'
+    s.dependency 'AnyThinkiOS/AnyThinkBaiduAdapter','5.7.62'
 end
