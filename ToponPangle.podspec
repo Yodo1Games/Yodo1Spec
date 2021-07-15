@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ToponPangle'
-    s.version          = '5.0.4'
+    s.version          = '5.0.5'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'YD1Topon', '5.0.3'
     s.dependency 'Yodo1AdsPangle', '5.0.2'
-    s.dependency 'AnyThinkiOS/AnyThinkTouTiaoAdapter','5.7.62'
+    s.dependency 'AnyThinkiOS/AnyThinkPangleAdapter','5.7.62'
 end
