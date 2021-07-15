@@ -312,6 +312,19 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
+    s.subspec 'Analytics_Thinking' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AnalyticsThinking','5.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
  ################# YD1 广告 ##############
     s.subspec 'YD1_Admob' do |ss|
         ss.xcconfig = {
