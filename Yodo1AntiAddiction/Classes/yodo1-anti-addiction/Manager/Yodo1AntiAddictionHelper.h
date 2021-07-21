@@ -21,6 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL isOnline;// 是否在线
 @property (nonatomic, assign) BOOL systemSwitch;//在线开关
 @property (nonatomic, assign) BOOL enterGameFlag;//进游戏
+@property (nonatomic, assign) BOOL enterBackground;//进后台
 
 + (Yodo1AntiAddictionHelper *)shared;
 

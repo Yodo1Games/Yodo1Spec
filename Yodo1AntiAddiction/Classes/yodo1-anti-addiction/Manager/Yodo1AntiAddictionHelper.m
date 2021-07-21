@@ -110,6 +110,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
         [self offline:^(BOOL result, NSString * _Nonnull content) {
             NSLog(@"enter Background, auto-offline. result = %d,%@",result,content);
             [weakSelf stopTimer];
+            weakSelf.enterBackground = YES;
         }];
     }
 }
@@ -447,7 +448,6 @@ typedef void (^OnBehaviourCallback)(int code,id response);
         Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:response];
         if (code == 200) {
             if (res.success && res.data) {
-                weakSelf.isOnline = NO;
                 weakSelf.behaviour.sessionId = @"";
                 callback(YES,res.message);
             }
@@ -456,6 +456,7 @@ typedef void (^OnBehaviourCallback)(int code,id response);
             [weakSelf update:weakSelf.behaviour];
             callback(NO,@"下线请求失败，请检查网络情况");
         }
+        weakSelf.isOnline = NO;
     }];
 }
 

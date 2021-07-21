@@ -210,6 +210,9 @@ typedef enum: NSInteger {
             if (forbidden == CheckActionNotification) {
                 // 提醒
                 if (self->notifyList.count == 0) {
+                    if (Yodo1AntiAddictionHelper.shared.enterBackground) {
+                        return;
+                    }
                     Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
                     event.eventCode = Yodo1AntiAddictionEventCodeMinorForbiddenTime;
                     event.action = Yodo1AntiAddictionActionResumeGame;
@@ -251,6 +254,9 @@ typedef enum: NSInteger {
         
         dispatch_async(dispatch_get_main_queue(),^{
             if (end == CheckActionNotification) {
+                if (Yodo1AntiAddictionHelper.shared.enterBackground) {
+                    return;
+                }
                 // 提醒
                 if (self->notifyList.count == 0) {
                     Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
