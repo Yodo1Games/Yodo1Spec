@@ -5,13 +5,14 @@
 #import <Foundation/Foundation.h>
 #import "IronSource/ISBaseAdapter+Internal.h"
 
-static NSString * const AdColonyAdapterVersion = @"4.3.4";
-static NSString * GitHash = @"35405aec2";
+static NSString * const AdColonyAdapterVersion = @"4.3.10";
+static NSString * GitHash = @"2555b30a9";
 
 //System Frameworks For AdColony Adapter
 
 @import AdSupport;
 @import AudioToolbox;
+@import AppTrackingTransparency;
 @import AVFoundation;
 @import CoreMedia;
 @import CoreTelephony;
