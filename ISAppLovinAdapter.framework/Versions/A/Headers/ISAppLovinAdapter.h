@@ -7,22 +7,26 @@
 #import "IronSource/ISMetaData.h"
 
 
-static NSString * const AppLovinAdapterVersion = @"4.3.20";
-static NSString * GitHash = @"3e2723166";
+static NSString * const AppLovinAdapterVersion = @"4.3.26";
+static NSString * GitHash = @"69a284525";
 
 //System Frameworks For AppLovin Adapter
 
 @import AdSupport;
+@import AppTrackingTransparency;
 @import AudioToolbox;
 @import AVFoundation;
 @import CoreGraphics;
 @import CoreMedia;
+@import CoreMotion;
 @import CoreTelephony;
+@import MessageUI;
 @import SafariServices;
 @import StoreKit;
 @import SystemConfiguration;
 @import UIKit;
 @import WebKit;
+
 
 @interface ISAppLovinAdapter : ISBaseAdapter
 
