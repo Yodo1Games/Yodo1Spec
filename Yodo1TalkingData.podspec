@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1TalkingData'
-    s.version          = '5.0.0'
-    s.summary          = 'v4.0.54'
+    s.version          = '5.0.1'
+    s.summary          = 'v4.0.63'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.

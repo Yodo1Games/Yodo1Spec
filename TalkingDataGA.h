@@ -11,24 +11,24 @@
 
 // 账户类型
 typedef enum {
-    kAccountAnonymous       = 0,    // 匿名账户
-    kAccountRegistered      = 1,    // 显性注册账户
-    kAccountSinaWeibo       = 2,    // 新浪微博
-    kAccountQQ              = 3,    // QQ账户
-    kAccountTencentWeibo    = 4,    // 腾讯微博
-    kAccountND91            = 5,    // 91账户
-    kAccountTypeWeiXin      = 6,    // 微信
-    kAccountType1           = 11,   // 预留1
-    kAccountType2           = 12,   // 预留2
-    kAccountType3           = 13,   // 预留3
-    kAccountType4           = 14,   // 预留4
-    kAccountType5           = 15,   // 预留5
-    kAccountType6           = 16,   // 预留6
-    kAccountType7           = 17,   // 预留7
-    kAccountType8           = 18,   // 预留8
-    kAccountType9           = 19,   // 预留9
-    kAccountType10          = 20    // 预留10
-} TDGAAccountType;
+    kProfileAnonymous       = 0,    // 匿名账户
+    kProfileRegistered      = 1,    // 显性注册账户
+    kProfileSinaWeibo       = 2,    // 新浪微博
+    kProfileQQ              = 3,    // QQ账户
+    kProfileTencentWeibo    = 4,    // 腾讯微博
+    kProfileND91            = 5,    // 91账户
+    kProfileTypeWeiXin      = 6,    // 微信
+    kProfileType1           = 11,   // 预留1
+    kProfileType2           = 12,   // 预留2
+    kProfileType3           = 13,   // 预留3
+    kProfileType4           = 14,   // 预留4
+    kProfileType5           = 15,   // 预留5
+    kProfileType6           = 16,   // 预留6
+    kProfileType7           = 17,   // 预留7
+    kProfileType8           = 18,   // 预留8
+    kProfileType9           = 19,   // 预留9
+    kProfileType10          = 20    // 预留10
+} TDGAProfileType;
 
 // 性别
 typedef enum {
@@ -37,6 +37,10 @@ typedef enum {
     kGenderFemale           = 2     // 女
 } TDGAGender;
 
+typedef NS_ENUM(NSUInteger, TDGAVendorIdType) {
+    TDGAVendorIdTypeZX      = 1,   // 卓信
+    TDGAVendorIdTypeGX      = 2,   // 广协
+};
 
 
 
@@ -47,6 +51,8 @@ typedef enum {
  *  @method getDeviceId 获取设备id
  */
 + (NSString *)getDeviceId;
+
++ (void)setVendorID:(NSString *)vendorID ofType:(TDGAVendorIdType)type;
 
 /**
  *  @method setVerboseLogDisabled 设置不显示日志  如发布时不需显示日志，应当最先调用该方法
@@ -80,18 +86,6 @@ typedef enum {
  */
 + (void)setLatitude:(double)latitude longitude:(double)longitude;
 
-/**
- *  @method setDeviceToken 设置DeviceToken
- *  @param  deviceToken    从Apple获取的DeviceToken
- */
-+ (void)setDeviceToken:(NSData *)deviceToken;
-
-/**
- *  @method handleTDGAPushMessage 处理来自TalkingData的Push消息
- *  @param  message               收到的消息
- *  @return YES 来自TalkingData的消息，SDK已处理    NO 其他来源消息，开发者需自行处理
- */
-+ (BOOL)handleTDGAPushMessage:(NSDictionary *)message;
 
 @end
 
@@ -99,25 +93,25 @@ typedef enum {
 
 
 
-@interface TDGAAccount : NSObject
+@interface TDGAProfile : NSObject
 
 /**
- *	@method	setAccount  设置账户
- *	@param 	accountId   账户ID    类型:NSString
+ *	@method	setProfile  设置账户
+ *	@param 	profileId   账户ID    类型:NSString
  */
-+ (TDGAAccount *)setAccount:(NSString *)accountId;
++ (TDGAProfile *)setProfile:(NSString *)profileId;
 
 /**
- *	@method	setAccountName  设置账户名称
- *	@param 	accountName     账户名称    类型:NSString
+ *	@method	setProfileName  设置账户名称
+ *	@param 	profileName     账户名称    类型:NSString
  */
-- (void)setAccountName:(NSString *)accountName;
+- (void)setProfileName:(NSString *)profileName;
 
 /**
- *	@method	setAccountType  设置账户类型
- *	@param 	accountType     账户类型        类型TDGAAccountType
+ *	@method	setProfileType  设置账户类型
+ *	@param 	profileType     账户类型        类型TDGAProfileType
  */
-- (void)setAccountType:(TDGAAccountType)accountType;
+- (void)setProfileType:(TDGAProfileType)profileType;
 
 /**
  *	@method	setLevel    设置账户等级
