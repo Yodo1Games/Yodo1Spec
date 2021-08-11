@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1QQSDK'
-    s.version          = '5.0.1'
-    s.summary          = 'v'
+    s.version          = '5.0.2'
+    s.summary          = 'v3.5.5'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
 
-    # s.resources = ["*.bundle"]
+    s.resources = ["*.bundle"]
 
     s.vendored_frameworks = [
         "*.framework"
