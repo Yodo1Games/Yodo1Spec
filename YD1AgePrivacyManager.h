@@ -20,10 +20,12 @@ FOUNDATION_EXPORT NSString* const YD1_Turkish;// 土耳其语
 
 @class PrivacyServiceInfo;
 @class LicenseInfo;
+@class Yodo1YYCache;
 
 ///accept 是否同意隐私协议；adults是否是成年人；age 选择的年龄
 typedef void(^PrivacyBlock)(BOOL accept,BOOL child,int age);
 typedef void(^PrivacyServiceBlock)(PrivacyServiceInfo* info);
+typedef void(^PrivacyCallback)(BOOL accept);
 
 @interface PrivacyServiceInfoModel : NSObject
 @property(nonatomic,copy)NSString* error_code;//错误码
@@ -46,6 +48,8 @@ typedef void(^PrivacyServiceBlock)(PrivacyServiceInfo* info);
 
 @interface YD1AgePrivacyManager : NSObject
 
+@property(nonatomic,strong)Yodo1YYCache* yyCache;
+
 + (YD1AgePrivacyManager*)sharedInstance;
 
 ///设置本地语言
@@ -60,6 +64,9 @@ typedef void(^PrivacyServiceBlock)(PrivacyServiceInfo* info);
                                 channelCode:(NSString*)channelCode
                              viewController:(UIViewController*)viewcontroller
                                       block:(PrivacyBlock)privacyBlock;
+
++ (void)dialogShowPrivacyViewcontroller:(UIViewController*)viewcontroller
+                                  block:(PrivacyCallback)privacyCallback;
 
 ///获取隐私服务
 + (void)startGetPrivacyOnlineServiceWithGameAppKey:(NSString*)gameAppKey
