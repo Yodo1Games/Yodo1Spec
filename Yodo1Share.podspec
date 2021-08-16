@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Share'
-    s.version          = '5.0.2'
+    s.version          = '6.0.0'
     s.summary          = 'v 测试'
 
     s.description      = <<-DESC
@@ -75,11 +75,11 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1OnlineParameter','5.0.1'
+    s.dependency 'Yodo1OnlineParameter','6.0.0'
     s.dependency 'Yodo1Qrencode','5.0.0'
-    s.dependency 'Yodo1QQSDK','5.0.1'
+    s.dependency 'Yodo1QQSDK','5.0.2'
     s.dependency 'Yodo1FBSDKShareKit','5.0.1'
-    s.dependency 'Yodo1WeiboSDK', '5.0.0'
-    s.dependency 'Yodo1WeChatSDK', '5.0.0'
+    s.dependency 'Weibo_SDK','3.3.0'
+    s.dependency 'WechatOpenSDK', '1.8.7.1'
 
 end

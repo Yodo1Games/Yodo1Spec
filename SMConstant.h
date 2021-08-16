@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger, Yodo1SNSType) {
     Yodo1SNSTypeWeixinContacts  = 1 << 2,/**< 聊天界面 >*/
     Yodo1SNSTypeSinaWeibo       = 1 << 3,/**< 新浪微博 >*/
     Yodo1SNSTypeFacebook        = 1 << 4,/**< Facebook >*/
-    Yodo1SNSTypeTwitter         = 1 << 5,/**< Twitter >*/
+    Yodo1SNSTypeTwitter         = 1 << 5,/**< Twitter >移除*/
     Yodo1SNSTypeInstagram       = 1 << 6,/**< Instagram >*/
     Yodo1SNSTypeAll             = 1 << 7
 };
