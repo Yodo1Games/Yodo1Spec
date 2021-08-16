@@ -69,7 +69,7 @@ Pod::Spec.new do |s|
         'z']
  
     s.dependency 'Yodo1Analytics','6.0.0'
-    s.dependency 'Yodo1FeedbackError','5.0.1'
+    s.dependency 'Yodo1FeedbackError','6.0.0'
     s.dependency 'Yodo1ThirdsAnalytics','6.0.0'
     
 end
