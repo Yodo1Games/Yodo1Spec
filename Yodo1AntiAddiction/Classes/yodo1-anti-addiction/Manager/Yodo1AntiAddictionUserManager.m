@@ -64,6 +64,15 @@
         [self getCertificationInfo:antiUser success:success failure:failure];
     } else {
         [[Yd1UCenter shared] deviceLoginWithPlayerId:antiUser.accountId callback:^(YD1User *user, NSError *error) {
+#ifdef DEBUG
+            NSLog(@"-------------user of info---------------------");
+            NSLog(@"accountId:%@",antiUser.accountId);
+            NSLog(@"yid:%@",user.yid);
+            NSLog(@"uid:%@",user.uid);
+            NSLog(@"ucuid:%@",user.ucuid);
+            NSLog(@"-------------user of info---------------------");
+            
+#endif
             if (!error) {
                 
                 [Yd1UCenterManager shared].user = user;

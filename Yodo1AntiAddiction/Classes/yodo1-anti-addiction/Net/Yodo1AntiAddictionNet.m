@@ -14,6 +14,8 @@
 #import "Yodo1AntiAddictionHelper.h"
 #import "Yodo1AntiAddictionUserManager.h"
 
+#define Yodo1Anti_Debug     0
+
 @implementation Yodo1AntiAddictionResponse
 
 @end
@@ -38,20 +40,20 @@
 - (instancetype)init {
     self = [super init];
     if (self) {
-//#ifdef DEBUG
-//        NSURL *baseURL = [NSURL URLWithString:@"https://ais-frontend.cb64eaf4841914d918c93a30369d6bbc6.cn-beijing.alicontainer.com/ais"];
-//#else
+#if Yodo1Anti_Debug
+      NSURL *baseURL = [NSURL URLWithString:@"https://ais-frontend.cb64eaf4841914d918c93a30369d6bbc6.cn-beijing.alicontainer.com/ais"];
+#else
         NSURL *baseURL = [NSURL URLWithString:@"https://ais.yodo1api.com/ais"];
-//#endif
+#endif
         _manager = [[Yodo1AFHTTPSessionManager alloc] initWithBaseURL:baseURL];
         _manager.requestSerializer = [Yodo1AFJSONRequestSerializer serializer];
         _manager.responseSerializer = [Yodo1AFJSONResponseSerializer serializer];
-//#ifdef DEBUG
-//        Yodo1AFSecurityPolicy *security = [Yodo1AFSecurityPolicy policyWithPinningMode:Yodo1AFSSLPinningModeNone];
-//        [security setValidatesDomainName:NO];
-//        security.allowInvalidCertificates = YES;
-//        _manager.securityPolicy = security;
-//#endif
+#if Yodo1Anti_Debug
+        Yodo1AFSecurityPolicy *security = [Yodo1AFSecurityPolicy policyWithPinningMode:Yodo1AFSSLPinningModeNone];
+        [security setValidatesDomainName:NO];
+        security.allowInvalidCertificates = YES;
+        _manager.securityPolicy = security;
+#endif
     }
     return self;
 }
