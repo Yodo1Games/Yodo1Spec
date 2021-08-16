@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1Admob'
-    s.version          = '5.0.3'
-    s.summary          = 'v7.69.0 v'
+    s.version          = '6.0.0'
+    s.summary          = 'v8.9.0'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -70,6 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','5.0.2'
-    s.dependency 'Google-Mobile-Ads-SDK', '7.69.0'
+    s.dependency 'Yodo1AdvertSDK','6.0.0'
+    s.dependency 'Google-Mobile-Ads-SDK', '8.9.0'
 end
