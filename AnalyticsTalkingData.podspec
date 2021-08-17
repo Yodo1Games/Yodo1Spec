@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = [ "*.{h,m}","TalkingData/*.h" ]
+    s.source_files = [ "*.{h,m}"]
 
-    s.public_header_files = [ "*.h","TalkingData/*.h"]
+    s.public_header_files = [ "*.h"]
 
-     s.vendored_libraries = [ "TalkingData/*.a" ]
+     s.vendored_libraries = [ "*.a" ]
     
     s.requires_arc = true
 
