@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsTalkingData'
-    s.version          = '5.0.2'
-    s.summary          = 'v'
+    s.version          = '6.0.0'
+    s.summary          = 'v4.0.63'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -17,11 +17,11 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = [ "*.{h,m}" ]
+    s.source_files = [ "*.{h,m}","TalkingData/*.h" ]
 
-    s.public_header_files = [ "*.h"]
+    s.public_header_files = [ "*.h","TalkingData/*.h"]
 
-    # s.vendored_libraries = [ "*.a" ]
+     s.vendored_libraries = [ "TalkingData/*.a" ]
     
     s.requires_arc = true
 
@@ -70,7 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','5.0.2'
-    s.dependency 'Yodo1TalkingData', '5.0.0'
+    s.dependency 'Yodo1ThirdsAnalytics','6.0.0'
 
 end

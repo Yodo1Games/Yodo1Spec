@@ -8,7 +8,6 @@
 #import "AnalyticsAdapterTalkingData.h"
 #import "Yodo1Registry.h"
 #import "TalkingDataGA.h"
-#import "TalkingDataAppCpa.h"
 #import "Yodo1Commons.h"
 #import "Yodo1KeyInfo.h"
 
@@ -17,7 +16,7 @@ NSString* const kAnalyticsChannelId = @"AppStore";
 
 @implementation AnalyticsAdapterTalkingData
 {
-    TDGAAccount* account;
+    TDGAProfile* account;
 }
 
 + (AnalyticsType)analyticsType
@@ -39,7 +38,7 @@ NSString* const kAnalyticsChannelId = @"AppStore";
         NSAssert(appKey != nil, @"Talking Data appKey 没有设置");
         
         [TalkingDataGA onStart:appKey withChannelId:kAnalyticsChannelId];
-        account = [TDGAAccount setAccount:[Yodo1Commons idfvString]];
+        account = [TDGAProfile setProfile:[Yodo1Commons idfvString]];
     }
     return self;
 }
@@ -103,13 +102,6 @@ NSString* const kAnalyticsChannelId = @"AppStore";
                   virtualCurrencyAmount:virtualCurrencyAmount
                             paymentType:kAnalyticsChannelId
      ];
-    
-    //TalkingDataAppCpa
-    [TalkingDataAppCpa onPay:[Yodo1Commons deviceId]
-                 withOrderId:orderId
-                  withAmount:currencyAmount
-            withCurrencyType:currencyType
-                 withPayType:kAnalyticsChannelId];
     
 }
 
