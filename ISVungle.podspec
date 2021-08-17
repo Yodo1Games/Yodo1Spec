@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISVungle'
-    s.version          = '5.0.3'
+    s.version          = '6.0.0'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'VungleSDK-iOS','6.9.2'
-    s.dependency 'YD1IronSource', '5.0.3'
+    s.dependency 'VungleSDK-iOS','6.10.1'
+    s.dependency 'YD1IronSource', '6.0.0'
 end
