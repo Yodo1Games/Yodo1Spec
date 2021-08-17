@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxIronSource'
-    s.version          = '5.0.3'
+    s.version          = '6.0.0'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'IronSourceSDK','7.1.5.0'
-    s.dependency 'YD1ApplovinMax', '5.0.3'
+    s.dependency 'IronSourceSDK','7.1.8.0'
+    s.dependency 'YD1ApplovinMax', '6.0.0'
 end
