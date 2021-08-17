@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobFacebook'
-    s.version          = '6.0.1'
+    s.version          = '6.0.0'
     s.summary          = 'v6.2.1 '
 
     s.description      = <<-DESC
