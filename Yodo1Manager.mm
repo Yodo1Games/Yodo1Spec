@@ -12,7 +12,6 @@
 #import "Yodo1UnityTool.h"
 #import "Yd1OnlineParameter.h"
 #import "Yodo1Tool+Storage.h"
-#import "AnalyticsYodo1Track.h"
 #import <Bugly/Bugly.h>
 
 #import "Yodo1Ads.h"
@@ -33,9 +32,9 @@
 #import "Yd1UCenterManager.h"
 #endif
 
-#ifdef YODO1_FACEBOOK_ANALYTICS
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#endif
+// #ifdef YODO1_FACEBOOK_ANALYTICS
+// #import <FBSDKCoreKit/FBSDKCoreKit.h>
+// #endif
 
 #ifdef YODO1_SOOMLA
 #import "SoomlaConfig.h"
@@ -87,11 +86,6 @@ static NSString* __kAppKey = @"";
     [[SoomlaTraceback getInstance] initializeWithAppKey:soomlaAppKey andConfig:config];
 #endif
 
-    //初始化Yodo1Track
-    NSString* trackAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kAdTrachingAppId];
-    [AnalyticsYodo1Track setAppkey:__kAppKey];
-    [AnalyticsYodo1Track initAdTrackingWithAppId:trackAppId
-                                       channelId:kYodo1ChannelId];
 #ifndef UNITY_PROJECT
     //初始化广告，在线参数
     [Yodo1Ads initWithAppKey:__kAppKey];
@@ -133,25 +127,25 @@ static NSString* __kAppKey = @"";
 #endif
 
     
-#ifdef YODO1_FACEBOOK_ANALYTICS
-    //初始化Facebook（启动统计激活）
-    if (![Yodo1Ads isUserConsent]) {
-        [FBSDKSettings setAutoInitEnabled:YES];
-        [FBSDKSettings setAutoLogAppEventsEnabled:YES];
-        [FBSDKSettings setLimitEventAndDataUsage:NO];
-        [FBSDKAppEvents activateApp];
-    } else {
-        [FBSDKSettings setAutoInitEnabled:NO];
-        [FBSDKSettings setAutoLogAppEventsEnabled:NO];
-        [FBSDKSettings setLimitEventAndDataUsage:YES];
-    }
+// #ifdef YODO1_FACEBOOK_ANALYTICS
+//     //初始化Facebook（启动统计激活）
+//     if (![Yodo1Ads isUserConsent]) {
+//         [FBSDKSettings setAutoInitEnabled:YES];
+//         [FBSDKSettings setAutoLogAppEventsEnabled:YES];
+//         [FBSDKSettings setLimitEventAndDataUsage:NO];
+//         [FBSDKAppEvents activateApp];
+//     } else {
+//         [FBSDKSettings setAutoInitEnabled:NO];
+//         [FBSDKSettings setAutoLogAppEventsEnabled:NO];
+//         [FBSDKSettings setLimitEventAndDataUsage:YES];
+//     }
     
-    NSString* facebookAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kFacebookAppId];
-    if ([facebookAppId length] > 0) {
-        [FBSDKSettings setAppID:facebookAppId];
-    }
+//     NSString* facebookAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kFacebookAppId];
+//     if ([facebookAppId length] > 0) {
+//         [FBSDKSettings setAppID:facebookAppId];
+//     }
     
-#endif
+// #endif
     
 #ifdef YODO1_UCCENTER
     [Yd1OnlineParameter.shared cachedCompletionHandler:^{
