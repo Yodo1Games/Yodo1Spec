@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobAppLovin'
-    s.version          = '6.0.1'
+    s.version          = '6.0.0'
     s.summary          = 'v '
 
     s.description      = <<-DESC
