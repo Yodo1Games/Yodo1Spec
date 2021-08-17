@@ -8,8 +8,8 @@
 #import <Foundation/Foundation.h>
 #import "IronSource/ISBaseAdapter+Internal.h"
 
-static NSString * const MyTargetAdapterVersion = @"4.1.9";
-static NSString * GitHash = @"864310508";
+static NSString * const MyTargetAdapterVersion = @"4.1.6";
+static NSString * GitHash = @"9f71d9bc3";
 
 //System Frameworks For MyTarget Adapter
 @import AdSupport;
@@ -17,7 +17,6 @@ static NSString * GitHash = @"864310508";
 @import CoreGraphics;
 @import CoreMedia;
 @import CoreTelephony;
-@import SafariServices;
 @import StoreKit;
 @import SystemConfiguration;
 
