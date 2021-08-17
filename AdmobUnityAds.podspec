@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobUnityAds'
-    s.version          = '5.0.3'
+    s.version          = '6.0.0'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["*.xcframework"]
 
     s.requires_arc = true
 
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Admob', '5.0.3'
-    s.dependency 'UnityAds','3.7.4'
+    s.dependency 'YD1Admob', '6.0.0'
+    s.dependency 'UnityAds','3.7.5'
 end
