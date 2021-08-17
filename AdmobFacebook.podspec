@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobFacebook'
-    s.version          = '5.0.6'
+    s.version          = '6.0.0'
     s.summary          = 'v6.2.1 '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["FacebookAdapter.xcframework"]
 
     s.requires_arc = true
 
@@ -72,6 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdsFacebook','5.0.2'
-    s.dependency 'YD1Admob', '5.0.3'
+    # s.dependency 'Yodo1AdsFacebook','5.0.2'
+    s.dependency 'FBAudienceNetwork','6.5.1'
+    s.dependency 'YD1Admob', '6.0.0'
 end
