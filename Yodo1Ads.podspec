@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '5.1.7.2'
+    s.version          = '5.1.7.4'
     s.summary          = '    
                             最低支持iOS 10.0
                             广告:v3.15.2
