@@ -37,8 +37,7 @@
 // #endif
 
 #ifdef YODO1_SOOMLA
-#import "SoomlaConfig.h"
-#import "SoomlaTraceback.h"
+#import "IronSourceAdQuality.h"
 #endif
 
 #ifdef ANTI_ADDICTION
@@ -80,10 +79,15 @@ static NSString* __kAppKey = @"";
     [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"AppStore"];
     
 #ifdef YODO1_SOOMLA
-    [[SoomlaTraceback getInstance]setUserConsent:[Yodo1Ads isUserConsent]];
-    NSString *soomlaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kSoomlaAppKey];
-    SoomlaConfig *config = [SoomlaConfig config];
-    [[SoomlaTraceback getInstance] initializeWithAppKey:soomlaAppKey andConfig:config];
+    NSString *adQualityAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kSoomlaAppKey];
+    ISAdQualityConfig *adQualityConfig = [ISAdQualityConfig config];
+    adQualityConfig.userId = Yodo1Tool.shared.keychainDeviceId;
+#ifdef DEBUG
+//    adQualityConfig.testMode = YES;
+    adQualityConfig.logLevel = IS_AD_QUALITY_LOG_LEVEL_INFO;
+#endif
+    [[IronSourceAdQuality getInstance] initializeWithAppKey:adQualityAppKey
+                                                  andConfig:adQualityConfig];
 #endif
 
 #ifndef UNITY_PROJECT
