@@ -72,9 +72,9 @@ Pod::Spec.new do |s|
   
   s.dependency 'Yodo1ThirdsAnalytics','6.0.0'
   #由原来的UMCCommon变为UMCommon
-  s.dependency 'UMCommon', '7.3.3'
-  s.dependency 'UMAnalyticsGame', '7.3.3+G'
+  s.dependency 'UMCommon', '7.3.5'
+  s.dependency 'UMAnalyticsGame', '7.3.5+G'
+  ##############################################
   s.dependency 'UMDevice','2.0.4'
-  #开发阶段进行调试SDK及相关功能使用，可在发布 App 前移除
   s.dependency 'UMCCommonLog', '2.0.2'
 end
