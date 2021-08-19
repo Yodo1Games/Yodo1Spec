@@ -3,7 +3,7 @@ Pod::Spec.new do |s|
     s.version          = '6.0.0'
     s.summary          = '    
                             最低支持iOS 10.0
-                            广告:v3.15.2
+                            广告:v3.15.3
                             大更改
                         '
 
@@ -132,18 +132,18 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-    # s.subspec 'Yodo1_Share' do |ss|
-    #     ss.xcconfig = {
-    #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_SNS',
-    #         'OTHER_LDFLAGS' => '-ObjC',
-    #         'ENABLE_BITCODE' => "NO",
-    #         "VALID_ARCHS": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-    #     }
-    #     ss.dependency 'Yodo1Share','6.0.0'
-    #     ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-    # end
+    s.subspec 'Yodo1_Share' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_SNS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'Yodo1Share','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
     s.subspec 'Yodo1_iRate' do |ss|
         ss.xcconfig = {
@@ -483,18 +483,18 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-    # s.subspec 'YD1_AdColony' do |ss|
-    #     ss.xcconfig = {
-    #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
-    #         'OTHER_LDFLAGS' => '-ObjC',
-    #         'ENABLE_BITCODE' => "NO",
-    #         "VALID_ARCHS": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-    #     }
-    #     ss.dependency 'YD1AdColony','5.0.4'
-    #     ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-    # end
+    s.subspec 'YD1_AdColony' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'YD1AdColony','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
     s.subspec 'YD1_MyTarget' do |ss|
         ss.xcconfig = {
@@ -662,18 +662,18 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-   # s.subspec 'Admob_AdColony' do |ss|
-   #      ss.xcconfig = {
-   #          "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
-   #          'OTHER_LDFLAGS' => '-ObjC',
-   #          'ENABLE_BITCODE' => "NO",
-   #          "VALID_ARCHS": "armv7 arm64",
-   #          "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-   #          "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-   #      }
-   #      ss.dependency 'AdmobAdColony','5.0.3'
-   #      ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-   #  end
+   s.subspec 'Admob_AdColony' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'AdmobAdColony','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
     s.subspec 'Admob_MyTarget' do |ss|
         ss.xcconfig = {
@@ -818,18 +818,18 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-    # s.subspec 'ApplovinMax_AdColony' do |ss|
-    #     ss.xcconfig = {
-    #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
-    #         'OTHER_LDFLAGS' => '-ObjC',
-    #         'ENABLE_BITCODE' => "NO",
-    #         "VALID_ARCHS": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-    #     }
-    #     ss.dependency 'ApplovinMaxAdColony','5.0.4'
-    #     ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-    # end
+    s.subspec 'ApplovinMax_AdColony' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'ApplovinMaxAdColony','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
     s.subspec 'ApplovinMax_MyTarget' do |ss|
         ss.xcconfig = {
@@ -1143,17 +1143,17 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-    # s.subspec 'IS_AdColony' do |ss|
-    #      ss.xcconfig = {
-    #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
-    #         'OTHER_LDFLAGS' => '-ObjC',
-    #         'ENABLE_BITCODE' => "NO",
-    #         "VALID_ARCHS": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-    #         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-    #     }
-    #     ss.dependency 'ISAdColony','5.0.4'
-    #     ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-    # end
+    s.subspec 'IS_AdColony' do |ss|
+         ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'ISAdColony','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
 end
