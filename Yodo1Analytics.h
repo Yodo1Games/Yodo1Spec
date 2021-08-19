@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (id)instance;
 
 - (void)initWithAppKey:(NSString*)appKey
-             channelId:(NSString*)channelId;
+              channelId:(NSString*)channelId;
 
 - (void)releaseSDKVersion:(NSString*)version;
 
