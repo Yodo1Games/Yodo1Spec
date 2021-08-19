@@ -1,6 +1,0 @@
-framework module Yd1AdvertSDK {
-  umbrella header "Yd1AdvertSDK.h"
-
-  export *
-  module * { export * }
-}
