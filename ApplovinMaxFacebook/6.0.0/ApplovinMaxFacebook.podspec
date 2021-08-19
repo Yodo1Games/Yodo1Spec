@@ -72,6 +72,8 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'FBAudienceNetwork','6.5.1'
+    # s.dependency 'FBAudienceNetwork','6.5.1'
+    
+    s.dependency 'Yodo1AdsFacebook','5.0.2'
     s.dependency 'YD1ApplovinMax', '6.0.0'
 end
