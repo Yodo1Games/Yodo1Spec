@@ -15,13 +15,11 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = [ "*.framework/Headers/*.h" ]
+    s.source_files = [ "*.h" ]
 
-    s.public_header_files = [ "*.framework/Headers/*.h" ]
+    s.public_header_files = [ "*.h" ]
 
-    # s.vendored_libraries = [ "*.a" ]
-    
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_libraries = [ "*.a" ]
 
      s.requires_arc = true
 
