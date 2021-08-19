@@ -14,14 +14,12 @@ TODO: Add long description of the pod here.
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = ["*.framework/Headers/*.h"]
-
-    s.public_header_files = ["*.framework/Headers/*.h"]
+    s.source_files  = ["*.h"]
     
-    # s.vendored_libraries = [ "*.a" ]
-
-    s.vendored_frameworks = ["*.framework"]
-
+    s.public_header_files = [ "*.h" ]
+    
+    s.vendored_libraries = [ "*.a" ]
+    
     s.preserve_paths = [ "ChangeLog.txt" ]
     
     s.requires_arc = true
