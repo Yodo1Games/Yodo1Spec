@@ -1,0 +1,6 @@
+framework module Yo1AnalyticsSDK {
+  umbrella header "Yo1AnalyticsSDK.h"
+
+  export *
+  module * { export * }
+}
