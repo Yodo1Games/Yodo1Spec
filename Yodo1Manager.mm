@@ -108,6 +108,7 @@ static NSString* __kAppKey = @"";
     NSString* wechatAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatAppId];
     NSString* wechatUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatUniversalLink];
     NSString* sinaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1SinaWeiboAppKey];
+    NSString* sinaUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1SinaWeiboUniversalLink];
     NSString* twitterConsumerKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1TwitterConsumerKey];
     NSString* twitterConsumerSecret = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1TwitterConsumerSecret];
     if (qqAppId) {
@@ -121,6 +122,9 @@ static NSString* __kAppKey = @"";
     }
     if (sinaAppKey) {
         [snsPlugn setObject:sinaAppKey forKey:kYodo1SinaWeiboAppKey];
+    }
+    if (sinaUniversalLink) {
+        [snsPlugn setObject:sinaAppKey forKey:kYodo1SinaWeiboUniversalLink];
     }
     if (twitterConsumerKey && twitterConsumerSecret) {
         [snsPlugn setObject:twitterConsumerKey forKey:kYodo1TwitterConsumerKey];
