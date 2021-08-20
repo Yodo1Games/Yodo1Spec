@@ -60,6 +60,24 @@ static NSString* const __status                 = @"status";
         self.productDescription = [dictProduct objectForKey:@"ProductDescription"];
         self.productType = (ProductType)[[dictProduct objectForKey:@"ProductType"] intValue];
         self.periodUnit = [dictProduct objectForKey:@"PeriodUnit"];
+        self.orderId = [dictProduct objectForKey:@"OrderId"];
+    }
+    return self;
+}
+
+- (instancetype)initWithProduct:(Product*)product {
+    self = [super init];
+    if (self) {
+        self.uniformProductId = product.uniformProductId;
+        self.channelProductId = product.channelProductId;
+        self.productName = product.productName;
+        self.productPrice = product.productPrice;
+        self.priceDisplay = product.priceDisplay;
+        self.currency = product.currency;
+        self.productDescription = product.productDescription;
+        self.productType = product.productType;
+        self.periodUnit = product.periodUnit;
+        self.orderId = product.orderId;
     }
     return self;
 }
@@ -531,6 +549,7 @@ static NSString* const __status                 = @"status";
         [dict setObject:product.uniformProductId == nil?@"":product.uniformProductId forKey:@"productId"];
         [dict setObject:product.channelProductId == nil?@"":product.channelProductId forKey:@"marketId"];
         [dict setObject:product.productName == nil?@"":product.productName forKey:@"productName"];
+        [dict setObject:product.orderId == nil?@"":product.orderId forKey:@"orderId"];
         
         SKProduct* skp = [RMStore.defaultStore productForIdentifier:product.channelProductId];
         NSString* price = nil;
@@ -642,11 +661,14 @@ static NSString* const __status                 = @"status";
                                         }
                                     }
                                 }
-                                NSArray* orderIds = [lossOrder allValues];
-                                for (NSString* itemCode in orderIds) {
+                                
+                                for (NSString* orderId in lossOrder) {
+                                    NSString* itemCode = [lossOrder objectForKey:orderId];
                                     Product* product = [weakSelf productWithChannelProductId:itemCode];
                                     if (product) {
-                                        [lossOrderProduct addObject:product];
+                                        Product* product2 = [[Product alloc] initWithProduct:product];
+                                        product2.orderId = orderId;
+                                        [lossOrderProduct addObject:product2];
                                     }
                                 }
                                 NSArray* dics = [weakSelf productInfoWithProducts:lossOrderProduct];

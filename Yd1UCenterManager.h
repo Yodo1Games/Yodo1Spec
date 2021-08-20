@@ -98,11 +98,13 @@ typedef void (^ValidatePaymentBlock) (NSString *uniformProductId,NSString* respo
 @property (nonatomic, strong) NSString* priceDisplay;
 @property (nonatomic, strong) NSString* productDescription;
 @property (nonatomic, strong) NSString* currency;
+@property (nonatomic, strong) NSString* orderId;
 @property (nonatomic, assign) ProductType productType;
 ///订阅时间: 每周，每月，每年,每2个月...
 @property (nonatomic, strong) NSString* periodUnit;
 - (instancetype)initWithDict:(NSDictionary*)dictProduct
                    productId:(NSString*)uniformProductId;
+- (instancetype)initWithProduct:(Product*)product;
 @end
 
 @class YD1User;
