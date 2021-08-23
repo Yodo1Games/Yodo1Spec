@@ -73,5 +73,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Ads-Global', '3.8.1.0'
+    s.dependency 'Ads-Global/Domestic', '3.8.1.0'
     s.dependency 'YD1IronSource', '6.0.0'
 end
