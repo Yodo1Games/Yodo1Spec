@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
-    s.version          = '3.15.3'
-    s.summary          = '6.0.0'
+    s.version          = '3.16.0'
+    s.summary          = '广告聚合发布'
     
-    customVersion    = "6.0.0"
+    customVersion    = "6.0.1"
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -40,7 +40,7 @@ Pod::Spec.new do |s|
     end
 
     # Admob
-    # s.dependency 'Yodo1Ads/Admob_AdColony', "#{customVersion}"
+    s.dependency 'Yodo1Ads/Admob_AdColony', "#{customVersion}"
     s.dependency 'Yodo1Ads/Admob_AppLovin', "#{customVersion}"
     s.dependency 'Yodo1Ads/Admob_Facebook', "#{customVersion}"
     s.dependency 'Yodo1Ads/Admob_Inmobi', "#{customVersion}"
@@ -50,7 +50,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1Ads/Admob_UnityAds', "#{customVersion}"
     s.dependency 'Yodo1Ads/Admob_Vungle', "#{customVersion}"
     # ApplovinMax
-    # s.dependency 'Yodo1Ads/ApplovinMax_AdColony', "#{customVersion}"
+    s.dependency 'Yodo1Ads/ApplovinMax_AdColony', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Admob', "#{customVersion}"
     # s.dependency 'Yodo1Ads/ApplovinMax_Amazon', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Facebook', "#{customVersion}"
@@ -68,7 +68,7 @@ Pod::Spec.new do |s|
     s.dependency 'Yodo1Ads/ApplovinMax_Vungle', "#{customVersion}"
     s.dependency 'Yodo1Ads/ApplovinMax_Yandex', "#{customVersion}"
     # Yodo1
-    # s.dependency 'Yodo1Ads/YD1_AdColony', "#{customVersion}"
+    s.dependency 'Yodo1Ads/YD1_AdColony', "#{customVersion}"
     s.dependency 'Yodo1Ads/YD1_Admob', "#{customVersion}"
     s.dependency 'Yodo1Ads/YD1_Applovin', "#{customVersion}"
     s.dependency 'Yodo1Ads/YD1_ApplovinMax', "#{customVersion}"
