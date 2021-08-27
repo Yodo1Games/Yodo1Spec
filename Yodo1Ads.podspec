@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '6.0.1'
+    s.version          = '6.0.1.1'
     s.summary          = '    
                             最低支持iOS 10.0
                             广告:v3.16.0
@@ -1153,6 +1153,32 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'ISAdColony','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'IS_MyTarget' do |ss|
+         ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'ISMyTarget','6.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+
+    s.subspec 'IS_Fyber' do |ss|
+         ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'ISFyber','6.0.0'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
