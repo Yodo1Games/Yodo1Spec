@@ -8,6 +8,7 @@
 #import "Yodo1AntiAddictionUtils.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "Yodo1AntiAddictionMainVC.h"
+#import "Yodo1AntiAddictionRulesManager.h"
 
 @implementation Yodo1AntiAddictionUtils
 
@@ -177,7 +178,11 @@
 }
 
 + (void)showVerifyUI {
+    if (Yodo1AntiAddictionRulesManager.manager.currentRules.guestModeConfig.guestMode) {
     [self showVerifyUI:NO];
+    } else {
+        [self showVerifyUI:YES];
+    }
 }
 
 + (void)showVerifyUI:(BOOL)hideGuest {
