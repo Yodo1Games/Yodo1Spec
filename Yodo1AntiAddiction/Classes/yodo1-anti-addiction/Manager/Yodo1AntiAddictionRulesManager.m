@@ -41,7 +41,8 @@
         Yodo1AntiAddictionResponse *res = [Yodo1AntiAddictionResponse yodo1_modelWithJSON:data];
         Yodo1AntiAddictionRules *rules = [Yodo1AntiAddictionRules yodo1_modelWithJSON:res.data];
         if (rules) {
-            NSLog(@"获取规则 - %@", res.data);
+            NSString * st =  [Yodo1AntiAddictionUtils stringWithJSONObject:res.data error:nil];
+            NSLog(@"获取规则 - %@ \n",st);
             self->_currentRules = rules;
             [Yd1OpsTools.cached setObject:rules forKey:kAntiAddictionRules];
         }
@@ -71,7 +72,7 @@
             if (rules) {
                 [Yd1OpsTools.cached setObject:rules forKey:kAntiAddictionHolidayRules];
             }
-            NSLog(@"获取节假日规则 - %@", res.data);
+            NSLog(@"获取节假日规则 - %@ \n", [Yodo1AntiAddictionUtils stringWithJSONObject:res.data error:nil]);
         }
         if (success) {
             success(res.data);

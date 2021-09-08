@@ -59,36 +59,38 @@
             // 禁玩时段
             // 接口给出的可玩时间段，需要手动计算，且给出是多个时段，但这里只展示了一个时段
             
-            NSString *timeRange = @"08:00-22:00";
-            for (GroupAntiPlayingTimeRange *range in rules.groupAntiPlayingTimeRangeList) {
-                if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
-                    timeRange = range.antiPlayingTimeRange.firstObject;
-                    break;
-                }
-            }
-            NSArray *ranges = [timeRange componentsSeparatedByString:@"-"];
+//            NSString *timeRange = @"08:00-22:00";
+//            for (GroupAntiPlayingTimeRange *range in rules.groupAntiPlayingTimeRangeList) {
+//                if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
+//                    timeRange = range.antiPlayingTimeRange.firstObject;
+//                    break;
+//                }
+//            }
+//            NSArray *ranges = [timeRange componentsSeparatedByString:@"-"];
             
             _iconView.image = [UIImage imageNamed:@"error"];
             _titleLabel.text = @"当前为禁玩时间，无法继续游戏";
-            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定，未成年人禁玩时间段为%@请合理安排游戏时间", [NSString stringWithFormat:@"%@-%@", ranges[0], ranges[1]]];
+//            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定，未成年人禁玩时间段为%@请合理安排游戏时间", [NSString stringWithFormat:@"%@-%@", ranges[0], ranges[1]]];
+            _contentLabel.text = rules.antiPlayingTimeMsg.message ?:@"根据《国家新闻出版署通知》，非周五、周六、周日和法定节假日20时至21时的时段，未成年人账号，不得进行游戏";
             _checkButton.hidden = YES;
             [_exitButton setTitle:@"→ 退出游戏" forState:UIControlStateNormal];
             break;
         }
         case Yodo1AntiAddictionDialogStyleTimeOverstep: { // 时间超出
-            Yodo1AntiAddictionRecord *record = [Yodo1AntiAddictionTimeManager manager].record;
-            float regularTime = 5400; // 工作日可玩时长
-            float holidayTime = 10800; // 假日可玩时长
-            for (GroupPlayingTime *range in rules.groupPlayingTimeList) {
-                if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
-                    regularTime = range.regularTime;
-                    holidayTime = range.holidayTime;
-                    break;
-                }
-            }
+//            Yodo1AntiAddictionRecord *record = [Yodo1AntiAddictionTimeManager manager].record;
+//            float regularTime = 5400; // 工作日可玩时长
+//            float holidayTime = 10800; // 假日可玩时长
+//            for (GroupPlayingTime *range in rules.groupPlayingTimeList) {
+//                if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
+//                    regularTime = range.regularTime;
+//                    holidayTime = range.holidayTime;
+//                    break;
+//                }
+//            }
             _iconView.image = [UIImage imageNamed:@"error"];
             _titleLabel.text = @"无可继续游戏时间";
-            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定\n工作日：每天最多可玩%@分钟\n节假日：每天最多可玩%@分钟\n您今天已游戏了%@分钟，无法继续游戏", @((NSInteger)regularTime / 60), @((NSInteger)holidayTime / 60), @((NSInteger)record.playingTime / 60)];
+//            _contentLabel.text = [NSString stringWithFormat:@"根据国家规定\n工作日：每天最多可玩%@分钟\n节假日：每天最多可玩%@分钟\n您今天已游戏了%@分钟，无法继续游戏", @((NSInteger)regularTime / 60), @((NSInteger)holidayTime / 60), @((NSInteger)record.playingTime / 60)];
+            _contentLabel.text = rules.playingTimeMsg.message;
             _checkButton.hidden = YES;
             [_exitButton setTitle:@"→ 退出游戏" forState:UIControlStateNormal];
             break;
@@ -109,7 +111,8 @@
             }];
             _iconView.image = [UIImage imageNamed:@"error"];
             _titleLabel.text = @"游客体验模式已结束";
-            _contentLabel.text = [NSString stringWithFormat:@"尊敬的玩家您好，您当前处于试玩模式 每%@天能试玩%@分钟，当前已无可继续游戏的时间，为了获得更好的游戏体验，请完成实名认证。", @(rules.guestModeConfig.effectiveDay), @(rules.guestModeConfig.playingTime / 60)];
+            _contentLabel.text = rules.guestModeMsg.message?:@"游戏时长已耗尽，请合理安排游戏时间。";
+//            _contentLabel.text = [NSString stringWithFormat:@"尊敬的玩家您好，您当前处于试玩模式 每%@天能试玩%@分钟，当前已无可继续游戏的时间，为了获得更好的游戏体验，请完成实名认证。", @(rules.guestModeConfig.effectiveDay), @(rules.guestModeConfig.playingTime / 60)];
             [_exitButton setTitle:@"→ 退出游戏" forState:UIControlStateNormal];
             break;
         }

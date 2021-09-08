@@ -53,16 +53,10 @@
             break;
         }
     }
-    if (regularTime <= 0) {
-        regularTime = 5400;
-    }
-    if (holidayTime <= 0) {
-        holidayTime = 10800;
-    }
-    
+
     // 获取消费限制
-    float moneyLimit = 0; // 每月消费限制
-    float dayLimit = 0; // 每日消费限制
+    float moneyLimit = 0.0; // 每月消费限制
+    float dayLimit = 0.0; // 每日消费限制
     for (GroupMoneyLimitation *range in rules.groupMoneyLimitationList) {
         if ([Yodo1AntiAddictionUtils age:user.age inRange:range.ageRange]) {
             moneyLimit = range.monthLimit / 100;
@@ -73,8 +67,14 @@
     
     NSString* holidayTimeSt = [NSString stringWithFormat:@"%.1f",holidayTime / 3600];
     NSString* regularTimeSt = [NSString stringWithFormat:@"%.1f",regularTime / 3600];
+    if ([holidayTimeSt isEqualToString:@"0.0"]) {
+        holidayTimeSt = @"0";
+    }
+    if ([regularTimeSt isEqualToString:@"0.0"]) {
+        regularTimeSt = @"0";
+    }
     
-    NSString *content = [NSString stringWithFormat:@"工作日：可玩时段 %@，每天最多可玩%@小时\n节假日：可玩时段 %@，每天最多可玩%@小时\n单笔金额不可超过%@元，每月累计不可超过%@元。", regularRange, regularTimeSt, regularRange, holidayTimeSt, @(dayLimit), @(moneyLimit)];
+    NSString *content = [NSString stringWithFormat:@"工作日：可玩时段 %@，每天最多可玩%@小时\n节假日：可玩时段 %@，每天最多可玩%@小时\n单笔金额不可超过%.1f元，每月累计不可超过%.1f元。", regularRange, regularTimeSt, regularRange, holidayTimeSt, dayLimit, moneyLimit];
     _contentLabel.text = content;
 }
 
