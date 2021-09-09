@@ -47,7 +47,7 @@
 #import "Yodo1Model.h"
 
 NSString* const kFacebookAppId      = @"FacebookAppId";
-NSString* const kYodo1ChannelId     = @"AppStore";
+NSString* const kYodo1ChannelId     = @"appstore";
 
 NSString* const kSoomlaAppKey       = @"SoomlaAppKey";
 
@@ -76,7 +76,7 @@ static NSString* __kAppKey = @"";
     isInitialized = true;
     
     //init online parameter
-    [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"AppStore"];
+    [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"appstore"];
     
 #ifdef YODO1_SOOMLA
     NSString *adQualityAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kSoomlaAppKey];
