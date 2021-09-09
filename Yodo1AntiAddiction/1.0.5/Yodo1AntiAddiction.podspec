@@ -42,8 +42,8 @@ TODO: Add long description of the pod here.
   s.libraries = 'sqlite3', 'z'
   s.compiler_flags = '-Dunix'
 
-  s.dependency 'Yodo1OnlineParameter','6.0.0'
-  s.dependency 'Yodo1UCenter','6.0.0'
+  s.dependency 'Yodo1OnlineParameter'
+  s.dependency 'Yodo1UCenter'
   s.dependency 'FMDB'
   s.dependency 'Masonry'
   s.dependency 'Toast'
