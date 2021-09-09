@@ -97,7 +97,7 @@
     NSMutableURLRequest *request = [_manager.requestSerializer requestWithMethod:method URLString:[[NSURL URLWithString:URLString relativeToURL:_manager.baseURL] absoluteString] parameters:parameters error:&serializationError];
     
     [request setValue:[Yd1OnlineParameter shared].appKey forHTTPHeaderField:@"game-id"];
-    [request setValue:[Yd1OnlineParameter shared].channelId forHTTPHeaderField:@"channel-id"];
+    [request setValue:[[Yd1OnlineParameter shared].channelId lowercaseString] forHTTPHeaderField:@"channel-id"];
     [request setValue:[[Yodo1AntiAddictionHelper shared] getSdkVersion] forHTTPHeaderField:@"sdk-version"];
     [request setValue:[Yodo1Tool shared].keychainDeviceId forHTTPHeaderField:@"device-id"];
     [request setValue:[Yodo1Tool shared].appVersion forHTTPHeaderField:@"game-version"];
