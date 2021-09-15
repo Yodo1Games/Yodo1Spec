@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GDTBaseAdNetworkAdapterProtocol.h"
+#import "GDTServerSideVerificationOptions.h"
 
 @protocol GDTRewardVideoAdNetworkConnectorProtocol;
 
@@ -15,10 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol GDTRewardVideoAdNetworkAdapterProtocol <GDTBaseAdNetworkAdapterProtocol>
 
-@optional
-@property (nonatomic) BOOL videoMuted;
-
 - (void)loadAd;
+
+@optional
+
+@property (nonatomic, strong) GDTServerSideVerificationOptions *serverSideVerificationOptions;
+
+@property (nonatomic) BOOL videoMuted;
 
 - (BOOL)showAdFromRootViewController:(UIViewController *)viewController;
 
