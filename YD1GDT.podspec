@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1GDT'
-    s.version          = '6.0.0.1'
+    s.version          = '6.0.1'
     s.summary          = '4.13.10 优汇量统计版本'
 
     s.description      = <<-DESC
@@ -71,6 +71,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','6.0.0'
-    # s.dependency 'GDTMobSDK', '4.13.01'
-    s.dependency 'Yodo1AdsGDT','5.0.1'
+    s.dependency 'GDTMobSDK', '4.13.10'
+    # s.dependency 'Yodo1AdsGDT','5.0.1'
 end
