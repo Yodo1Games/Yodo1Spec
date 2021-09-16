@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '6.0.1.2'
+    s.version          = '6.0.1.3'
     s.summary          = '    
+                            添加优汇量统计测试
                             最低支持iOS 10.0
                             广告:v3.16.0
                             大更改
@@ -454,7 +455,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1GDT','6.0.0'
+        ss.dependency 'YD1GDT','6.0.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
@@ -879,7 +880,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxGDT','6.0.0'
+        ss.dependency 'ApplovinMaxGDT','6.0.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
