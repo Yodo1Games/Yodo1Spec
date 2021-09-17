@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1MyTarget'
-    s.version          = '6.0.1'
+    s.version          = '6.0.2'
     s.summary          = 'v5.14.0'
 
     s.description      = <<-DESC
