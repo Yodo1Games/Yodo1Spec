@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxFyber'
-    s.version          = '6.0.0'
+    s.version          = '6.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Fyber_Marketplace_SDK','7.8.7'
-    s.dependency 'YD1ApplovinMax', '6.0.0'
+    s.dependency 'Fyber_Marketplace_SDK','7.8.9'
+    s.dependency 'YD1ApplovinMax', '6.0.1'
 end
