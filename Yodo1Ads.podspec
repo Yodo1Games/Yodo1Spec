@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '6.0.2.3'
+    s.version          = '6.0.2.4'
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
