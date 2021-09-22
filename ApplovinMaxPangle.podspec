@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxPangle'
-    s.version          = '6.0.0'
+    s.version          = '6.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -71,9 +71,12 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-
+    
+    s.dependency 'Ads-CN/Domestic','3.9.0.4'
+    s.dependency 'Ads-CN/International','3.9.0.4'
+    s.dependency 'Ads-CN','3.9.0.4'
     # s.dependency 'Yodo1AdsPangle', '5.0.2'
-    s.dependency 'Ads-Global', '3.8.1.0'
-    s.dependency 'Ads-Global/Domestic', '3.8.1.0'
-    s.dependency 'YD1ApplovinMax', '6.0.0'
+    # s.dependency 'Ads-Global', '3.8.1.0'
+    # s.dependency 'Ads-Global/Domestic', '3.8.1.0'
+    s.dependency 'YD1ApplovinMax', '6.0.1'
 end
