@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YD1Admob', '6.0.0'
-    s.dependency 'AppLovinSDK', '10.3.4'
+    s.dependency 'YD1Admob', '6.0.1'
+    s.dependency 'AppLovinSDK', '10.3.5'
 end
