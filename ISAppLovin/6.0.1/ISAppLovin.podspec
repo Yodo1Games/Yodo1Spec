@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'AppLovinSDK','10.3.5'
-    s.dependency 'YD1IronSource', '6.0.1'
+    s.dependency 'YD1IronSource', '6.0.2'
 end
