@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
     # s.dependency 'myTargetSDK','5.12.1'
     s.dependency 'Yodo1AdsMyTarget','6.0.0'
-    s.dependency 'YD1IronSource', '6.0.1'
+    s.dependency 'YD1IronSource', '6.0.2'
 end
