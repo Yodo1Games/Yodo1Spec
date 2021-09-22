@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISMyTarget'
-    s.version          = '6.0.1'
+    s.version          = '6.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -71,6 +71,7 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-    s.dependency 'myTargetSDK','5.12.1'
-    s.dependency 'YD1IronSource', '6.0.0'
+    # s.dependency 'myTargetSDK','5.12.1'
+    s.dependency 'Yodo1AdsMyTarget','6.0.0'
+    s.dependency 'YD1IronSource', '6.0.1'
 end
