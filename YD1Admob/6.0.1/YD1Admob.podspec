@@ -71,5 +71,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','6.0.0'
-    s.dependency 'Google-Mobile-Ads-SDK', '8.10.0'
+    s.dependency 'Google-Mobile-Ads-SDK', '8.11.0'
 end
