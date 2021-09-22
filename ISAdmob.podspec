@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Google-Mobile-Ads-SDK','8.10.0'
+    s.dependency 'Google-Mobile-Ads-SDK','8.11.0'
     s.dependency 'YD1IronSource', '6.0.2'
 end
