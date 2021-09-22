@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'Yodo1AdsFacebook','5.0.4'
     # s.dependency 'FBAudienceNetwork','6.5.1'
-    s.dependency 'YD1IronSource', '6.0.1'
+    s.dependency 'YD1IronSource', '6.0.2'
 end
