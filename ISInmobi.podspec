@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISInmobi'
-    s.version          = '6.0.0'
+    s.version          = '6.0.1'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdsInmobi','6.0.0'
-    s.dependency 'YD1IronSource', '6.0.0'
+    s.dependency 'Yodo1AdsInmobi','6.0.1'
+    s.dependency 'YD1IronSource', '6.0.1'
 end

@@ -9,25 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "IronSource/ISBaseAdapter+Internal.h"
 
-static NSString * const InMobiAdapterVersion = @"4.3.8";
-static NSString * GitHash = @"89cd2cd22";
+static NSString * const InMobiAdapterVersion = @"4.3.12";
+static NSString * GitHash = @"917b282c8";
  
-//System Frameworks For Inmobi Adapter
+//System Frameworks For InMobi Adapter
 
-@import AdSupport;
-@import AudioToolbox;
-@import AVFoundation;
-@import CoreTelephony;
-@import CoreLocation;
-@import Foundation;
-@import MediaPlayer;
-@import MessageUI;
-@import StoreKit;
-@import Social;
-@import SystemConfiguration;
-@import Security;
-@import SafariServices;
-@import UIKit;
+@import WebKit;
 
 @interface ISInMobiAdapter : ISBaseAdapter
 
