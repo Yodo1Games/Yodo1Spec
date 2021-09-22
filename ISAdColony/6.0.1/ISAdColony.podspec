@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'AdColony','4.7.2'
-    s.dependency 'YD1IronSource', '6.0.1'
+    s.dependency 'YD1IronSource', '6.0.2'
 end
