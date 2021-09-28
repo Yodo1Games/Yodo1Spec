@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '0.0.1'#'6.0.3'
+    s.version          = '0.0.2'#'6.0.3'
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -790,7 +790,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxVungle','6.0.4'
+        ss.dependency 'ApplovinMaxVungle','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
