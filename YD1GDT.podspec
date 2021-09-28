@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1GDT'
-    s.version          = '6.0.2'
-    s.summary          = '4.13.10 优汇量统计版本【6.0.1】，6.0.2 是正常版本'
+    s.version          = '6.0.3'
+    s.summary          = '4.13.10 优汇量统计版本【6.0.1】，6.0.2 是正常版本
+                            4.13.11 优汇量统计版本【6.0.3】'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
