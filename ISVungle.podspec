@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISVungle'
-    s.version          = '6.0.2'
+    s.version          = '6.0.3'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
 
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.0'
 
     # s.source_files = [ "*.h" ]
 
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'VungleSDK-iOS','6.10.2'
-    s.dependency 'YD1IronSource', '6.0.2'
+    s.dependency 'VungleSDK-iOS','6.10.3'
+    s.dependency 'YD1IronSource', '6.0.3'
 end
