@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISAdColony'
-    s.version          = '6.0.1'
+    s.version          = '6.0.2'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'AdColony','4.7.2'
-    s.dependency 'YD1IronSource', '6.0.2'
+    s.dependency 'YD1IronSource', '6.0.3'
 end
