@@ -1,8 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1GDT'
-    s.version          = '6.0.3'
+    s.version          = '6.0.4'
     s.summary          = '4.13.10 优汇量统计版本【6.0.1】，6.0.2 是正常版本
-                            4.13.11 优汇量统计版本【6.0.3】'
+                            4.13.11 优汇量统计版本【6.0.3】
+                            new:4.13.20 '
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -72,6 +73,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','6.0.0'
-    s.dependency 'GDTMobSDK', '4.13.11'
+    s.dependency 'GDTMobSDK', '4.13.20'
     # s.dependency 'Yodo1AdsGDT','5.0.1'
 end
