@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1Baidu'
-    s.version          = '6.0.1'
-    s.summary          = 'v4.82'
+    s.version          = '6.0.2'
+    s.summary          = 'v4.81'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -71,5 +71,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1AdvertSDK','6.0.0'
-    s.dependency 'BaiduMobAdSDK', '4.82'
+    s.dependency 'BaiduMobAdSDK', '4.81'
 end
