@@ -54,7 +54,10 @@
  *The prelaod Manager for Preload flow.
 */
 @property (nonatomic, strong, readonly) IMBannerPreloadManager* preloadManager;
-
+/**
+ * contentUrl for OMSDK
+ */
+@property (nonatomic, strong) NSString* contentUrl;
 /**
  * Initializes an IMBanner instance with the specified placementId.
  * @param frame CGRect for this view, according to the requested size.

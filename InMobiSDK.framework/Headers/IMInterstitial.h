@@ -86,7 +86,10 @@
  *The prelaod Manager for Preload flow.
 */
 @property (nonatomic, strong, readonly) IMInterstitialPreloadManager* preloadManager;
-
+/**
+ * contentUrl for OMSDK
+ */
+@property (nonatomic, strong) NSString* contentUrl;
 /**
  * init and new methods are unavailable for this class
  * use "initWithPlacementId:" or "initWithPlacementId:delegate:" method.

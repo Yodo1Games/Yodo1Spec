@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdsInmobi'
-    s.version          = '6.0.1'
-    s.summary          = 'v9.2.1 '
+    s.version          = '6.0.2'
+    s.summary          = 'v10.0.0 '
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
 
     s.public_header_files = [ "*.framework/Headers/*.h" ]
 
-    # s.vendored_libraries = [ "*.a" ]
+    s.vendored_libraries = ["InMobiSDK.framework/Frameworks/*.a"]
     
     # s.resources = ["*.bundle"]
 

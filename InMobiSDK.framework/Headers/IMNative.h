@@ -70,7 +70,10 @@
  * A unique identifier for the creative.
  */
 @property (nonatomic, strong, readonly) NSString* creativeId;
-
+/**
+ * contentUrl for OMSDK
+ */
+@property (nonatomic, strong) NSString* contentUrl;
 /**
  * init and new methods are unavailable for this class
  * use "initWithPlacementId:" or "initWithPlacementId:delegate:" method.
