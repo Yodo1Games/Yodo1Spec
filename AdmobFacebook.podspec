@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'AdmobFacebook'
-    s.version          = '6.0.1'
-    s.summary          = 'v6.7.0 '
+    s.version          = '6.0.2'
+    s.summary          = 'v6.8.0 '
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdsFacebook','5.0.4'
+    s.dependency 'Yodo1AdsFacebook','5.0.5'
     # s.dependency 'FBAudienceNetwork','6.5.1'
-    s.dependency 'YD1Admob', '6.0.1'
+    s.dependency 'YD1Admob', '6.0.2'
 end
