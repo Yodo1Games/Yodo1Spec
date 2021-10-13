@@ -110,6 +110,13 @@ FB_CLASS_EXPORT FB_SUBCLASSING_RESTRICTED @interface FBDynamicBannerAd : NSObjec
  */
 - (void)removeAd;
 
+/**
+    This function handles frame issues occuring when the view is layed out. It should be called on the lifecycle event
+ 'viewDidLayoutSubviews'.
+ @param rootViewController The view controller that will be used to present the dynamic banner ad.
+ */
+- (void)viewDidLayoutSubviews:(nullable UIViewController *)rootViewController;
+
 @end
 
 /**
@@ -150,6 +157,14 @@ FB_CLASS_EXPORT FB_SUBCLASSING_RESTRICTED @interface FBDynamicBannerAd : NSObjec
  @param dynamicBannerAd An FBDynamicBannerAd object sending the message.
  */
 - (void)dynamicBannerAdWillLogImpression:(FBDynamicBannerAd *)dynamicBannerAd;
+
+/**
+  Sent when an FBDynamicBannerAd failes to load a fullscreen view of an ad.
+
+ @param dynamicBannerAd An FBDynamicBannerAd object sending the message.
+ @param error An error object containing details of the error.
+ */
+- (void)dynamicBannerAd:(FBDynamicBannerAd *)dynamicBannerAd fullscreenDidFailWithError:(NSError *)error;
 
 /**
  When an ad is clicked, the modal view will be presented. And when the user finishes the

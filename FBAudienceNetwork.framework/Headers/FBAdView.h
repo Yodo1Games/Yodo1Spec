@@ -182,6 +182,15 @@ FB_CLASS_EXPORT
 - (void)adView:(FBAdView *)controller animateToPosition:(CGPoint)position withDuration:(CGFloat)duration;
 
 /**
+  Sent after an FBAdView fails to load the fullscreen view of an ad.
+
+ @param adView An FBAdView object sending the message.
+ @param error An error object containing details of the error.
+ */
+
+- (void)adView:(FBAdView *)adView fullscreenDidFailWithError:(NSError *)error;
+
+/**
   Asks the delegate for a view controller to present modal content, such as the in-app
  browser that can appear when an ad is clicked.
 
