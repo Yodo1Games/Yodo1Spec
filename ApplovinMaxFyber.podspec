@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Fyber_Marketplace_SDK','7.9.0'
-    s.dependency 'YD1ApplovinMax', '6.0.1'
+    s.dependency 'YD1ApplovinMax', '6.0.2'
 end
