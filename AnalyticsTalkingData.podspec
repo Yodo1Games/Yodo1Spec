@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsTalkingData'
-    s.version          = '6.0.0'
-    s.summary          = 'v4.0.63'
+    s.version          = '6.0.1'
+    s.summary          = 'v4.0.64'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
