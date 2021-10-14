@@ -11,6 +11,7 @@
 #import "SMConstant.h"
 
 FOUNDATION_EXPORT NSString * const kYodo1QQAppId;
+FOUNDATION_EXPORT NSString * const kYodo1QQUniversalLink;
 FOUNDATION_EXPORT NSString * const kYodo1WechatAppId;
 FOUNDATION_EXPORT NSString * const kYodo1WechatUniversalLink;
 FOUNDATION_EXPORT NSString * const kYodo1SinaWeiboAppKey;
