@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISAppLovin'
-    s.version          = '6.0.3'
+    s.version          = '6.0.4'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'AppLovinSDK','10.3.6'
-    s.dependency 'YD1IronSource', '6.0.3'
+    s.dependency 'YD1IronSource', '6.0.4'
 end
