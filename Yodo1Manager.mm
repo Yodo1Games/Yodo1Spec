@@ -105,6 +105,7 @@ static NSString* __kAppKey = @"";
     //初始化sns
     NSMutableDictionary* snsPlugn = [NSMutableDictionary dictionary];
     NSString* qqAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1QQAppId];
+    NSString* qqUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1QQUniversalLink];
     NSString* wechatAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatAppId];
     NSString* wechatUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatUniversalLink];
     NSString* sinaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1SinaWeiboAppKey];
@@ -113,6 +114,9 @@ static NSString* __kAppKey = @"";
     NSString* twitterConsumerSecret = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1TwitterConsumerSecret];
     if (qqAppId) {
         [snsPlugn setObject:qqAppId forKey:kYodo1QQAppId];
+    }
+    if (qqUniversalLink) {
+        [snsPlugn setObject:qqUniversalLink forKey:kYodo1QQUniversalLink];
     }
     if (wechatAppId) {
         [snsPlugn setObject:wechatAppId forKey:kYodo1WechatAppId];
