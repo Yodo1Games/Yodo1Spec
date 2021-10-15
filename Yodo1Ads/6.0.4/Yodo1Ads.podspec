@@ -419,7 +419,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1Pangle','6.0.2'
+        ss.dependency 'YD1Pangle','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -458,7 +458,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1GDT','6.0.4'
+        ss.dependency 'YD1GDT','6.0.5'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
@@ -484,7 +484,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1Chartboost','6.0.0'
+        ss.dependency 'YD1Chartboost','6.0.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -575,7 +575,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AdmobFacebook','6.0.2'
+        ss.dependency 'AdmobFacebook','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     s.subspec 'Admob_IronSource' do |ss|
@@ -650,7 +650,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AdmobChartboost','6.0.2'
+        ss.dependency 'AdmobChartboost','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -689,7 +689,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AdmobMyTarget','6.0.3'
+        ss.dependency 'AdmobMyTarget','6.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -806,7 +806,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxPangle','6.0.2'
+        ss.dependency 'ApplovinMaxPangle','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -819,7 +819,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxChartboost','6.0.2'
+        ss.dependency 'ApplovinMaxChartboost','6.0.3'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -883,7 +883,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxGDT','6.0.3'
+        ss.dependency 'ApplovinMaxGDT','6.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -1131,7 +1131,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ISPangle','6.0.4'
+        ss.dependency 'ISPangle','6.0.5'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -1144,7 +1144,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ISChartboost','6.0.3'
+        ss.dependency 'ISChartboost','6.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
