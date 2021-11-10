@@ -52,9 +52,9 @@
  */
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "IMInterstitialDelegate.h"
-#import "IMCoreConstants.h"
-#import "IMInterstitialPreloadManager.h"
+#import <InMobiSDK/IMInterstitialDelegate.h>
+#import <InMobiSDK/IMCoreConstants.h>
+#import <InMobiSDK/IMInterstitialPreloadManager.h>
 
 #ifndef INTERSTITIALINCLUDE_H
 #define INTERSTITIALINCLUDE_H

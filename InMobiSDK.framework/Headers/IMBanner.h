@@ -16,9 +16,9 @@
   The code snippet above demonstrates a dead simple integration. Your application code can additionally listen for lifecycle events on the banner ad by implementing the IMBannerDelegate.
  */
 #import <UIKit/UIKit.h>
-#import "IMCommonConstants.h"
-#import "IMBannerDelegate.h"
-#import "IMBannerPreloadManager.h"
+#import <InMobiSDK/IMCommonConstants.h>
+#import <InMobiSDK/IMBannerDelegate.h>
+#import <InMobiSDK/IMBannerPreloadManager.h>
 
 @interface IMBanner : UIView
 /**

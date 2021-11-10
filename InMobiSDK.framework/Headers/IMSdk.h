@@ -15,7 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreLocation/CoreLocation.h>
-#include "IMCommonConstants.h"
+#import <InMobiSDK/IMCommonConstants.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
