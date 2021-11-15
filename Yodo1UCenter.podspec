@@ -76,5 +76,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1ThirdsAnalytics','6.0.1'
+    s.dependency 'ThinkingSDK','2.7.3'
 
 end
