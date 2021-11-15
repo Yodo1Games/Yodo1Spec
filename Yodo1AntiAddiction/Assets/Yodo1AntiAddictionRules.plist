@@ -110,6 +110,13 @@
 		<key>beforeMsg</key>
 		<string>宵禁提醒提前10分钟提醒：</string>
 	</dict>
+	<key>ruleCopywriting</key>
+	<dict>
+		<key>title</key>
+		<string>未成年防沉迷规则</string>
+		<key>describe</key>
+		<string>未成年33343434玩家可游玩时段为\n未成年33343434玩家可游玩时段为</string>
+	</dict>
 	<key>moneyLimitationMsg</key>
 	<string>string</string>
 	<key>guestModeMsg</key>

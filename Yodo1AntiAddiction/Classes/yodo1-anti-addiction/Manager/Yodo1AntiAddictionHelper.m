@@ -133,13 +133,14 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     [[Yd1OnlineParameter shared] initWithAppKey:appKey channelId:channel];
     [Yodo1AntiAddictionDatabase shared];
     [Yodo1AntiAddictionNet manager];
-    
+    [self checkIP:appKey];
     __weak __typeof(self)weakSelf = self;
     // 获取防沉迷规则 获取失败则使用本地默认
     [[Yodo1AntiAddictionRulesManager manager] requestRules:^(id data) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
             [self.delegate onInitFinish:YES message:@"初始化方沉迷系统成功"];
         }
+        [weakSelf checkIP:appKey];
         weakSelf.systemSwitch = [Yodo1AntiAddictionRulesManager manager].currentRules.switchStatus;
         [Yodo1AntiAddictionTimeManager.manager didNeedGetAppTime];
     } failure:^(NSError * error) {
@@ -162,6 +163,43 @@ typedef void (^OnBehaviourCallback)(int code,id response);
         }
     }
     return _version;
+}
+
+- (void)checkIP:(NSString *)gameKey {
+    if (self.isChina) {
+        return;
+    }
+    NSURL* url = [NSURL URLWithString:@"https://ais.yodo1api.com/ais/config/checkIp"];
+    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
+    request.HTTPMethod = @"POST";
+    NSString* timestamp = Yodo1Tool.shared.nowTimeTimestamp;
+    NSString* sign = [Yodo1Tool.shared signMd5String:[NSString stringWithFormat:@"%@yodo1",timestamp]];
+    NSDictionary* param = @{@"game_key":gameKey,
+                            @"timestamp":timestamp,
+                            @"sign":sign};
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:param
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:nil];
+    [request addValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    
+    NSURLSessionDataTask *dataTask = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if (!error) {
+            NSDictionary *responseObject = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
+            if ([[responseObject allKeys]containsObject:@"data"]) {
+                NSDictionary* data = responseObject[@"data"];
+                if ([[data allKeys]containsObject:@"isChina"]) {
+                    self->_isChina = [data[@"isChina"]boolValue];
+                    if (self->_isChina) {
+                        NSLog(@"It's China!");
+                    }
+                }
+            }
+            NSLog(@"responseObject:%@",responseObject);
+        } else {
+            self->_isChina = NO;
+        }
+    }];
+    [dataTask resume];
 }
 
 - (void)startTimer {
@@ -204,6 +242,14 @@ typedef void (^OnBehaviourCallback)(int code,id response);
         success(event);
         return;
     }
+    if (!self.isChineseMainland) {
+        Yodo1AntiAddictionEvent *event = [[Yodo1AntiAddictionEvent alloc] init];
+        event.eventCode = Yodo1AntiAddictionEventCodeNone;
+        event.action = Yodo1AntiAddictionActionResumeGame;
+        success(event);
+        return;
+    }
+    
     _certSucdessfulCallback = success;
     _certFailureCallback = failure;
     
@@ -509,6 +555,16 @@ typedef void (^OnBehaviourCallback)(int code,id response);
             callback(-100,error.localizedDescription);
         }
     }];
+}
+
+- (BOOL)isChineseMainland {
+    if (!self.isChina) {//大陆IP
+        return NO;
+    }
+    if (![Yodo1Tool.shared.language isEqualToString:@"zh-Hans"]) {//简体中文
+        return NO;
+    }
+    return YES;
 }
 
 #pragma mark - 数据库操作

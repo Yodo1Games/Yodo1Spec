@@ -108,5 +108,10 @@
     }
 }
 
+- (BOOL)isChineseMainland
+{
+    return Yodo1AntiAddictionHelper.shared.isChineseMainland;
+}
+
 @end
 

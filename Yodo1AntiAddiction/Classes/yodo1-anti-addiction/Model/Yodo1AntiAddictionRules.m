@@ -56,6 +56,31 @@
 
 @end
 
+@implementation Yodo1AntiRuleCopywriting
+
+- (instancetype)initWithCoder:(NSCoder *)decoder {
+    if (self = [super init]) {
+        _title = [decoder decodeObjectForKey:@"title"];
+        _describe = [decoder decodeObjectForKey:@"describe"];
+    }
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    if (self.title) {
+        [coder encodeObject:self.title forKey:@"title"];
+    }
+    if (self.describe) {
+        [coder encodeObject:self.describe forKey:@"describe"];
+    }
+}
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation GroupAntiPlayingTimeRange
 
 - (instancetype)initWithCoder:(NSCoder *)decoder {
@@ -173,6 +198,8 @@
         _playingTimeMsg = [decoder decodeObjectOfClass:[Yodo1AntiAddictionRuleMsg class] forKey:@"playingTimeMsg"];
         _antiPlayingTimeMsg = [decoder decodeObjectOfClass:[Yodo1AntiAddictionRuleMsg class] forKey:@"antiPlayingTimeMsg"];
         
+        _ruleCopywriting = [decoder decodeObjectOfClass:[Yodo1AntiRuleCopywriting class] forKey:@"ruleCopywriting"];
+        
         _guestModeConfig = [decoder decodeObjectOfClass:[GuestModeConfig class] forKey:@"guestModeConfig"];
         
         _groupAntiPlayingTimeRangeList = [decoder decodeObjectOfClass:[NSArray class] forKey:@"groupAntiPlayingTimeRangeList"];
@@ -198,6 +225,9 @@
     }
     if (self.antiPlayingTimeMsg) {
         [coder encodeObject:self.antiPlayingTimeMsg forKey:@"antiPlayingTimeMsg"];
+    }
+    if (self.ruleCopywriting) {
+        [coder encodeObject:self.ruleCopywriting forKey:@"_ruleCopywriting"];
     }
     if (self.guestModeConfig) {
         [coder encodeObject:self.guestModeConfig forKey:@"guestModeConfig"];

@@ -22,6 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign) BOOL systemSwitch;//在线开关
 @property (nonatomic, assign) BOOL enterGameFlag;//进游戏
 @property (nonatomic, assign) BOOL enterBackground;//进后台
+@property (nonatomic, assign) BOOL isChina;//进后台
 
 + (Yodo1AntiAddictionHelper *)shared;
 
@@ -60,6 +61,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 ///下线行为
 - (void)offline:(OnBehaviourResult)callback;
+
+///判断是否是中国大陆
+- (BOOL)isChineseMainland;
 
 @end
 

@@ -1,7 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AntiAddiction'
-    s.version          = '6.0.0'
-    s.summary          = '防沉迷3.0，修复bug/添加控制游客开关功能/提升版本号'
+    s.version          = '6.0.1'
+    s.summary          = '防沉迷3.0，修复bug/添加控制游客开关功能/提升版本号
+                          修改客户端文案，更新2022年节假日列表'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
                        DESC

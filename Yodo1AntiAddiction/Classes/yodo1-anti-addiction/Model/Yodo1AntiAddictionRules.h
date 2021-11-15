@@ -24,6 +24,14 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+// 防沉迷规则
+@interface Yodo1AntiRuleCopywriting : NSObject<NSSecureCoding>
+
+@property (nonatomic, copy) NSString *title; // 标题
+@property (nonatomic, copy) NSString *describe; // 描述
+
+@end
+
 // 可玩时段
 @interface GroupAntiPlayingTimeRange : NSObject<NSSecureCoding>
 
@@ -69,6 +77,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) Yodo1AntiAddictionRuleMsg *guestModeMsg; // 游客模式提醒消息
 @property(nonatomic, strong) Yodo1AntiAddictionRuleMsg *playingTimeMsg; // 可玩时长提醒消息
 @property (nonatomic, strong) Yodo1AntiAddictionRuleMsg *antiPlayingTimeMsg; // 宵禁提醒消息
+@property (nonatomic, strong) Yodo1AntiRuleCopywriting *ruleCopywriting; // 防沉迷规则描述,标题
 
 @property (nonatomic, strong) GuestModeConfig *guestModeConfig; // 游客模式规则
 

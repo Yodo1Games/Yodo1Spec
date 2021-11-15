@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *contentHeight;
 @property (weak, nonatomic) IBOutlet UILabel *contentLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titile;
 
 @end
 
@@ -74,8 +75,13 @@
         regularTimeSt = @"0";
     }
     
-    NSString *content = [NSString stringWithFormat:@"工作日：可玩时段 %@，每天最多可玩%@小时\n节假日：可玩时段 %@，每天最多可玩%@小时\n单笔金额不可超过%.1f元，每月累计不可超过%.1f元。", regularRange, regularTimeSt, regularRange, holidayTimeSt, dayLimit, moneyLimit];
+    NSString* paymentLimit = [NSString stringWithFormat:@"单笔金额不可超过%.1f元，每月累计不可超过%.1f元。",dayLimit,moneyLimit];
+    if (user.certificationStatus == UserCertificationStatusAault) {
+        paymentLimit = @"";//成年人不显示
+    }
+    NSString *content = [NSString stringWithFormat:@"%@\n%@", rules.ruleCopywriting.describe,paymentLimit];
     _contentLabel.text = content;
+    _titile.text = rules.ruleCopywriting.title;
 }
 
 - (void)viewWillLayoutSubviews {

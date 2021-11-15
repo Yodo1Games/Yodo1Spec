@@ -134,6 +134,9 @@ typedef enum: NSInteger {
 ///下线行为
 - (void)offline:(OnBehaviourResult)callback;
 
+///判断是否是中国大陆
+- (BOOL)isChineseMainland;
+
 @end
 
 

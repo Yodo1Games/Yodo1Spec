@@ -313,7 +313,7 @@ extern "C" {
     bool UnityIsChineseMainland()
     {
         NSLog(@"%@UnityCall %s",kLog_TAG, __FUNCTION__);
-        return false;
+        return Yodo1AntiAddiction.shared.isChineseMainland;
     }
 #ifdef __cplusplus
 }
