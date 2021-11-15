@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxGDT'
-    s.version          = '6.0.4.1'
+    s.version          = '6.0.5'
     s.summary          = 'v 优汇量统计版本'
 
     s.description      = <<-DESC
@@ -71,7 +71,7 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-    s.dependency 'AdsGDT','1.0.0'
-    # s.dependency 'GDTMobSDK','4.13.22'
-    s.dependency 'YD1ApplovinMax', '6.0.2'
+    # s.dependency 'AdsGDT','1.0.0'
+    s.dependency 'GDTMobSDK', '4.13.27'
+    s.dependency 'YD1ApplovinMax', '6.0.3'
 end
