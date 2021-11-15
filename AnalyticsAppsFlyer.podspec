@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsAppsFlyer'
-    s.version          = '6.0.1'
+    s.version          = '6.0.2'
     s.summary          = 'v6.3.2 [库的格式改变],更新到v6.4.0'
 
     s.description      = <<-DESC
@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','6.0.0'
-    s.dependency 'AppsFlyerFramework', '6.4.0'
+    s.dependency 'Yodo1ThirdsAnalytics','6.0.1'
+    s.dependency 'AppsFlyerFramework', '6.4.2'
 
 end
