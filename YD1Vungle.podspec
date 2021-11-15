@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1Vungle'
-    s.version          = '6.0.4'
+    s.version          = '6.0.5'
     s.summary          = 'v6.10.3'
 
     s.description      = <<-DESC
@@ -70,6 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','6.0.0'
+    s.dependency 'Yodo1AdvertSDK','6.0.1'
     s.dependency 'VungleSDK-iOS', '6.10.3'
 end
