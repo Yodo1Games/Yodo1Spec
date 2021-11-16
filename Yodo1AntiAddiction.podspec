@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AntiAddiction'
-    s.version          = '1.0.5'
-    s.summary          = '防沉迷3.0，修复bug/添加控制游客开关功能'
+    s.version          = '1.0.6'
+    s.summary          = '防沉迷3.0，修复bug/添加控制游客开关功能/指定版本号'
   s.description      = <<-DESC
 TODO: Add long description of the pod here.
                        DESC
@@ -42,8 +42,8 @@ TODO: Add long description of the pod here.
   s.libraries = 'sqlite3', 'z'
   s.compiler_flags = '-Dunix'
 
-  s.dependency 'Yodo1OnlineParameter'
-  s.dependency 'Yodo1UCenter'
+  s.dependency 'Yodo1OnlineParameter','6.0.0'
+  s.dependency 'Yodo1UCenter','6.0.0'
   s.dependency 'FMDB'
   s.dependency 'Masonry'
   s.dependency 'Toast'
