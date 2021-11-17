@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Fyber_Marketplace_SDK','8.1.1'
+    s.dependency 'Fyber_Marketplace_SDK','8.1.0'
     s.dependency 'YD1IronSource', '6.0.5'
 end
