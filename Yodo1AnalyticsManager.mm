@@ -42,6 +42,7 @@
 @implementation Yodo1AnalyticsManager
 
 static BOOL _enable = NO;
+static BOOL _bInit_ = NO;
 
 +(BOOL)isEnable {
     return _enable;
@@ -77,6 +78,10 @@ static BOOL _enable = NO;
 
 - (void)initializeAnalyticsWithConfig:(AnalyticsInitConfig*)initConfig  
 {
+    if (_bInit_) {
+        return;
+    }
+    _bInit_ = YES;
     NSString* umengEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchUmeng" defaultValue:@"on"];
     if ([umengEvent isEqualToString:@"off"]) {//默认是开着
         bUmengOpen = NO;
