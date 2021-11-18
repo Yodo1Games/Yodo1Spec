@@ -32,10 +32,6 @@
 #import "Yd1UCenterManager.h"
 #endif
 
-// #ifdef YODO1_FACEBOOK_ANALYTICS
-// #import <FBSDKCoreKit/FBSDKCoreKit.h>
-// #endif
-
 #ifdef YODO1_SOOMLA
 #import "IronSourceAdQuality.h"
 #endif
@@ -83,16 +79,10 @@ static NSString* __kAppKey = @"";
     ISAdQualityConfig *adQualityConfig = [ISAdQualityConfig config];
     adQualityConfig.userId = Yodo1Tool.shared.keychainDeviceId;
 #ifdef DEBUG
-//    adQualityConfig.testMode = YES;
     adQualityConfig.logLevel = IS_AD_QUALITY_LOG_LEVEL_INFO;
 #endif
     [[IronSourceAdQuality getInstance] initializeWithAppKey:adQualityAppKey
                                                   andConfig:adQualityConfig];
-#endif
-
-#ifndef UNITY_PROJECT
-    //初始化广告，在线参数
-    [Yodo1Ads initWithAppKey:__kAppKey];
 #endif
     
     kYodo1Config = sdkConfig;
@@ -137,34 +127,7 @@ static NSString* __kAppKey = @"";
     [[SNSManager sharedInstance] initSNSPlugn:snsPlugn];
     
 #endif
-
     
-// #ifdef YODO1_FACEBOOK_ANALYTICS
-//     //初始化Facebook（启动统计激活）
-//     if (![Yodo1Ads isUserConsent]) {
-//         [FBSDKSettings setAutoInitEnabled:YES];
-//         [FBSDKSettings setAutoLogAppEventsEnabled:YES];
-//         [FBSDKSettings setLimitEventAndDataUsage:NO];
-//         [FBSDKAppEvents activateApp];
-//     } else {
-//         [FBSDKSettings setAutoInitEnabled:NO];
-//         [FBSDKSettings setAutoLogAppEventsEnabled:NO];
-//         [FBSDKSettings setLimitEventAndDataUsage:YES];
-//     }
-    
-//     NSString* facebookAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kFacebookAppId];
-//     if ([facebookAppId length] > 0) {
-//         [FBSDKSettings setAppID:facebookAppId];
-//     }
-    
-// #endif
-    
-#ifdef YODO1_UCCENTER
-    [Yd1OnlineParameter.shared cachedCompletionHandler:^{
-        YD1LOG(@"Online Parameter is Success!");
-        NSLog(@"%@",Yd1UCenterManager.shared);
-    }];
-#endif
 }
 
 + (NSDictionary*)config {
@@ -202,6 +165,10 @@ static NSString* __kAppKey = @"";
 
 + (void)onlineParameterPaNotifi:(NSNotification *)notif {
 
+#ifndef UNITY_PROJECT
+    [Yodo1Ads initWithAppKey:__kAppKey];
+#endif
+    
     [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
 
 #ifdef ANTI_ADDICTION
