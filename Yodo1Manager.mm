@@ -201,16 +201,9 @@ static NSString* __kAppKey = @"";
 
 
 + (void)onlineParameterPaNotifi:(NSNotification *)notif {
-#ifdef YODO1_ANALYTICS
-    AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
-    config.gaCustomDimensions01 = kYodo1Config.gaCustomDimensions01;
-    config.gaCustomDimensions02 = kYodo1Config.gaCustomDimensions02;
-    config.gaCustomDimensions03 = kYodo1Config.gaCustomDimensions03;
-    config.gaResourceCurrencies = kYodo1Config.gaResourceCurrencies;
-    config.gaResourceItemTypes = kYodo1Config.gaResourceItemTypes;
-    config.appsflyerCustomUserId = kYodo1Config.appsflyerCustomUserId;
-    [[Yodo1AnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
-#endif
+
+    [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
+
 #ifdef ANTI_ADDICTION
     [Yodo1RealNameManager.shared realNameConfig];
 #endif
@@ -240,6 +233,19 @@ static NSString* __kAppKey = @"";
 #endif
 }
 
+- (void)analyticInit
+{
+#ifdef YODO1_ANALYTICS
+    AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
+    config.gaCustomDimensions01 = kYodo1Config.gaCustomDimensions01;
+    config.gaCustomDimensions02 = kYodo1Config.gaCustomDimensions02;
+    config.gaCustomDimensions03 = kYodo1Config.gaCustomDimensions03;
+    config.gaResourceCurrencies = kYodo1Config.gaResourceCurrencies;
+    config.gaResourceItemTypes = kYodo1Config.gaResourceItemTypes;
+    config.appsflyerCustomUserId = kYodo1Config.appsflyerCustomUserId;
+    [[Yodo1AnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
+#endif
+}
 
 - (void)dealloc {
 #ifdef YODO1_ANALYTICS
