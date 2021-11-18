@@ -71,6 +71,10 @@ static NSString* __kAppKey = @"";
     __kAppKey = sdkConfig.appKey;
     isInitialized = true;
     
+#ifdef YODO1_ADS
+    [Yodo1Ads initWithAppKey:__kAppKey];
+#endif
+    
 #ifndef YODO1_ADS
     [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"AppStore"];
 #endif
@@ -87,10 +91,6 @@ static NSString* __kAppKey = @"";
 #endif
     
     kYodo1Config = sdkConfig;
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(onlineParameterPaNotifi:)
-                                                 name:kYodo1OnlineConfigFinishedNotification
-                                               object:nil];
 
 #ifdef YODO1_SNS
     //初始化sns
@@ -129,7 +129,24 @@ static NSString* __kAppKey = @"";
     
 #endif
     
+    [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
+    
 }
+
+- (void)analyticInit
+{
+#ifdef YODO1_ANALYTICS
+    AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
+    config.gaCustomDimensions01 = kYodo1Config.gaCustomDimensions01;
+    config.gaCustomDimensions02 = kYodo1Config.gaCustomDimensions02;
+    config.gaCustomDimensions03 = kYodo1Config.gaCustomDimensions03;
+    config.gaResourceCurrencies = kYodo1Config.gaResourceCurrencies;
+    config.gaResourceItemTypes = kYodo1Config.gaResourceItemTypes;
+    config.appsflyerCustomUserId = kYodo1Config.appsflyerCustomUserId;
+    [[Yodo1AnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
+#endif
+}
+
 
 + (NSDictionary*)config {
     NSBundle *bundle = [[NSBundle alloc] initWithPath:[[NSBundle mainBundle]
@@ -161,54 +178,6 @@ static NSString* __kAppKey = @"";
         _publishVersion = (NSString*)[_config objectForKey:@"PublishVersion"];
     }
     return _publishVersion;
-}
-
-
-+ (void)onlineParameterPaNotifi:(NSNotification *)notif {
-    
-    [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
-
-#ifdef ANTI_ADDICTION
-    [Yodo1RealNameManager.shared realNameConfig];
-#endif
-    
-#ifndef YODO1_ADS
-    NSString* buglyAppId = [Yd1OnlineParameter.shared stringConfigWithKey:@"BuglyAnalytic_AppId" defaultValue:@""];
-    if (buglyAppId.length > 0 && [Yodo1Ads isUserConsent] && ![Yodo1Ads isTagForUnderAgeOfConsent]) {
-        BuglyConfig* buglyConfig = [[BuglyConfig alloc]init];
-#ifdef DEBUG
-        buglyConfig.debugMode = YES;
-#endif
-        buglyConfig.channel = @"appstore";
-        
-        [Bugly startWithAppId:buglyAppId config:buglyConfig];
-        
-        NSString* sdkInfo = [NSString stringWithFormat:@"%@,%@",[Yodo1Manager publishType],[Yodo1Manager publishVersion]];
-        
-        [Bugly setUserIdentifier:Bugly.buglyDeviceId];
-        [Bugly setUserValue:@"appstore" forKey:@"ChannelCode"];
-        [Bugly setUserValue:__kAppKey forKey:@"GameKey"];
-        [Bugly setUserValue:[Yodo1Commons idfaString] forKey:@"DeviceID"];
-        [Bugly setUserValue:sdkInfo forKey:@"SdkInfo"];
-        [Bugly setUserValue:[Yodo1Commons idfaString] forKey:@"IDFA"];
-        [Bugly setUserValue:[Yodo1Commons idfvString] forKey:@"IDFV"];
-        [Bugly setUserValue:[Yodo1Commons territory] forKey:@"CountryCode"];
-    }
-#endif
-}
-
-- (void)analyticInit
-{
-#ifdef YODO1_ANALYTICS
-    AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
-    config.gaCustomDimensions01 = kYodo1Config.gaCustomDimensions01;
-    config.gaCustomDimensions02 = kYodo1Config.gaCustomDimensions02;
-    config.gaCustomDimensions03 = kYodo1Config.gaCustomDimensions03;
-    config.gaResourceCurrencies = kYodo1Config.gaResourceCurrencies;
-    config.gaResourceItemTypes = kYodo1Config.gaResourceItemTypes;
-    config.appsflyerCustomUserId = kYodo1Config.appsflyerCustomUserId;
-    [[Yodo1AnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
-#endif
 }
 
 - (void)dealloc {
