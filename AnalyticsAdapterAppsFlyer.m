@@ -13,6 +13,7 @@
 #import <AdSupport/AdSupport.h>
 
 #import "Yd1OnlineParameter.h"
+#import "ThinkingAnalyticsSDK.h"
 
 NSString* const YODO1_ANALYTICS_APPSFLYER_DEV_KEY       = @"AppsFlyerDevKey";
 NSString* const YODO1_ANALYTICS_APPSFLYER_APPLE_APPID   = @"AppleAppId";
@@ -47,6 +48,8 @@ NSString* const YODO1_ANALYTICS_APPSFLYER_APPLE_APPID   = @"AppleAppId";
 #ifdef DEBUG
             AppsFlyerLib.shared.isDebug = YES;
 #endif
+            
+            [AppsFlyerLib.shared setAdditionalData:@{@"ta_distinct_id":ThinkingAnalyticsSDK.sharedInstance.getDistinctId}];
             
             if (@available(iOS 14, *)) {
                 NSString* timeInterval = [Yd1OnlineParameter.shared stringConfigWithKey:@"AF_waitForATT_TimeoutInterval" defaultValue:@"60"];
