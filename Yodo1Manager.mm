@@ -71,8 +71,9 @@ static NSString* __kAppKey = @"";
     __kAppKey = sdkConfig.appKey;
     isInitialized = true;
     
-    //init online parameter
+#ifndef YODO1_ADS
     [Yd1OnlineParameter.shared initWithAppKey:__kAppKey channelId:@"AppStore"];
+#endif
     
 #ifdef YODO1_SOOMLA
     NSString *adQualityAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kSoomlaAppKey];
@@ -164,10 +165,6 @@ static NSString* __kAppKey = @"";
 
 
 + (void)onlineParameterPaNotifi:(NSNotification *)notif {
-
-#ifndef UNITY_PROJECT
-    [Yodo1Ads initWithAppKey:__kAppKey];
-#endif
     
     [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
 
