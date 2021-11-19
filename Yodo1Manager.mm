@@ -133,7 +133,7 @@ static NSString* __kAppKey = @"";
     
 }
 
-- (void)analyticInit
++ (void)analyticInit
 {
 #ifdef YODO1_ANALYTICS
     AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
