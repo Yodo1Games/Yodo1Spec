@@ -129,7 +129,7 @@ static NSString* __kAppKey = @"";
     
 #endif
     
-    [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
+    // [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
     
 }
 
