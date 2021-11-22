@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '0.0.11'#'6.0.5'#
+    s.version          = '0.0.12'#'6.0.5'#
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -85,6 +85,6 @@ Pod::Spec.new do |s|
 
         s.dependency 'Yodo1AdvertSDK','6.0.1'
         s.dependency 'Bugly','2.5.90'
-        s.dependency 'Yodo1Analytics','6.0.1'
+        # s.dependency 'Yodo1Analytics','6.0.1'
 
 end
