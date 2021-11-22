@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '0.0.10'#'6.0.5'#
+    s.version          = '0.0.11'#'6.0.5'#
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -78,7 +78,7 @@ Pod::Spec.new do |s|
         'CloudKit',
         'GameKit']
 
-        ss.libraries = [
+        s.libraries = [
         'sqlite3.0',
         'c++',
         'z']
