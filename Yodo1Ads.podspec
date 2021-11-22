@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '0.0.12'#'6.0.5'#
+    s.version          = '0.0.13'#'6.0.5'#
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -43,6 +43,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS": "armv7 arm64",
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS,YODO1_ADS,YODO1_SPLASH',
         }
 
         s.frameworks = [
