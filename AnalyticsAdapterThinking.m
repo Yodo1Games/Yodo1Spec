@@ -39,6 +39,9 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
     self = [super init];
     if (self) {
         NSLog(@"[ Yodo1 ]: Thinking is init!");
+#ifdef DEBUG
+        [ThinkingAnalyticsSDK setLogLevel:TDLoggingLevelDebug];
+#endif
     }
     return self;
 }
