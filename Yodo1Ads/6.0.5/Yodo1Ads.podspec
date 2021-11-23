@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
     s.version          = '6.0.5'#'0.0.9'#
+    # s.version          = '6.0.5.1'
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -12,6 +13,7 @@ Pod::Spec.new do |s|
                             更新QQ Sdk 分享
                             ---------------
                             6.0.4.1 是优汇量测试版本
+                            6.0.5.1 是优汇量测试版本
                         '
 
     s.description      = <<-DESC
@@ -460,7 +462,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        # ss.dependency 'YD1GDT','6.0.5.1'
+        # ss.dependency 'YD1GDT','6.0.6.1'
         ss.dependency 'YD1GDT','6.0.6'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
@@ -886,7 +888,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        # ss.dependency 'ApplovinMaxGDT','6.0.4.1'
+        # ss.dependency 'ApplovinMaxGDT','6.0.5.1'
         ss.dependency 'ApplovinMaxGDT','6.0.5'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
