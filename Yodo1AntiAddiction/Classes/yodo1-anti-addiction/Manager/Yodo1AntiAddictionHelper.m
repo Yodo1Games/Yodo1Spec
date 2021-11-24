@@ -137,12 +137,12 @@ typedef void (^OnBehaviourCallback)(int code,id response);
     __weak __typeof(self)weakSelf = self;
     // 获取防沉迷规则 获取失败则使用本地默认
     [[Yodo1AntiAddictionRulesManager manager] requestRules:^(id data) {
-        if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
-            [self.delegate onInitFinish:YES message:@"初始化方沉迷系统成功"];
-        }
         [weakSelf checkIP:appKey];
         weakSelf.systemSwitch = [Yodo1AntiAddictionRulesManager manager].currentRules.switchStatus;
         [Yodo1AntiAddictionTimeManager.manager didNeedGetAppTime];
+        if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
+            [self.delegate onInitFinish:YES message:@"初始化方沉迷系统成功"];
+        }
     } failure:^(NSError * error) {
         if (self.delegate && [self.delegate respondsToSelector:@selector(onInitFinish:message:)]) {
             [self.delegate onInitFinish:NO message:error.localizedDescription];
