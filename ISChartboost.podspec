@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISChartboost'
-    s.version          = '6.0.5'
+    s.version          = '6.0.6'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'ChartboostSDK','8.5.0'
-    s.dependency 'YD1IronSource', '6.0.5'
+    s.dependency 'YD1IronSource', '6.0.6'
 end
