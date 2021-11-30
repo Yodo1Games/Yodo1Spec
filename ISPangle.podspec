@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISPangle'
-    s.version          = '6.0.6'
+    s.version          = '6.0.7'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -73,10 +73,10 @@ Pod::Spec.new do |s|
         'z']
 
 
-    s.dependency 'Ads-CN', '4.0.0.2'
-    s.dependency 'Ads-CN/Domestic', '4.0.0.2'
-    s.dependency 'Ads-CN/International', '4.0.0.2'
+    s.dependency 'Ads-CN', '4.1.0.2'
+    s.dependency 'Ads-CN/Domestic', '4.1.0.2'
+    s.dependency 'Ads-CN/International', '4.1.0.2'
   #   s.dependency 'Ads-Global', '3.8.1.0'
   #   s.dependency 'Ads-Global/Domestic', '3.8.1.0'
-    s.dependency 'YD1IronSource', '6.0.5'
+    s.dependency 'YD1IronSource', '6.0.6'
 end
