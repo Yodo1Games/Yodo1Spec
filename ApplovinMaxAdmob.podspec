@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxAdmob'
-    s.version          = '6.0.4'
+    s.version          = '6.0.5'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Google-Mobile-Ads-SDK','8.12.0'
-    s.dependency 'YD1ApplovinMax', '6.0.3'
+    s.dependency 'Google-Mobile-Ads-SDK','8.13.0'
+    s.dependency 'YD1ApplovinMax', '6.0.4'
 end
