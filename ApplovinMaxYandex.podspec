@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxYandex'
-    s.version          = '6.0.4'
+    s.version          = '6.0.5'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'YandexMobileAds','4.4.1'
-    s.dependency 'YD1ApplovinMax', '6.0.3'
+    s.dependency 'YandexMobileAds','4.4.2'
+    s.dependency 'YD1ApplovinMax', '6.0.4'
 end
