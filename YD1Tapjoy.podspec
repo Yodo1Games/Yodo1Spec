@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'YD1Tapjoy'
-    s.version          = '6.0.1'
-    s.summary          = 'v12.7.1'
+    s.version          = '6.0.2'
+    s.summary          = 'v12.8.0'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -70,6 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','6.0.1'
+    s.dependency 'Yodo1AdvertSDK','6.0.2'
     s.dependency 'TapjoySDK', '12.8.1.0'
 end
