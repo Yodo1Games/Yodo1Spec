@@ -1,9 +1,9 @@
 Pod::Spec.new do |s|
     s.name             = 'MasSdk'
-    s.version          = '3.16.5'#'3.16.4'#
+    s.version          = '3.16.6'
     s.summary          = '广告聚合发布:修复IS的bug --> 这个版本是优汇量统计版本--3.16.3.1优汇量版本'
     
-    customVersion    = "6.0.6"#'6.0.5'
+    customVersion    = "6.0.7"
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
