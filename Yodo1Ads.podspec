@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
     # s.version          = '6.0.7'
-    s.version          = '0.0.20'
+    s.version          = '0.0.21'
     # s.version          = '6.0.5.1'
     s.summary          = '    
                             添加优汇量统计测试
@@ -293,7 +293,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AnalyticsFirebase','6.0.1'
+        ss.dependency 'AnalyticsFirebase','6.0.2'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
