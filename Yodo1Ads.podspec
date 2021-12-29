@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    # s.version          = '6.0.8'
-    s.version          = '0.0.23'
+    s.version          = '6.0.8'
+    # s.version          = '0.0.23'
     # s.version          = '6.0.5.1'
     s.summary          = '    
                             添加优汇量统计测试
