@@ -7,8 +7,8 @@
 #import "IronSource/ISMetaData.h"
 
 
-static NSString * const AppLovinAdapterVersion = @"4.3.28";
-static NSString * GitHash = @"917b282c8";
+static NSString * const AppLovinAdapterVersion = @"4.3.29";
+static NSString * GitHash = @"bb89bf5e8";
 
 //System Frameworks For AppLovin Adapter
 
