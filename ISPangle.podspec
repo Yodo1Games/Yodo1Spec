@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISPangle'
-    s.version          = '6.0.8'
+    s.version          = '6.0.9'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["*.xcframework"]
 
     s.requires_arc = true
 
@@ -73,10 +73,10 @@ Pod::Spec.new do |s|
         'z']
 
 
-    s.dependency 'Ads-CN', '4.1.0.2'
-    s.dependency 'Ads-CN/Domestic', '4.1.0.2'
-    s.dependency 'Ads-CN/International', '4.1.0.2'
+    s.dependency 'Ads-CN', '4.2.0.2'
+    s.dependency 'Ads-CN/Domestic', '4.2.0.2'
+    s.dependency 'Ads-CN/International', '4.2.0.2'
   #   s.dependency 'Ads-Global', '3.8.1.0'
   #   s.dependency 'Ads-Global/Domestic', '3.8.1.0'
-    s.dependency 'YD1IronSource', '6.0.7'
+    s.dependency 'YD1IronSource', '6.0.8'
 end
