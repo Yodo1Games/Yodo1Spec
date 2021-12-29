@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISFacebook'
-    s.version          = '6.0.7'
+    s.version          = '6.0.8'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["*.xcframework"]
 
     s.requires_arc = true
 
@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     s.dependency 'Yodo1AdsFacebook','5.0.5'
     # s.dependency 'FBAudienceNetwork','6.5.1'
-    s.dependency 'YD1IronSource', '6.0.7'
+    s.dependency 'YD1IronSource', '6.0.8'
 end
