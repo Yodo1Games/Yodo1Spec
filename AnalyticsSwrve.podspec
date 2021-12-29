@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'AnalyticsSwrve'
-    s.version          = '6.0.3'
-    s.summary          = 'v7.2.1'
+    s.version          = '6.0.4'
+    s.summary          = 'v7.3.0'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -77,6 +77,6 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Yodo1ThirdsAnalytics','6.0.2'
-    s.dependency 'SwrveSDK', '7.2.1'
+    s.dependency 'SwrveSDK', '7.3.0'
 
 end
