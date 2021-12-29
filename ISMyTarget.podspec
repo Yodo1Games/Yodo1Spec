@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISMyTarget'
-    s.version          = '6.0.8'
+    s.version          = '6.0.9'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["*.xcframework"]
 
     s.requires_arc = true
 
@@ -72,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
     # s.dependency 'myTargetSDK','5.12.1'
-    s.dependency 'Yodo1AdsMyTarget','6.0.1'
-    s.dependency 'YD1IronSource', '6.0.7'
+    s.dependency 'Yodo1AdsMyTarget','6.0.2'
+    s.dependency 'YD1IronSource', '6.0.8'
 end
