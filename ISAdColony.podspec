@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISAdColony'
-    s.version          = '6.0.7.1'
+    s.version          = '6.0.7'
     s.summary          = 'v '
 
     s.description      = <<-DESC
