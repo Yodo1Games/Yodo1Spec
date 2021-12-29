@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ISFyber'
-    s.version          = '6.0.8'
+    s.version          = '6.0.9'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -23,7 +23,7 @@ Pod::Spec.new do |s|
 
     # s.vendored_libraries = [ "*.a" ]
     
-    s.vendored_frameworks = ["*.framework"]
+    s.vendored_frameworks = ["*.xcframework"]
 
     s.requires_arc = true
 
@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'Fyber_Marketplace_SDK','8.1.1'
-    s.dependency 'YD1IronSource', '6.0.7'
+    s.dependency 'YD1IronSource', '6.0.8'
 end
