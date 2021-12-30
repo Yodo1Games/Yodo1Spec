@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'ApplovinMaxPangle'
-    s.version          = '6.0.7'
+    s.version          = '6.0.8'
     s.summary          = 'v '
 
     s.description      = <<-DESC
@@ -78,5 +78,5 @@ Pod::Spec.new do |s|
     # s.dependency 'Yodo1AdsPangle', '5.0.2'
     # s.dependency 'Ads-Global', '3.8.1.0'
     # s.dependency 'Ads-Global/Domestic', '3.8.1.0'
-    s.dependency 'YD1ApplovinMax', '6.0.5'
+    s.dependency 'YD1ApplovinMax', '6.0.6'
 end
