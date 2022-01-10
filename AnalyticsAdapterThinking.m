@@ -13,7 +13,6 @@
 #import "Yodo1KeyInfo.h"
 #import "Yd1OnlineParameter.h"
 #import "Yodo1Tool+Commons.h"
-#import "Yodo1Tool+Storage.h"
 
 NSString* const YODO1_ANALYTICS_TA_APPKEY       = @"ThinkingAppId";
 NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
@@ -23,7 +22,6 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
     double _currencyAmount;//现金金额
     double _virtualCurrencyAmount;//虚拟币金额
     NSString* _iapId;//物品id
-    BOOL isThinkingSwitch;
 }
 
 + (AnalyticsType)analyticsType
@@ -40,11 +38,10 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
 {
     self = [super init];
     if (self) {
+        NSLog(@"[ Yodo1 ]: Thinking is init!");
 #ifdef DEBUG
         [ThinkingAnalyticsSDK setLogLevel:TDLoggingLevelDebug];
 #endif
-        NSNumber* bThinkig = (NSNumber*)[Yodo1Tool.shared.cached objectForKey:@"ThinkingDataSwitch"];
-        isThinkingSwitch = [bThinkig boolValue];
     }
     return self;
 }
@@ -52,7 +49,7 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
 - (void)eventWithAnalyticsEventName:(NSString *)eventName
                           eventData:(NSDictionary *)eventData
 {
-    if (eventData && isThinkingSwitch) {
+    if (eventData) {
         [ThinkingAnalyticsSDK.sharedInstance track:eventName properties:eventData];
     }
 }
@@ -61,30 +58,22 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
 
 - (void)track:(NSString *)eventName
 {
-    if (isThinkingSwitch) {
-        [ThinkingAnalyticsSDK.sharedInstance track:eventName];
-    }
+    [ThinkingAnalyticsSDK.sharedInstance track:eventName];
 }
 
 - (void)track:(NSString *)eventName property:(NSDictionary *) property
 {
-    if (isThinkingSwitch) {
-        [ThinkingAnalyticsSDK.sharedInstance track:eventName properties:property];
-    }
+    [ThinkingAnalyticsSDK.sharedInstance track:eventName properties:property];
 }
 
 - (void)registerSuperProperty:(NSDictionary *)property
 {
-    if (isThinkingSwitch) {
-        [ThinkingAnalyticsSDK.sharedInstance setSuperProperties:property];
-    }
+    [ThinkingAnalyticsSDK.sharedInstance setSuperProperties:property];
 }
 
 - (void)unregisterSuperProperty:(NSString *)propertyName
 {
-    if (isThinkingSwitch) {
-        [ThinkingAnalyticsSDK.sharedInstance unsetSuperProperty:propertyName];
-    }
+    [ThinkingAnalyticsSDK.sharedInstance unsetSuperProperty:propertyName];
 }
 
 - (NSString *)getSuperProperty:(NSString *)propertyName

@@ -24,7 +24,7 @@ typedef NS_ENUM(NSInteger, AnalyticsType) {
     AnalyticsTypeGameAnalytics, //GameAnalytics数据统计
     AnalyticsTypeAppsFlyer,     //AppsFlyer 数据统计
     AnalyticsTypeSwrve,          //Swrve统计
-    AnalyticsTypeThinking,         //Thinking
+    AnalyticsTypeThinking,         //Thinking 
     AnalyticsTypeFirebase,         //Firebase
 };
 
