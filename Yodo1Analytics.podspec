@@ -10,7 +10,7 @@ TODO: Add long description of the pod here.
     s.homepage         = 'https://github.com'
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
-    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
+    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
 
     s.ios.deployment_target = '9.0'
 
