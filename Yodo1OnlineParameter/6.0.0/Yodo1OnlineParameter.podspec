@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     # s.source           = { :http => "https://cocoapods.yodo1api.com/foundation/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
 
-    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
+    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '9.0'
@@ -91,6 +91,6 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-    s.dependency 'Yodo1SaAnalytics', '6.0.0'
+    s.dependency 'Yodo1SaAnalytics', '5.0.1'
 
 end
