@@ -44,7 +44,7 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
         [ThinkingAnalyticsSDK setLogLevel:TDLoggingLevelDebug];
 #endif
         NSNumber* bThinkig = (NSNumber*)[Yodo1Tool.shared.cached objectForKey:@"ThinkingDataSwitch"];
-        isThinkingSwitch = [bThinkig boolValue];
+        isThinkingSwitch = YES;//[bThinkig boolValue];
     }
     return self;
 }
