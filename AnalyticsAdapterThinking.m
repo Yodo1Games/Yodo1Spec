@@ -2,7 +2,7 @@
 //  AnalyticsAdapterThinking.m
 //
 //  Created by hyx on 14-10-14.
-//  Copyright (c) 2014年 yodo1. All rights reserved.
+//  Copyright (c) 2014 yodo1. All rights reserved.
 //
 
 #import "AnalyticsAdapterThinking.h"
@@ -44,7 +44,7 @@ NSString* const YODO1_ANALYTICS_TA_SERVERURL    = @"ThinkingServerUrl";
         [ThinkingAnalyticsSDK setLogLevel:TDLoggingLevelDebug];
 #endif
         NSNumber* bThinkig = (NSNumber*)[Yodo1Tool.shared.cached objectForKey:@"ThinkingDataSwitch"];
-        isThinkingSwitch = YES;//[bThinkig boolValue];
+        isThinkingSwitch = [bThinkig boolValue];
     }
     return self;
 }
