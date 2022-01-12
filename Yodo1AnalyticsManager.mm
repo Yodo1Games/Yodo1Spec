@@ -26,8 +26,6 @@
     BOOL bGameAnalyticsOpen;
     BOOL bAppsFlyerOpen;
     BOOL bSwrveOpen;
-    BOOL bThinkingOpen;
-    BOOL bFirebaseOpen;
 }
 
 @property (nonatomic, strong) NSMutableDictionary* analyticsDict;
@@ -43,7 +41,6 @@
 @implementation Yodo1AnalyticsManager
 
 static BOOL _enable = NO;
-static BOOL _bInit_ = NO;
 
 +(BOOL)isEnable {
     return _enable;
@@ -75,14 +72,28 @@ static BOOL _bInit_ = NO;
 
 - (BOOL)isAppsFlyerInstalled {
     return YES;
+    // NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    // BOOL isInstalled = [defaults boolForKey:@"YODO1_APPSFLYER"];
+    // if (!isInstalled) {
+    //     NSInteger tempRandom = [self randomNumber:0 to:100];
+    //     [defaults setInteger:tempRandom forKey:@"YODO1_APPSFLYER_RANDOM"];
+    //     [defaults setBool:YES forKey:@"YODO1_APPSFLYER"];
+    //     [defaults synchronize];
+    // }
+    // BOOL appsFlyerInstalled = NO;
+    // NSInteger random = [defaults integerForKey:@"YODO1_APPSFLYER_RANDOM"];
+    
+    // NSString* randomAppsFlyer = [Yodo1OnlineParameter stringParams:@"AppsFlyerRandom" defaultValue:@"0"];
+    // NSInteger onlineNums = [randomAppsFlyer integerValue];
+    
+    // if (random > 0 && random <= onlineNums) { //randomAppsFlyer 为0的时候关闭
+    //     appsFlyerInstalled = YES;
+    // }
+    // return appsFlyerInstalled;
 }
 
 - (void)initializeAnalyticsWithConfig:(AnalyticsInitConfig*)initConfig  
 {
-    if (_bInit_) {
-        return;
-    }
-    _bInit_ = YES;
     NSString* umengEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchUmeng" defaultValue:@"on"];
     if ([umengEvent isEqualToString:@"off"]) {//默认是开着
         bUmengOpen = NO;
@@ -118,20 +129,6 @@ static BOOL _bInit_ = NO;
         bSwrveOpen = YES;
     }
     
-    NSString* thinkingEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchThinking" defaultValue:@"on"];
-    if ([thinkingEvent isEqualToString:@"off"]) {//默认是开着
-        bThinkingOpen = NO;
-    }else{
-        bThinkingOpen = YES;
-    }
-    
-    NSString* firebaseEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchFirebase" defaultValue:@"on"];
-    if ([firebaseEvent isEqualToString:@"off"]) {//默认是开着
-        bFirebaseOpen= NO;
-    }else{
-        bFirebaseOpen = YES;
-    }
-    
     NSDictionary* dic = [[Yodo1Registry sharedRegistry] getClassesStatusType:@"analyticsType"
                                                               replacedString:@"AnalyticsAdapter"
                                                                replaceString:@"AnalyticsType"];
@@ -163,12 +160,6 @@ static BOOL _bInit_ = NO;
                 continue;
             }
             if (!bSwrveOpen && [key integerValue] == AnalyticsTypeSwrve) {
-                continue;
-            }
-            if (!bThinkingOpen && [key integerValue] == AnalyticsTypeThinking) {
-                continue;
-            }
-            if (!bFirebaseOpen && [key integerValue] == AnalyticsTypeFirebase) {
                 continue;
             }
             //跳过Swrve
@@ -369,8 +360,7 @@ static BOOL _bInit_ = NO;
 - (void)track:(NSString *)eventName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        NSInteger _key = [key integerValue];
-        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
+        if ([key integerValue]==AnalyticsTypeUmeng){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter track:eventName];
             break;
@@ -482,8 +472,7 @@ static BOOL _bInit_ = NO;
 - (void)registerSuperProperty:(NSDictionary *)property
 {
     for (id key in [self.analyticsDict allKeys]) {
-        NSInteger _key = [key integerValue];
-        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
+        if ([key integerValue]==AnalyticsTypeUmeng){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter registerSuperProperty:property];
             break;
@@ -494,8 +483,7 @@ static BOOL _bInit_ = NO;
 - (void)unregisterSuperProperty:(NSString *)propertyName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        NSInteger _key = [key integerValue];
-        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
+        if ([key integerValue]==AnalyticsTypeUmeng){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter unregisterSuperProperty:propertyName];
             break;
@@ -518,8 +506,7 @@ static BOOL _bInit_ = NO;
 - (NSDictionary *)getSuperProperties
 {
     for (id key in [self.analyticsDict allKeys]) {
-        NSInteger _key = [key integerValue];
-        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
+        if ([key integerValue]==AnalyticsTypeUmeng){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             return [adapter getSuperProperties];
         }
@@ -530,8 +517,7 @@ static BOOL _bInit_ = NO;
 - (void)clearSuperProperties
 {
     for (id key in [self.analyticsDict allKeys]) {
-        NSInteger _key = [key integerValue];
-        if (_key == AnalyticsTypeUmeng || _key == AnalyticsTypeThinking){
+        if ([key integerValue]==AnalyticsTypeUmeng){
             AnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter clearSuperProperties];
             break;
