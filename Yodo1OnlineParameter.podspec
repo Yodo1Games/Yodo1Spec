@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1OnlineParameter'
-    s.version          = '6.0.2'
-    s.summary          = '修复关闭广告之后崩溃的BUG,修改替换神策统计为数数统计/测试Tag'
+    s.version          = '5.0.0'
+    s.summary          = '修复关闭广告之后崩溃的BUG'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
     # s.source           = { :http => "https://cocoapods.yodo1api.com/foundation/" + "#{s.name}" + "/"+ "#{s.version}" + ".zip" }
 
-    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
+    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '9.0'
@@ -91,6 +91,6 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-    # s.dependency 'Yodo1SaAnalytics', '6.0.0'
+    s.dependency 'Yodo1SaAnalytics', '5.0.1'
 
 end
