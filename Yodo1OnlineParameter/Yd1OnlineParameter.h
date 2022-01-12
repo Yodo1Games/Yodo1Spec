@@ -2,7 +2,7 @@
 //  Yd1OnlineParameter.h
 //
 //  Created by yixian huang on 2017/7/24.
-//  v5.0.0
+//  v6.0.2
 //
 
 #ifndef Yd1OnlineParameter_h
