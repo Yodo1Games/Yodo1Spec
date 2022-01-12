@@ -2,7 +2,7 @@
 //  AnalyticsAdapterThinking.m
 //
 //  Created by hyx on 14-10-14.
-//  Copyright (c) 2022年 yodo1. All rights reserved.
+//  Copyright (c) 2022年02月12日 yodo1. All rights reserved.
 //
 
 #import "AnalyticsAdapterThinking.h"
