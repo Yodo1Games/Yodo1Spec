@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1OnlineParameter'
-    s.version          = '6.0.0'
-    s.summary          = '修复关闭广告之后崩溃的BUG'
+    s.version          = '6.0.1'
+    s.summary          = '修复关闭广告之后崩溃的BUG,修改替换神策统计为数数统计'
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -91,6 +91,6 @@ Pod::Spec.new do |s|
         'sqlite3.0',
         'c++',
         'z']
-    s.dependency 'Yodo1SaAnalytics', '5.0.1'
+    # s.dependency 'Yodo1SaAnalytics', '6.0.0'
 
 end
