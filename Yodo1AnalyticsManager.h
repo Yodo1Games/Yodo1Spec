@@ -25,6 +25,7 @@ typedef NS_ENUM(NSInteger, AnalyticsType) {
     AnalyticsTypeAppsFlyer,     //AppsFlyer 数据统计
     AnalyticsTypeSwrve,          //Swrve统计
     AnalyticsTypeThinking,         //Thinking 
+    AnalyticsTypeFirebase,         //Firebase
 };
 
 @interface Yodo1AnalyticsManager : NSObject

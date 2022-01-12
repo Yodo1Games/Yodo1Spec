@@ -27,6 +27,7 @@
     BOOL bAppsFlyerOpen;
     BOOL bSwrveOpen;
     BOOL bThinkingOpen;
+    BOOL bFirebaseOpen;
 }
 
 @property (nonatomic, strong) NSMutableDictionary* analyticsDict;
@@ -42,6 +43,7 @@
 @implementation Yodo1AnalyticsManager
 
 static BOOL _enable = NO;
+static BOOL _bInit_ = NO;
 
 +(BOOL)isEnable {
     return _enable;
@@ -77,6 +79,10 @@ static BOOL _enable = NO;
 
 - (void)initializeAnalyticsWithConfig:(AnalyticsInitConfig*)initConfig  
 {
+    if (_bInit_) {
+        return;
+    }
+    _bInit_ = YES;
     NSString* umengEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchUmeng" defaultValue:@"on"];
     if ([umengEvent isEqualToString:@"off"]) {//默认是开着
         bUmengOpen = NO;
@@ -119,7 +125,12 @@ static BOOL _enable = NO;
         bThinkingOpen = YES;
     }
     
-    
+    NSString* firebaseEvent = [Yd1OnlineParameter.shared stringConfigWithKey:@"Platform_Analytics_SwitchFirebase" defaultValue:@"on"];
+    if ([firebaseEvent isEqualToString:@"off"]) {//默认是开着
+        bFirebaseOpen= NO;
+    }else{
+        bFirebaseOpen = YES;
+    }
     
     NSDictionary* dic = [[Yodo1Registry sharedRegistry] getClassesStatusType:@"analyticsType"
                                                               replacedString:@"AnalyticsAdapter"
@@ -155,6 +166,9 @@ static BOOL _enable = NO;
                 continue;
             }
             if (!bThinkingOpen && [key integerValue] == AnalyticsTypeThinking) {
+                continue;
+            }
+            if (!bFirebaseOpen && [key integerValue] == AnalyticsTypeFirebase) {
                 continue;
             }
             //跳过Swrve
