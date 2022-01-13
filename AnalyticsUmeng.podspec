@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name             = 'AnalyticsUmeng'
-  s.version          = '6.0.3'
-  s.summary          = 'v7.2.4+G-->v7.3.3+G;添加UAPM crash 库'
+  s.version          = '6.0.4'
+  s.summary          = 'v7.2.4+G-->v7.3.3+G;添加UAPM crash 库，UMDevice v2.1.0,UMAPM v1.5.6'
   
   s.description      = <<-DESC
   TODO: Add long description of the pod here.
@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   s.dependency 'UMCommon', '7.3.5'
   s.dependency 'UMAnalyticsGame', '7.3.5+G'
   ##############################################
-  s.dependency 'UMDevice','2.0.4'
+  s.dependency 'UMDevice','2.1.0'
   s.dependency 'UMCCommonLog', '2.0.2'
-  s.dependency 'UMAPM', '1.5.5'
+  s.dependency 'UMAPM', '1.5.6'
 end
