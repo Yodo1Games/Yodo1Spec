@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '6.0.9'
+    s.version          = '6.1.0'
     # s.version          = '0.0.29'
     # s.version          = '6.0.5.1'
     s.summary          = '    
@@ -16,8 +16,7 @@ Pod::Spec.new do |s|
                             6.0.4.1 是优汇量测试版本
                             6.0.5.1 是优汇量测试版本
                             ----------------------
-                            更新GDT,Unity，Chartboost,MyTarget，IronSource,Vungle,Baidu
-                            Bugly,Swrve,Soomla
+                            更新GDT .a ，Soomla v6.8.4
                         '
 
     s.description      = <<-DESC
@@ -269,7 +268,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'AnalyticsUmeng','6.0.3'
+        ss.dependency 'AnalyticsUmeng','6.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -308,7 +307,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'IronSourceAdQualitySDK','6.8.2'
+        ss.dependency 'IronSourceAdQualitySDK','6.8.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -479,7 +478,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         # ss.dependency 'YD1GDT','6.0.6.1'
-        ss.dependency 'YD1GDT','6.1.0'
+        ss.dependency 'YD1GDT','6.1.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
