@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
-    s.version          = '6.1.0'
+    # s.version          = '6.1.0'
     # s.version          = '0.0.29'
-    # s.version          = '6.0.5.1'
+    s.version          = '6.1.0.1'
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
                             ---------------
                             6.0.4.1 是优汇量测试版本
                             6.0.5.1 是优汇量测试版本
+                            6.1.0.1 是优汇量测试版本
                             ----------------------
                             更新GDT .a ，Soomla v6.8.4
                         '
@@ -438,7 +439,8 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'YD1Pangle','6.0.8'
+        # ss.dependency 'YD1Pangle','6.0.8'
+        ss.dependency 'YD1Pangle','6.0.8.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -477,8 +479,8 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        # ss.dependency 'YD1GDT','6.0.6.1'
-        ss.dependency 'YD1GDT','6.1.1'
+        ss.dependency 'YD1GDT','6.1.1.1'
+        # ss.dependency 'YD1GDT','6.1.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
@@ -826,7 +828,8 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ApplovinMaxPangle','6.0.8'
+        # ss.dependency 'ApplovinMaxPangle','6.0.8'
+        ss.dependency 'ApplovinMaxPangle','6.0.8.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -903,8 +906,8 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        # ss.dependency 'ApplovinMaxGDT','6.0.5.1'
-        ss.dependency 'ApplovinMaxGDT','6.0.9'
+        ss.dependency 'ApplovinMaxGDT','6.0.9.1'
+        # ss.dependency 'ApplovinMaxGDT','6.0.9'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -1152,7 +1155,8 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'ISPangle','6.1.0'
+        # ss.dependency 'ISPangle','6.1.0'
+        ss.dependency 'ISPangle','6.1.0.1'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
