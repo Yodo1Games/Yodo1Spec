@@ -1211,5 +1211,20 @@ Pod::Spec.new do |s|
         ss.dependency 'ISFyber','6.1.0'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
+    
+
+    ### GDT 集合 
+    s.subspec 'GDT_Pangle' do |ss|
+         ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ADS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'GDTPangle','1.0.1'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
 
 end
