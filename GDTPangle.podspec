@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'GDTPangle'
-    s.version          = '1.0.0'
+    s.version          = '1.0.1'
     s.summary          = '优汇量统计'
 
     s.description      = <<-DESC
@@ -17,9 +17,9 @@ Pod::Spec.new do |s|
 
     s.ios.deployment_target = '9.0'
 
-    s.source_files = [ "./*/*.{h,mm,m}"  ]
+    s.source_files = [ "*/*.{h,mm,m}"  ]
 
-    s.public_header_files = [ "./*/*.h" ]
+    s.public_header_files = [ "*/*.h" ]
 
     # s.vendored_libraries = [ "*.a" ]
     
