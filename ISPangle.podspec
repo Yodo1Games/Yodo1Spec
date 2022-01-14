@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
     s.name             = 'ISPangle'
-    s.version          = '6.1.0'
-    s.summary          = 'v '
+    s.version          = '6.1.0.1'
+    s.summary          = 'v6.1.0.1是优汇量版本 '
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -73,10 +73,12 @@ Pod::Spec.new do |s|
         'z']
 
 
-    s.dependency 'Ads-CN', '4.2.0.2'
-    s.dependency 'Ads-CN/Domestic', '4.2.0.2'
-    s.dependency 'Ads-CN/International', '4.2.0.2'
-  #   s.dependency 'Ads-Global', '3.8.1.0'
-  #   s.dependency 'Ads-Global/Domestic', '3.8.1.0'
+    # s.dependency 'Ads-CN', '4.2.0.2'
+    # s.dependency 'Ads-CN/Domestic', '4.2.0.2'
+    # s.dependency 'Ads-CN/International', '4.2.0.2'
+
+    s.dependency 'Ads-CN', '4.1.0.2'
+    s.dependency 'Ads-CN/Domestic', '4.1.0.2'
+    s.dependency 'Ads-CN/International', '4.1.0.2'
     s.dependency 'YD1IronSource', '6.0.9'
 end
