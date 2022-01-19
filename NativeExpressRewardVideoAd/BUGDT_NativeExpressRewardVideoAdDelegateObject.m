@@ -101,7 +101,7 @@
  Server verification which is requested asynchronously is succeeded.
  @param verify :return YES when return value is 2000.
  */
-- (void)rewardedVideoAdServerRewardDidSucceed:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd verify:(BOOL)verify {
+- (void)nativeExpressRewardedVideoAdServerRewardDidSucceed:(BUNativeExpressRewardedVideoAd *)rewardedVideoAd verify:(BOOL)verify {
     [self.connector adapter_rewardVideoAdDidRewardEffective:self.adapter];
 }
 

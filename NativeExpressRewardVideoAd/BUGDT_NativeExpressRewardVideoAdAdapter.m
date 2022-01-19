@@ -29,7 +29,10 @@
 + (void)updateAppId:(NSString *)appId extStr:(NSString *)extStr {
     if (BUAdSDKManager.appID.length == 0) {
         if ([appId length] > 0) {
+            [BUAdSDKManager setTerritory:BUAdSDKTerritory_CN];
             [BUAdSDKManager setAppID:appId];
+            [BUAdSDKManager setCoppa:0];
+            [BUAdSDKManager setGDPR:0];
         }
         else {
             NSDictionary *params = [MediationAdapterUtil getURLParams:extStr];
