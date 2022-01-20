@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1AdvertSDK'
-    s.version          = '6.0.3'
+    s.version          = '5.0.1'
     s.summary          = 'Yodo1AdvertSDK Have Banner,Intersttial,Video [修改广点通特殊处理逻辑]'
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
     # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
     s.license          = { :type => 'MIT', :file => "LICENSE" }
     s.author           = { 'yixian huang' => 'huangyixian@yodo1.com' }
-    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
+    s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :branch => "#{s.name}" }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
     s.ios.deployment_target = '9.0'
@@ -68,9 +68,8 @@ Pod::Spec.new do |s|
         'c++',
         'z']
  
-    s.dependency 'Yodo1Analytics','6.0.1'
-    s.dependency 'Yodo1FeedbackError','6.0.1'
-    s.dependency 'Yodo1ThirdsAnalytics','6.0.3'
-    s.dependency 'ThinkingSDK','2.7.3'
+    s.dependency 'Yodo1Analytics','5.0.1'
+    s.dependency 'Yodo1FeedbackError','5.0.1'
+    s.dependency 'Yodo1ThirdsAnalytics','5.0.1'
     
 end

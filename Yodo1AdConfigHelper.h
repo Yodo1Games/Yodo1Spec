@@ -30,10 +30,9 @@ FOUNDATION_EXPORT NSString* const kPlatform_VideoAdMasterSwitch;
 FOUNDATION_EXPORT NSString* const kRatio;
 FOUNDATION_EXPORT NSString* const kMaxShowTimes;
 
-FOUNDATION_EXPORT NSString* const kTD_Switch;
-FOUNDATION_EXPORT NSString* const kTD_Switch_DebugMode;
-FOUNDATION_EXPORT NSString* const kTD_ServerUrl;
-FOUNDATION_EXPORT NSString* const kTD_AppId;
+FOUNDATION_EXPORT NSString* const kSensors_Switch;
+FOUNDATION_EXPORT NSString* const kSensors_Switch_DebugMode;
+FOUNDATION_EXPORT NSString* const kSensors_ServerUrl;
 
 FOUNDATION_EXPORT NSString* const kRewardGameMasterSwitch;
 
@@ -125,7 +124,7 @@ typedef NS_ENUM(NSUInteger,SDKInitType) {
 /// 如果用户选择不出售其个人信息，请将以下标记设置为true。【CCPA】
 - (void)setDoNotSell:(BOOL)doNotSell;
 
-- (NSDictionary *)thinkDataConfig;
+- (NSDictionary *)sensorsConfig;
 
 - (BOOL)isRewardGameEnable;
 
