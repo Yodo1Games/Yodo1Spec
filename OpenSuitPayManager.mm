@@ -16,10 +16,10 @@
 
 #import "Yodo1UnityTool.h"
 
-@interface Yodo1AnalyticsManager : NSObject
+@interface OpenSuitAnalyticsManager : NSObject
 @property(nonatomic,class,assign,readonly,getter=isEnable) BOOL enable;
 
-+ (Yodo1AnalyticsManager*)sharedInstance;
++ (OpenSuitAnalyticsManager*)sharedInstance;
 
 /*
  * appsFlyer安装判断
@@ -673,9 +673,9 @@ static NSString* const __kStatus                 = @"status";
             NSMutableDictionary* properties = [NSMutableDictionary dictionary];
             [properties addEntriesFromDictionary:weakSelf.superProperty];
             [properties addEntriesFromDictionary:weakSelf.itemProperty];
-            Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+            Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
             if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                 if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                     [sdk eventAnalytics:@"order_Pending" eventData:properties];
                 }
@@ -753,9 +753,9 @@ static NSString* const __kStatus                 = @"status";
                 NSMutableDictionary* properties = [NSMutableDictionary dictionary];
                 [properties addEntriesFromDictionary:weakSelf.superProperty];
                 [properties addEntriesFromDictionary:weakSelf.itemProperty];
-                Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+                Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
                 if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                    Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                    OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                     if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                         [sdk eventAnalytics:@"order_Pending" eventData:properties];
                     }
@@ -767,9 +767,9 @@ static NSString* const __kStatus                 = @"status";
             [properties addEntriesFromDictionary:weakSelf.itemProperty];
             OpenSuitLog(@"%@",[OpenSuitCommons stringWithJSONObject:properties error:nil]);
             
-            Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+            Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
             if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                 if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                     [sdk eventAnalytics:@"order_Request" eventData:properties];
                 }
@@ -1370,9 +1370,9 @@ static NSString* const __kStatus                 = @"status";
         OpenSuitPayManager.shared.OpenSuitValidatePaymentBlock(product.uniformProductId,extraSt);
     }
     
-    Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+    Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
     if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-        Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+        OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
         if (sdk && [sdk respondsToSelector:@selector(validateAndTrackInAppPurchase:price:currency:transactionId:)]) {
             [sdk validateAndTrackInAppPurchase:productIdentifier
                                          price:product.productPrice
@@ -1385,7 +1385,7 @@ static NSString* const __kStatus                 = @"status";
     SKProduct* skp = [OpenSuitPayStore.defaultStore productForIdentifier:productIdentifier];
     
     if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-        Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+        OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
         if (sdk && [sdk respondsToSelector:@selector(swrveTransactionProcessed:productBought:)]) {
             [sdk swrveTransactionProcessed:notification.rm_transaction
                              productBought:skp];
@@ -1474,6 +1474,14 @@ static NSString* const __kStatus                 = @"status";
 
 extern "C" {
 
+void UnityStartOpenSuitPayWithAppKey(const char* appKey,const char* channelId)
+{
+    NSString* _appKey = Yodo1CreateNSString(appKey);
+    NSString* _channelId = Yodo1CreateNSString(channelId);
+    [OpenSuitPayManager.shared startOpenSuitPayWithAppKey:_appKey
+                                                channelId:_channelId];
+}
+
 void UnitySubmitUser(const char* jsonUser)
 {
     NSString* _jsonUser = Yodo1CreateNSString(jsonUser);
@@ -1490,6 +1498,97 @@ void UnitySubmitUser(const char* jsonUser)
     } else {
         OpenSuitLog(@"user is not submit!");
     }
+}
+
+/**
+ *设置ops 环境
+ */
+void UnityAPIEnvironment(int env)
+{
+}
+
+/**
+ *设置是否显示log
+ */
+void UnityLogEnabled(BOOL enable)
+{
+    
+}
+
+void UnityGameUserId(const char* gameUserId)
+{
+    
+}
+
+void UnityGameNickname(const char* gameNickname)
+{
+    
+}
+
+/*
+ 获取在线分区列表
+ */
+void UnityRegionList(const char* channelCode, const char* gameAppkey, const char* regionGroupCode, int env, const char* gameObjectName, const char* methodName)
+{
+
+}
+
+/**
+ *获取版本更新信息
+ */
+void UnityGetUpdateInfoWithAppKey(const char*gameAppkey,const char* channelCode,const char* gameObjectName, const char* methodName)
+{
+
+}
+
+/**
+ *注册
+ */
+void UnityRegistUsername(const char* username, const char* pwd, const char* gameObjectName, const char* methodName)
+{
+
+}
+
+/**
+ *登录
+ */
+void UnityLogin(int usertype, const char* username, const char* pwd, const char* gameObjectName, const char* methodName)
+{
+
+}
+
+/**
+ *注销
+ */
+void UnityLoginOut(const char* gameObjectName, const char* methodName)
+{
+   
+}
+
+/**
+ *设备账号转换
+ */
+void UnityConverDeviceToNormal(const char* username, const char* pwd, const char* gameObjectName, const char* methodName)
+{
+
+}
+
+void UnityReplaceContentOfUserId(const char* replacedUserId, const char* deviceId, const char* gameObjectName, const char* methodName)
+{
+    
+}
+
+/**
+ *将device_id代表用户的存档的主帐号变更为user_id代表的帐号，user_id本身的数据被删除，替换的数据包括user_id本身
+ *用户再次登录时取到的user_id是操作前device_id对应的user_id，原user_id已经删除了
+ *device_id再次登录是取到的user_id是全新的
+ *appkey 游戏 game_appkey
+ *transferedUserId 用户id
+ *device_id  设备id
+ */
+void UnityTransferWithDeviceUserId(const char* transferedUserId, const char* deviceId, const char* gameObjectName, const char* methodName)
+{
+
 }
 
 #pragma mark- 购买
@@ -1653,9 +1752,9 @@ void UnityReadyToContinuePurchaseFromPromotion(const char* gameObjectName, const
             [properties setObject:errorCode forKey:@"yodo1ErrorCode"];
             OpenSuitLog(@"%@",[OpenSuitCommons stringWithJSONObject:properties error:nil]);
             
-            Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+            Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
             if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                 if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                     [sdk eventAnalytics:@"order_Error_FromSDK" eventData:properties];
                 }
@@ -2044,9 +2143,9 @@ void UnityPayNetGame(const char* mUniformProductId,const char* extra, const char
             }
             [properties setObject:errorCode forKey:@"yodo1ErrorCode"];
             OpenSuitLog(@"%@",[OpenSuitCommons stringWithJSONObject:properties error:nil]);
-            Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+            Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
             if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                 if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                     [sdk eventAnalytics:@"order_Error_FromSDK" eventData:properties];
                 }
@@ -2137,9 +2236,9 @@ void UnitySendGoodsOver(const char* orders,const char* gameObjectName, const cha
             [properties addEntriesFromDictionary:OpenSuitPayManager.shared.itemProperty];
             OpenSuitLog(@"%@",[OpenSuitCommons stringWithJSONObject:properties error:nil]);
             
-            Class thinkingClass = NSClassFromString(@"Yodo1AnalyticsManager");
+            Class thinkingClass = NSClassFromString(@"OpenSuitAnalyticsManager");
             if (thinkingClass && [thinkingClass respondsToSelector:@selector(sharedInstance)]) {
-                Yodo1AnalyticsManager *sdk = [thinkingClass sharedInstance];
+                OpenSuitAnalyticsManager *sdk = [thinkingClass sharedInstance];
                 if (sdk && [sdk respondsToSelector:@selector(eventAnalytics:eventData:)]) {
                     [sdk eventAnalytics:@"order_Item_Delivered" eventData:properties];
                 }
