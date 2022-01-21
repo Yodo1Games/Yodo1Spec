@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'OpenSuitShare'
-  s.version          = '1.0.0'
+  s.version          = '1.0.1'
   s.summary          = 'A short description of Yodo1Share.'
   
   s.description      = <<-DESC
@@ -16,11 +16,11 @@ Pod::Spec.new do |s|
   
   s.ios.deployment_target = '9.0'
   
-  s.source_files = ["./**/*.{h,m,mm}"]
+  s.source_files = ["*/*.{h,m,mm}"]
   
-  s.public_header_files = ["./**/*.h"]
+  s.public_header_files = ["*/*.h"]
   
-  s.resources = ["./*.bundle"]
+  s.resources = ["*.bundle"]
   
 #  s.vendored_frameworks = ["Yodo1Share/libs/Tencent/TencentOpenAPI.framework"]
   
@@ -74,8 +74,8 @@ Pod::Spec.new do |s|
   s.dependency 'Yodo1Qrencode','5.0.0'
   s.dependency 'Yodo1QQSDK','5.0.2'
   s.dependency 'Yodo1FBSDKShareKit','5.0.1'
-  s.dependency 'Weibo_SDK','3.3.0' 
-  s.dependency 'WechatOpenSDK', '1.8.7.1' 
+  s.dependency 'Weibo_SDK','3.3.0'
+  s.dependency 'WechatOpenSDK', '1.8.7.1'
 
 end
 
