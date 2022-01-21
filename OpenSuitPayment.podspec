@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'OpenSuitPayment'
-  s.version          = '1.0.2'
+  s.version          = '1.0.3'
   s.summary          = '重构支付模块'
   
   s.description      = <<-DESC
