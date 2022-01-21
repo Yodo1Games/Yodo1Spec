@@ -18,14 +18,14 @@
 @property (nonatomic,strong) NSString *appsflyerCustomUserId;//AppsFlyer自定义UserId
 @end
 
-typedef NS_ENUM(NSInteger, OpenSuitOpenSuitAnalyticsType) {
-    OpenSuitOpenSuitAnalyticsTypeUmeng,         //友盟数据统计
-    OpenSuitOpenSuitAnalyticsTypeTalkingData,   //TalkingData数据统计
-    OpenSuitOpenSuitAnalyticsTypeGameAnalytics, //GameAnalytics数据统计
-    OpenSuitOpenSuitAnalyticsTypeAppsFlyer,     //AppsFlyer 数据统计
-    OpenSuitOpenSuitAnalyticsTypeSwrve,          //Swrve统计
-    OpenSuitOpenSuitAnalyticsTypeThinking,         //Thinking
-    OpenSuitOpenSuitAnalyticsTypeFirebase,         //Firebase
+typedef NS_ENUM(NSInteger, OpenSuitAnalyticsType) {
+    OpenSuitAnalyticsTypeUmeng,         //友盟数据统计
+    OpenSuitAnalyticsTypeTalkingData,   //TalkingData数据统计
+    OpenSuitAnalyticsTypeGameAnalytics, //GameAnalytics数据统计
+    OpenSuitAnalyticsTypeAppsFlyer,     //AppsFlyer 数据统计
+    OpenSuitAnalyticsTypeSwrve,          //Swrve统计
+    OpenSuitAnalyticsTypeThinking,         //Thinking
+    OpenSuitAnalyticsTypeFirebase,         //Firebase
 };
 
 @interface OpenSuitAnalyticsManager : NSObject

@@ -132,16 +132,16 @@ static BOOL _bInit_ = NO;
         bFirebaseOpen = YES;
     }
     
-    NSDictionary* dic = [[Yodo1Registry sharedRegistry] getClassesStatusType:@"OpenSuitOpenSuitAnalyticsType"
-                                                              replacedString:@"OpenSuitAnalyticsAdapter"
-                                                               replaceString:@"OpenSuitOpenSuitAnalyticsType"];
+    NSDictionary* dic = [[Yodo1Registry sharedRegistry] getClassesStatusType:@"analyticsType"
+                                                              replacedString:@"analyticsAdapter"
+                                                               replaceString:@"analyticsType"];
     if (dic) {
         NSArray* keyArr = [dic allKeys];
         //优先初始化Swrve
         BOOL isHaveSwrve = false;
         for (id key1 in keyArr) {
-            if (bSwrveOpen && [key1 integerValue] == OpenSuitOpenSuitAnalyticsTypeSwrve) {
-                Class adapter = [[[Yodo1Registry sharedRegistry] adapterClassFor:[key1 integerValue] classType:@"OpenSuitOpenSuitAnalyticsType"] theYodo1Class];
+            if (bSwrveOpen && [key1 integerValue] == OpenSuitAnalyticsTypeSwrve) {
+                Class adapter = [[[Yodo1Registry sharedRegistry] adapterClassFor:[key1 integerValue] classType:@"analyticsType"] theYodo1Class];
                 OpenSuitAnalyticsAdapter* advideoAdapter = [[adapter alloc] initWithAnalytics:initConfig];
                 NSNumber* adVideoOrder = [NSNumber numberWithInt:[key1 intValue]];
                 [self.analyticsDict setObject:advideoAdapter forKey:adVideoOrder];
@@ -150,33 +150,33 @@ static BOOL _bInit_ = NO;
         }
         
         for (id key in keyArr) {
-            if (!bTalkingDataOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeTalkingData) {
+            if (!bTalkingDataOpen && [key integerValue] == OpenSuitAnalyticsTypeTalkingData) {
                 continue;
             }
-            if (!bGameAnalyticsOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeGameAnalytics) {
+            if (!bGameAnalyticsOpen && [key integerValue] == OpenSuitAnalyticsTypeGameAnalytics) {
                 continue;
             }
-            if (!bUmengOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeUmeng) {
+            if (!bUmengOpen && [key integerValue] == OpenSuitAnalyticsTypeUmeng) {
                 continue;
             }
-            if (!bAppsFlyerOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeAppsFlyer) {
+            if (!bAppsFlyerOpen && [key integerValue] == OpenSuitAnalyticsTypeAppsFlyer) {
                 continue;
             }
-            if (!bSwrveOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeSwrve) {
+            if (!bSwrveOpen && [key integerValue] == OpenSuitAnalyticsTypeSwrve) {
                 continue;
             }
-            if (!bThinkingOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeThinking) {
+            if (!bThinkingOpen && [key integerValue] == OpenSuitAnalyticsTypeThinking) {
                 continue;
             }
-            if (!bFirebaseOpen && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeFirebase) {
+            if (!bFirebaseOpen && [key integerValue] == OpenSuitAnalyticsTypeFirebase) {
                 continue;
             }
             //跳过Swrve
-            if (isHaveSwrve && [key integerValue] == OpenSuitOpenSuitAnalyticsTypeSwrve) {
+            if (isHaveSwrve && [key integerValue] == OpenSuitAnalyticsTypeSwrve) {
                 continue;
             }
             
-            Class adapter = [[[Yodo1Registry sharedRegistry] adapterClassFor:[key integerValue] classType:@"OpenSuitOpenSuitAnalyticsType"] theYodo1Class];
+            Class adapter = [[[Yodo1Registry sharedRegistry] adapterClassFor:[key integerValue] classType:@"analyticsType"] theYodo1Class];
             OpenSuitAnalyticsAdapter* advideoAdapter = [[adapter alloc] initWithAnalytics:initConfig];
             NSNumber* adVideoOrder = [NSNumber numberWithInt:[key intValue]];
             [self.analyticsDict setObject:advideoAdapter forKey:adVideoOrder];
@@ -206,7 +206,7 @@ static BOOL _bInit_ = NO;
         NSAssert(eventName != nil, @"eventName cannot nil!");
     }
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeAppsFlyer){
+        if ([key integerValue]==OpenSuitAnalyticsTypeAppsFlyer){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter eventAdAnalyticsWithName:eventName eventData:eventData];
             break;
@@ -215,7 +215,7 @@ static BOOL _bInit_ = NO;
 }
 - (void)beginEvent:(NSString *)eventId {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeAppsFlyer){
+        if ([key integerValue]==OpenSuitAnalyticsTypeAppsFlyer){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter beginEvent:eventId];
             break;
@@ -225,7 +225,7 @@ static BOOL _bInit_ = NO;
 
 - (void)endEvent:(NSString *)eventId {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeAppsFlyer){
+        if ([key integerValue]==OpenSuitAnalyticsTypeAppsFlyer){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter endEvent:eventId];
             break;
@@ -357,7 +357,7 @@ static BOOL _bInit_ = NO;
 {
     NSString* deviceId = nil;
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeTalkingData){
+        if ([key integerValue]==OpenSuitAnalyticsTypeTalkingData){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             deviceId = [adapter talkingDataDeviceId];
             break;
@@ -370,7 +370,7 @@ static BOOL _bInit_ = NO;
 {
     for (id key in [self.analyticsDict allKeys]) {
         NSInteger _key = [key integerValue];
-        if (_key == OpenSuitOpenSuitAnalyticsTypeUmeng || _key == OpenSuitOpenSuitAnalyticsTypeThinking){
+        if (_key == OpenSuitAnalyticsTypeUmeng || _key == OpenSuitAnalyticsTypeThinking){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter track:eventName];
             break;
@@ -466,7 +466,7 @@ static BOOL _bInit_ = NO;
 -(void)submitTrackWithEventName:(NSString *)eventName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeUmeng){
+        if ([key integerValue]==OpenSuitAnalyticsTypeUmeng){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             if ([[self.trackPropertys allKeys]containsObject:eventName]) {
                 NSDictionary* property = [self.trackPropertys objectForKey:eventName];
@@ -483,7 +483,7 @@ static BOOL _bInit_ = NO;
 {
     for (id key in [self.analyticsDict allKeys]) {
         NSInteger _key = [key integerValue];
-        if (_key == OpenSuitOpenSuitAnalyticsTypeUmeng || _key == OpenSuitOpenSuitAnalyticsTypeThinking){
+        if (_key == OpenSuitAnalyticsTypeUmeng || _key == OpenSuitAnalyticsTypeThinking){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter registerSuperProperty:property];
             break;
@@ -495,7 +495,7 @@ static BOOL _bInit_ = NO;
 {
     for (id key in [self.analyticsDict allKeys]) {
         NSInteger _key = [key integerValue];
-        if (_key == OpenSuitOpenSuitAnalyticsTypeUmeng || _key == OpenSuitOpenSuitAnalyticsTypeThinking){
+        if (_key == OpenSuitAnalyticsTypeUmeng || _key == OpenSuitAnalyticsTypeThinking){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter unregisterSuperProperty:propertyName];
             break;
@@ -506,7 +506,7 @@ static BOOL _bInit_ = NO;
 - (NSString *)getSuperProperty:(NSString *)propertyName
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeUmeng){
+        if ([key integerValue]==OpenSuitAnalyticsTypeUmeng){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             return [adapter getSuperProperty:propertyName];
         }
@@ -519,7 +519,7 @@ static BOOL _bInit_ = NO;
 {
     for (id key in [self.analyticsDict allKeys]) {
         NSInteger _key = [key integerValue];
-        if (_key == OpenSuitOpenSuitAnalyticsTypeUmeng || _key == OpenSuitOpenSuitAnalyticsTypeThinking){
+        if (_key == OpenSuitAnalyticsTypeUmeng || _key == OpenSuitAnalyticsTypeThinking){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             return [adapter getSuperProperties];
         }
@@ -531,7 +531,7 @@ static BOOL _bInit_ = NO;
 {
     for (id key in [self.analyticsDict allKeys]) {
         NSInteger _key = [key integerValue];
-        if (_key == OpenSuitOpenSuitAnalyticsTypeUmeng || _key == OpenSuitOpenSuitAnalyticsTypeThinking){
+        if (_key == OpenSuitAnalyticsTypeUmeng || _key == OpenSuitAnalyticsTypeThinking){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter clearSuperProperties];
             break;
@@ -542,7 +542,7 @@ static BOOL _bInit_ = NO;
 - (void)setGACustomDimension01:(NSString*)dimension01
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeGameAnalytics){
+        if ([key integerValue]==OpenSuitAnalyticsTypeGameAnalytics){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter setGACustomDimension01:dimension01];
             break;
@@ -553,7 +553,7 @@ static BOOL _bInit_ = NO;
 - (void)setGACustomDimension02:(NSString*)dimension02
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeGameAnalytics){
+        if ([key integerValue]==OpenSuitAnalyticsTypeGameAnalytics){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter setGACustomDimension02:dimension02];
             break;
@@ -564,7 +564,7 @@ static BOOL _bInit_ = NO;
 - (void)setGACustomDimension03:(NSString*)dimension03
 {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeGameAnalytics){
+        if ([key integerValue]==OpenSuitAnalyticsTypeGameAnalytics){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter setGACustomDimension03:dimension03];
             break;
@@ -577,7 +577,7 @@ static BOOL _bInit_ = NO;
                              currency:(NSString*)currency
                         transactionId:(NSString*)transactionId {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeAppsFlyer){
+        if ([key integerValue]==OpenSuitAnalyticsTypeAppsFlyer){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter validateAndTrackInAppPurchase:productIdentifier
                                              price:price
@@ -591,7 +591,7 @@ static BOOL _bInit_ = NO;
 - (void)swrveEventAnalyticsWithName:(NSString *)eventName
                           eventData:(NSDictionary *)eventData {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeSwrve){
+        if ([key integerValue]==OpenSuitAnalyticsTypeSwrve){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter swrveEventAnalyticsWithName:eventName eventData:eventData];
             break;
@@ -601,7 +601,7 @@ static BOOL _bInit_ = NO;
 
 - (void)swrveUserUpdate:(NSDictionary *)eventData {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeSwrve){
+        if ([key integerValue]==OpenSuitAnalyticsTypeSwrve){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter swrveUserUpdate:eventData];
             break;
@@ -612,7 +612,7 @@ static BOOL _bInit_ = NO;
 - (void)swrveTransactionProcessed:(SKPaymentTransaction*) transaction
                     productBought:(SKProduct*) product {
     for (id key in [self.analyticsDict allKeys]) {
-        if ([key integerValue]==OpenSuitOpenSuitAnalyticsTypeSwrve){
+        if ([key integerValue]==OpenSuitAnalyticsTypeSwrve){
             OpenSuitAnalyticsAdapter* adapter = [self.analyticsDict objectForKey:key];
             [adapter swrveTransactionProcessed:transaction productBought:product];
             break;
@@ -632,7 +632,7 @@ static BOOL _bInit_ = NO;
 
 extern "C" {
     
-    char* UnityGetTalkingDataDeviceId()
+    char* UnityGetTalkingDataDeviceId_OpenSuit()
     {
         const char* deviceId = [[OpenSuitAnalyticsManager sharedInstance]talkingDataDeviceId].UTF8String;
         return Yodo1MakeStringCopy(deviceId);
@@ -643,7 +643,7 @@ extern "C" {
      TalkingData:
      同道：
      */
-    void UnityEventWithJson(const char* eventId, const char* jsonData)
+    void UnityEventWithJson_OpenSuit(const char* eventId, const char* jsonData)
     {
         NSString* eventData = Yodo1CreateNSString(jsonData);
         NSDictionary *eventDataDic = [Yodo1Commons JSONObjectWithString:eventData error:nil];
@@ -651,28 +651,28 @@ extern "C" {
                                                     eventData:eventDataDic];
     }
     
-    void UnityStartLevelAnalytics(const char* level)
+    void UnityStartLevelAnalytics_OpenSuit(const char* level)
     {
         [[OpenSuitAnalyticsManager sharedInstance]startLevelAnalytics:Yodo1CreateNSString(level)];
     }
     
-    void UnityFinishLevelAnalytics(const char* level)
+    void UnityFinishLevelAnalytics_OpenSuit(const char* level)
     {
         [[OpenSuitAnalyticsManager sharedInstance]finishLevelAnalytics:Yodo1CreateNSString(level)];
     }
     
-    void UnityFailLevelAnalytics(const char* level,const char* cause)
+    void UnityFailLevelAnalytics_OpenSuit(const char* level,const char* cause)
     {
         [[OpenSuitAnalyticsManager sharedInstance]failLevelAnalytics:Yodo1CreateNSString(level)
                                                       failedCause:Yodo1CreateNSString(cause)];
     }
     
-    void UnityUserLevelIdAnalytics(int level)
+    void UnityUserLevelIdAnalytics_OpenSuit(int level)
     {
         [[OpenSuitAnalyticsManager sharedInstance]userLevelIdAnalytics:level];
     }
     
-    void UnityChargeRequstAnalytics(const char* orderId,
+    void UnityChargeRequstAnalytics_OpenSuit(const char* orderId,
                                     const char* iapId,
                                     double currencyAmount,
                                     const char* currencyType,
@@ -687,26 +687,26 @@ extern "C" {
                                                          paymentType:Yodo1CreateNSString(paymentType)];
     }
     
-    void UnityChargeSuccessAnalytics(const char* orderId,int source)
+    void UnityChargeSuccessAnalytics_OpenSuit(const char* orderId,int source)
     {
         [[OpenSuitAnalyticsManager sharedInstance]chargeSuccessAnalytics:Yodo1CreateNSString(orderId) source:source];
     }
     
-    void UnityRewardAnalytics(double virtualCurrencyAmount,const char* reason ,int source)
+    void UnityRewardAnalytics_OpenSuit(double virtualCurrencyAmount,const char* reason ,int source)
     {
         [[OpenSuitAnalyticsManager sharedInstance]rewardAnalytics:virtualCurrencyAmount
                                                         reason:Yodo1CreateNSString(reason)
                                                         source:source];
     }
     
-    void UnityPurchaseAnalytics(const char* item,int number,double price)
+    void UnityPurchaseAnalytics_OpenSuit(const char* item,int number,double price)
     {
         [[OpenSuitAnalyticsManager sharedInstance]purchaseAnalytics:Yodo1CreateNSString(item)
                                                       itemNumber:number
                                           priceInVirtualCurrency:price];
     }
     
-    void UnityUseAnalytics(const char* item,int amount,double price)
+    void UnityUseAnalytics_OpenSuit(const char* item,int amount,double price)
     {
         [[OpenSuitAnalyticsManager sharedInstance]useAnalytics:Yodo1CreateNSString(item)
                                                      amount:amount
@@ -715,12 +715,12 @@ extern "C" {
     }
     
 #pragma mark - DplusMobClick
-    void UnityTrack(const char* eventName)
+    void UnityTrack_OpenSuit(const char* eventName)
     {
         [[OpenSuitAnalyticsManager sharedInstance]track:Yodo1CreateNSString(eventName)];
     }
     
-    void UnitySaveTrackWithEventName(const char* eventName,const char* propertyKey,const char* propertyValue)
+    void UnitySaveTrackWithEventName_OpenSuit(const char* eventName,const char* propertyKey,const char* propertyValue)
     {
         if(eventName == NULL || propertyKey == NULL || propertyValue == NULL)return;
         [[OpenSuitAnalyticsManager sharedInstance]saveTrackWithEventName:Yodo1CreateNSString(eventName)
@@ -728,7 +728,7 @@ extern "C" {
                                                         propertyValue:Yodo1CreateNSString(propertyValue)];
     }
     
-    void UnitySaveTrackWithEventNameIntValue(const char* eventName,const char* propertyKey,const char* propertyValue)
+    void UnitySaveTrackWithEventNameIntValue_OpenSuit(const char* eventName,const char* propertyKey,const char* propertyValue)
     {
         if(eventName == NULL || propertyKey == NULL)return;
         [[OpenSuitAnalyticsManager sharedInstance]saveTrackWithEventName:Yodo1CreateNSString(eventName)
@@ -736,7 +736,7 @@ extern "C" {
                                                      propertyIntValue:[Yodo1CreateNSString(propertyValue) intValue]];
     }
     
-    void UnitySaveTrackWithEventNameFloatValue(const char* eventName,const char* propertyKey,const char* propertyValue)
+    void UnitySaveTrackWithEventNameFloatValue_OpenSuit(const char* eventName,const char* propertyKey,const char* propertyValue)
     {
         if(eventName == NULL || propertyKey == NULL)return;
         [[OpenSuitAnalyticsManager sharedInstance]saveTrackWithEventName:Yodo1CreateNSString(eventName)
@@ -744,7 +744,7 @@ extern "C" {
                                                    propertyFloatValue:[Yodo1CreateNSString(propertyValue) floatValue]];
     }
     
-    void UnitySaveTrackWithEventNameDoubleValue(const char* eventName,const char* propertyKey,const char* propertyValue)
+    void UnitySaveTrackWithEventNameDoubleValue_OpenSuit(const char* eventName,const char* propertyKey,const char* propertyValue)
     {
         if(eventName == NULL || propertyKey == NULL)return;
         [[OpenSuitAnalyticsManager sharedInstance]saveTrackWithEventName:Yodo1CreateNSString(eventName)
@@ -752,13 +752,13 @@ extern "C" {
                                                   propertyDoubleValue:[Yodo1CreateNSString(propertyValue) doubleValue]];
     }
     
-    void UnitySubmitTrack(const char* eventName)
+    void UnitySubmitTrack_OpenSuit(const char* eventName)
     {
         if(eventName == NULL)return;
         [[OpenSuitAnalyticsManager sharedInstance] submitTrackWithEventName:Yodo1CreateNSString(eventName)];
     }
     
-    void UnityRegisterSuperProperty(const char* propertyJson)
+    void UnityRegisterSuperProperty_OpenSuit(const char* propertyJson)
     {
         NSString* properties = Yodo1CreateNSString(propertyJson);
         NSDictionary* dic = [Yodo1Commons JSONObjectWithString:properties error:nil];
@@ -767,13 +767,13 @@ extern "C" {
         }
     }
     
-    void UnityUnregisterSuperProperty(const char* propertyName)
+    void UnityUnregisterSuperProperty_OpenSuit(const char* propertyName)
     {
         [[OpenSuitAnalyticsManager sharedInstance]unregisterSuperProperty:Yodo1CreateNSString(propertyName)];
     }
     
     //返回单个值
-    char* UnityGetSuperProperty(const char* propertyName)
+    char* UnityGetSuperProperty_OpenSuit(const char* propertyName)
     {
         NSString* properties = [[OpenSuitAnalyticsManager sharedInstance]getSuperProperty:Yodo1CreateNSString(propertyName)];
         if(properties){
@@ -783,7 +783,7 @@ extern "C" {
     }
     
     //返回json字符串，那边解析为词典
-    char* UnityGetSuperProperties()
+    char* UnityGetSuperProperties_OpenSuit()
     {
         NSDictionary* dic = [[OpenSuitAnalyticsManager sharedInstance]getSuperProperties];
         if([dic count] > 0){
@@ -793,25 +793,25 @@ extern "C" {
         return NULL;
     }
     
-    void UnityClearSuperProperties()
+    void UnityClearSuperProperties_OpenSuit()
     {
         [[OpenSuitAnalyticsManager sharedInstance]clearSuperProperties];
     }
     
 #pragma mark - GameAnalytics
-    void UnitySetGACustomDimension01(const char* dimension01)
+    void UnitySetGACustomDimension01_OpenSuit(const char* dimension01)
     {
         NSString* dimension =  Yodo1CreateNSString(dimension01);
         [[OpenSuitAnalyticsManager sharedInstance]setGACustomDimension01:dimension];
     }
     
-    void UnitySetGACustomDimension02(const char* dimension02)
+    void UnitySetGACustomDimension02_OpenSuit(const char* dimension02)
     {
         NSString* dimension =  Yodo1CreateNSString(dimension02);
         [[OpenSuitAnalyticsManager sharedInstance]setGACustomDimension02:dimension];
     }
     
-    void UnitySetGACustomDimension03(const char* dimension03)
+    void UnitySetGACustomDimension03_OpenSuit(const char* dimension03)
     {
         NSString* dimension =  Yodo1CreateNSString(dimension03);
         [[OpenSuitAnalyticsManager sharedInstance]setGACustomDimension03:dimension];
@@ -819,7 +819,7 @@ extern "C" {
     
      #pragma mark - AppsFlyer
     // AppsFlyer
-    void UnityValidateAndTrackInAppPurchase(const char*productIdentifier,
+    void UnityValidateAndTrackInAppPurchase_OpenSuit(const char*productIdentifier,
                                             const char*price,
                                             const char*currency,
                                             const char*transactionId){
@@ -829,7 +829,7 @@ extern "C" {
                                                                transactionId:Yodo1CreateNSString(transactionId)];
     }
     // AppsFlyer Event
-    void UnityEventAdAnalyticsWithName(const char*eventName, const char* jsonData) {
+    void UnityEventAdAnalyticsWithName_OpenSuit(const char*eventName, const char* jsonData) {
         NSString* m_EventName = Yodo1CreateNSString(eventName);
         NSString* eventData = Yodo1CreateNSString(jsonData);
         NSDictionary *eventDataDic = [Yodo1Commons JSONObjectWithString:eventData error:nil];
@@ -838,7 +838,7 @@ extern "C" {
     
      #pragma mark - Swrve
     //Swrve event
-    void UnitySwrveEventAnalyticsWithName(const char*eventName, const char* jsonData) {
+    void UnitySwrveEventAnalyticsWithName_OpenSuit(const char*eventName, const char* jsonData) {
         NSString* m_EventName = Yodo1CreateNSString(eventName);
         NSString* eventData = Yodo1CreateNSString(jsonData);
         NSError *error = nil;
@@ -850,7 +850,7 @@ extern "C" {
                                                                  eventData:eventDataDic];
     }
     
-    void UnitySwrveUserUpdate(const char* jsonData) {
+    void UnitySwrveUserUpdate_OpenSuit(const char* jsonData) {
         NSString* eventData = Yodo1CreateNSString(jsonData);
         NSError *error = nil;
         NSDictionary *eventDataDic = [Yodo1Commons JSONObjectWithString:eventData error:&error];
@@ -860,7 +860,7 @@ extern "C" {
         [[OpenSuitAnalyticsManager sharedInstance]swrveUserUpdate:eventDataDic];
     }
 
-    void UnitySwrveTransactionProcessed(const char* jsonData) {
+    void UnitySwrveTransactionProcessed_OpenSuit(const char* jsonData) {
  
     }
 }
