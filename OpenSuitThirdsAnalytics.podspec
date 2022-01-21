@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = 'OpenSuitThirdsAnalytics'
-    s.version          = '1.0.0'
+    s.version          = '1.0.1'
     s.summary          = '重构数据统计'
 
     s.description      = <<-DESC
@@ -68,7 +68,7 @@ TODO: Add long description of the pod here.
     
     s.libraries = ['sqlite3', 'z']
 
-    s.dependency 'Yodo1OnlineParameter','6.0.2'
+    s.dependency 'Yodo1OnlineParameter','6.0.1'
     s.dependency 'ThinkingSDK','2.7.3'
 
 end
