@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
     s.name             = 'Yodo1Ads'
     # s.version          = '6.1.0'
-    # s.version          = '0.0.29'
-    s.version          = '6.1.0.1'
+    s.version          = '0.0.30'
+    # s.version          = '6.1.0.1'
     s.summary          = '    
                             添加优汇量统计测试
                             最低支持iOS 10.0
@@ -140,7 +140,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Yodo1UCenter','6.0.3'
+        ss.dependency 'OpenSuitPayment','1.0.5'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -153,7 +153,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Yodo1Share','6.0.2'
+        ss.dependency 'OpenSuitShare','1.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
@@ -311,7 +311,69 @@ Pod::Spec.new do |s|
         ss.dependency 'IronSourceAdQualitySDK','6.8.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
-
+    #================OpenSuit Anaylitic============================
+    s.subspec 'OpenSuit_AnalyticsAppsFlyer' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'OpenSuitAnalyticsAppsFlyer','1.0.3'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    s.subspec 'OpenSuit_AnalyticsFirebase' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'OpenSuitAnalyticsFirebase','1.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    s.subspec 'OpenSuit_AnalyticsSwrve' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'OpenSuitAnalyticsSwrve','1.0.1'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    
+    s.subspec 'OpenSuit_AnalyticsTalkingData' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'OpenSuitAnalyticsTalkingData','1.0.1'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    s.subspec 'OpenSuit_AnalyticsUmeng' do |ss|
+        ss.xcconfig = {
+            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+            'OTHER_LDFLAGS' => '-ObjC',
+            'ENABLE_BITCODE' => "NO",
+            "VALID_ARCHS": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+        }
+        ss.dependency 'OpenSuitAnalyticsUmeng','1.0.0'
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    end
+    
     # s.subspec 'Analytics_Thinking' do |ss|
     #     ss.xcconfig = {
     #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
