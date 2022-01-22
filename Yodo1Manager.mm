@@ -18,10 +18,11 @@
 
 #ifdef YODO1_ANALYTICS
 #import "Yodo1AnalyticsManager.h"
+#import "OpenSuitAnalyticsManager.h"
 #endif
 
 #ifdef YODO1_SNS
-#import "SNSManager.h"
+#import "OpenSuitSNSManager.h"
 #endif
 
 #ifdef YODO1_MORE_GAME
@@ -29,7 +30,7 @@
 #endif
 
 #ifdef YODO1_UCCENTER
-#import "Yd1UCenterManager.h"
+#import "OpenSuitPayManager.h"
 #endif
 
 #ifdef YODO1_SOOMLA
@@ -95,55 +96,53 @@ static NSString* __kAppKey = @"";
 #ifdef YODO1_SNS
     //初始化sns
     NSMutableDictionary* snsPlugn = [NSMutableDictionary dictionary];
-    NSString* qqAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1QQAppId];
-    NSString* qqUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1QQUniversalLink];
-    NSString* wechatAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatAppId];
-    NSString* wechatUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1WechatUniversalLink];
-    NSString* sinaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1SinaWeiboAppKey];
-    NSString* sinaUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1SinaWeiboUniversalLink];
-    NSString* twitterConsumerKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1TwitterConsumerKey];
-    NSString* twitterConsumerSecret = [[Yodo1KeyInfo shareInstance]configInfoForKey:kYodo1TwitterConsumerSecret];
+    NSString* qqAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitQQAppId];
+    NSString* qqUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitQQUniversalLink];
+    NSString* wechatAppId = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitWechatAppId];
+    NSString* wechatUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitWechatUniversalLink];
+    NSString* sinaAppKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitSinaWeiboAppKey];
+    NSString* sinaUniversalLink = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitSinaWeiboUniversalLink];
+    NSString* twitterConsumerKey = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitTwitterConsumerKey];
+    NSString* twitterConsumerSecret = [[Yodo1KeyInfo shareInstance]configInfoForKey:kOpenSuitTwitterConsumerSecret];
     if (qqAppId) {
-        [snsPlugn setObject:qqAppId forKey:kYodo1QQAppId];
+        [snsPlugn setObject:qqAppId forKey:kOpenSuitQQAppId];
     }
     if (qqUniversalLink) {
-        [snsPlugn setObject:qqUniversalLink forKey:kYodo1QQUniversalLink];
+        [snsPlugn setObject:qqUniversalLink forKey:kOpenSuitQQUniversalLink];
     }
     if (wechatAppId) {
-        [snsPlugn setObject:wechatAppId forKey:kYodo1WechatAppId];
+        [snsPlugn setObject:wechatAppId forKey:kOpenSuitWechatAppId];
     }
     if (wechatUniversalLink) {
-        [snsPlugn setObject:wechatUniversalLink forKey:kYodo1WechatUniversalLink];
+        [snsPlugn setObject:wechatUniversalLink forKey:kOpenSuitWechatUniversalLink];
     }
     if (sinaAppKey) {
-        [snsPlugn setObject:sinaAppKey forKey:kYodo1SinaWeiboAppKey];
+        [snsPlugn setObject:sinaAppKey forKey:kOpenSuitSinaWeiboAppKey];
     }
     if (sinaUniversalLink) {
-        [snsPlugn setObject:sinaAppKey forKey:kYodo1SinaWeiboUniversalLink];
+        [snsPlugn setObject:sinaAppKey forKey:kOpenSuitSinaWeiboUniversalLink];
     }
     if (twitterConsumerKey && twitterConsumerSecret) {
-        [snsPlugn setObject:twitterConsumerKey forKey:kYodo1TwitterConsumerKey];
-        [snsPlugn setObject:twitterConsumerSecret forKey:kYodo1TwitterConsumerSecret];
+        [snsPlugn setObject:twitterConsumerKey forKey:kOpenSuitTwitterConsumerKey];
+        [snsPlugn setObject:twitterConsumerSecret forKey:kOpenSuitTwitterConsumerSecret];
     }
-    [[SNSManager sharedInstance] initSNSPlugn:snsPlugn];
+    [[OpenSuitSNSManager sharedInstance] initSNSPlugn:snsPlugn];
     
 #endif
-    
-    // [self performSelector:@selector(analyticInit) withObject:self afterDelay:1.0f];
-    
+    [Yodo1Manager analyticInit];
 }
 
 + (void)analyticInit
 {
 #ifdef YODO1_ANALYTICS
-    AnalyticsInitConfig * config = [[AnalyticsInitConfig alloc]init];
+    OpenSuitAnalyticsInitConfig * config = [[OpenSuitAnalyticsInitConfig alloc]init];
     config.gaCustomDimensions01 = kYodo1Config.gaCustomDimensions01;
     config.gaCustomDimensions02 = kYodo1Config.gaCustomDimensions02;
     config.gaCustomDimensions03 = kYodo1Config.gaCustomDimensions03;
     config.gaResourceCurrencies = kYodo1Config.gaResourceCurrencies;
     config.gaResourceItemTypes = kYodo1Config.gaResourceItemTypes;
     config.appsflyerCustomUserId = kYodo1Config.appsflyerCustomUserId;
-    [[Yodo1AnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
+    [[OpenSuitAnalyticsManager sharedInstance]initializeAnalyticsWithConfig:config];
 #endif
 }
 
@@ -191,8 +190,8 @@ static NSString* __kAppKey = @"";
 
 + (void)handleOpenURL:(NSURL*)url sourceApplication:(NSString*)sourceApplication {
 #ifdef YODO1_SNS
-    if ([SNSManager sharedInstance].isYodo1Shared) {
-        [[SNSManager sharedInstance] application:nil openURL:url options:nil];
+    if ([OpenSuitSNSManager sharedInstance].isYodo1Shared) {
+        [[OpenSuitSNSManager sharedInstance] application:nil openURL:url options:nil];
     }
 #endif
 

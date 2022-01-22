@@ -247,18 +247,18 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
-    s.subspec 'Analytics_TalkingData' do |ss|
-        ss.xcconfig = {
-            "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
-            'OTHER_LDFLAGS' => '-ObjC',
-            'ENABLE_BITCODE' => "NO",
-            "VALID_ARCHS": "armv7 arm64",
-            "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
-            "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
-        }
-        ss.dependency 'AnalyticsTalkingData','6.0.4'
-        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
-    end
+    # s.subspec 'Analytics_TalkingData' do |ss|
+    #     ss.xcconfig = {
+    #         "GCC_PREPROCESSOR_DEFINITIONS" => 'YODO1_ANALYTICS',
+    #         'OTHER_LDFLAGS' => '-ObjC',
+    #         'ENABLE_BITCODE' => "NO",
+    #         "VALID_ARCHS": "armv7 arm64",
+    #         "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
+    #         "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
+    #     }
+    #     ss.dependency 'AnalyticsTalkingData','6.0.4'
+    #     ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
+    # end
     
     s.subspec 'Analytics_Umeng' do |ss|
         ss.xcconfig = {
