@@ -3,7 +3,7 @@
 //  localization_sdk
 //
 //  Created by huafei qu on 13-5-4.
-//  Copyright (c) 2013年 yodo1. All rights reserved.
+//  Copyright (c) 2015年 yodo1. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

@@ -3,7 +3,7 @@
 //  ShareManager
 //
 //  Created by Jerry on 12/23/14.
-//  Copyright (c) 2014 Jerry. All rights reserved.
+//  Copyright (c) 2015 Jerry. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
