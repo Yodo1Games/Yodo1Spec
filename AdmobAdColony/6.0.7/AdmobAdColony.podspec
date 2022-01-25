@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-    s.name             = 'AdmobAdColony'
+    s.name            = 'AdmobAdColony'
     s.version          = '6.0.7'
     s.summary          = 'v '
 
