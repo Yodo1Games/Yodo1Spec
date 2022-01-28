@@ -75,7 +75,7 @@ Pod::Spec.new do |s|
   'c++',
   'z']
   
-  s.dependency 'OpenSuitThirdsAnalytics','1.0.1'
+  s.dependency 'OpenSuitThirdsAnalytics','1.0.2'
   s.dependency 'OpenSuitTool','1.0.1'
   
 end
