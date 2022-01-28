@@ -4,7 +4,7 @@ Pod::Spec.new do |s|
     # s.version          = '0.0.31'
     # s.version          = '6.1.0.1'
     s.summary          = '    
-                            添加优汇量统计测试
+                            添加优汇量统计测试test
                             最低支持iOS 10.0
                             广告:v3.16.0
                             大更改
