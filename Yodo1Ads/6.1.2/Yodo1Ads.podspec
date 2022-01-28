@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1AdvertSDK','6.0.3'
         ss.dependency 'Bugly','2.5.91'
         ss.dependency 'Yodo1Analytics','6.0.1'
-        ss.dependency 'OpenSuitThirdsAnalytics', '1.0.2'
+        ss.dependency 'OpenSuitThirdsAnalytics', '1.0.1'
     end
 
     s.subspec 'Yodo1_ConfigKey' do |ss|
