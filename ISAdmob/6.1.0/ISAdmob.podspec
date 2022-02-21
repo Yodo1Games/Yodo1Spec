@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
-    s.name             = 'YD1IronSource'
-    s.version          = '6.0.9'
-    s.summary          = 'v7.1.12.0'
+    s.name             = 'ISAdmob'
+    s.version          = '6.1.0'
+    s.summary          = 'v '
 
     s.description      = <<-DESC
     TODO: Add long description of the pod here.
@@ -21,8 +21,10 @@ Pod::Spec.new do |s|
 
     # s.public_header_files = [ "*.h" ]
 
-    s.vendored_libraries = [ "*.a" ]
+    # s.vendored_libraries = [ "*.a" ]
     
+    s.vendored_frameworks = ["*.xcframework"]
+
     s.requires_arc = true
 
     s.xcconfig = {
@@ -70,6 +72,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','6.0.4'
-    s.dependency 'IronSourceSDK', '7.1.13.0'
+    s.dependency 'Google-Mobile-Ads-SDK','8.13.0'
+    s.dependency 'YD1IronSource', '6.1.0'
 end
