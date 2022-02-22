@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','6.0.3'
+    s.dependency 'Yodo1AdvertSDK','6.0.4'
     # s.dependency 'GDTMobSDK', '4.13.40'
     s.dependency 'AdsGDT','1.0.3'
 end
