@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','6.0.3'
+    s.dependency 'Yodo1ThirdsAnalytics','6.0.7'
     s.dependency 'AppsFlyerFramework', '6.4.2'
     s.dependency 'ThinkingSDK', '2.7.5'
 end
