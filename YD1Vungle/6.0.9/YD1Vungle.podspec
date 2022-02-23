@@ -70,6 +70,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1AdvertSDK','6.0.3'
+    s.dependency 'Yodo1AdvertSDK','6.0.4'
     s.dependency 'VungleSDK-iOS', '6.10.5'
 end
