@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   'c++',
   'z']
   
-  s.dependency 'Yodo1ThirdsAnalytics','6.0.3'
+  s.dependency 'Yodo1ThirdsAnalytics','6.0.7'
   s.dependency 'Firebase/Analytics','8.10.0'
   s.dependency 'Firebase/Crashlytics','8.10.0'
 end
