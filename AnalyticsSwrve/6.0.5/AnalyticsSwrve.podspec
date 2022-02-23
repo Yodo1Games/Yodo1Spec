@@ -76,7 +76,7 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1ThirdsAnalytics','6.0.3'
+    s.dependency 'Yodo1ThirdsAnalytics','6.0.7'
     s.dependency 'SwrveSDK', '7.3.0'
 
 end
