@@ -70,7 +70,7 @@ Pod::Spec.new do |s|
   'c++',
   'z']
   
-  s.dependency 'Yodo1ThirdsAnalytics','6.0.3'
+  s.dependency 'Yodo1ThirdsAnalytics','6.0.7'
   #由原来的UMCCommon变为UMCommon
   s.dependency 'UMCommon', '7.3.5'
   s.dependency 'UMAnalyticsGame', '7.3.5+G'
