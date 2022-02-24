@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
 
     s.dependency 'VungleSDK-iOS','6.10.5'
-    s.dependency 'YD1ApplovinMax', '6.0.7'
+    s.dependency 'YD1ApplovinMax', '6.0.8'
 end
