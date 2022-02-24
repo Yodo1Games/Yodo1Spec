@@ -74,5 +74,5 @@ Pod::Spec.new do |s|
 
     # s.dependency 'myTargetSDK','5.12.1'
     s.dependency 'Yodo1AdsMyTarget','6.0.2'
-    s.dependency 'YD1ApplovinMax', '6.0.7'
+    s.dependency 'YD1ApplovinMax', '6.0.8'
 end
