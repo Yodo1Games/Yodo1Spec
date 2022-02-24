@@ -73,5 +73,5 @@ Pod::Spec.new do |s|
         'z']
     # s.dependency 'AdsGDT','1.0.3'
     s.dependency 'GDTMobSDK', '4.13.42'
-    s.dependency 'YD1ApplovinMax', '6.0.7'
+    s.dependency 'YD1ApplovinMax', '6.0.8'
 end
