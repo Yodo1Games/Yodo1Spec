@@ -78,5 +78,5 @@ Pod::Spec.new do |s|
     #s.dependency 'Ads-CN/Domestic','4.1.0.2'
     #s.dependency 'Ads-CN/International','4.1.0.2'
     #s.dependency 'Ads-CN','4.1.0.2'
-    s.dependency 'YD1ApplovinMax', '6.0.7'
+    s.dependency 'YD1ApplovinMax', '6.0.8'
 end
