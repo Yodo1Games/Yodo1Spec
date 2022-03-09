@@ -141,7 +141,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         #ss.dependency 'OpenSuitPayment','1.0.8'
-        ss.dependency 'Yodo1UCenter','6.0.6'
+        ss.dependency 'Yodo1UCenter','6.0.5'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
