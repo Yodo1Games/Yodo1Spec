@@ -180,7 +180,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Yodo1GameCenter','6.0.3'
+        ss.dependency 'Yodo1GameCenter','6.0.4'
         ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
      s.subspec 'Yodo1_iCloud' do |ss|
