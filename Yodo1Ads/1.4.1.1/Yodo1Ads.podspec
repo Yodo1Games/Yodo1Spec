@@ -106,7 +106,7 @@ Pod::Spec.new do |s|
         }
         ss.dependency 'Yodo1iCloud','6.0.1'
         ss.dependency 'Yodo1GameCenter','6.0.6'
-        ss.dependency 'OpenSuitShare','1.0.7'
+        ss.dependency 'OpenSuitShare','1.0.6'
         ss.dependency 'Yodo1iRate','6.0.0'
         ss.dependency 'Yodo1Replay','6.0.1'
         ss.dependency 'Yodo1Notification','6.0.1'
