@@ -71,7 +71,7 @@ Pod::Spec.new do |s|
         'z']
 
 
-    s.dependency 'OpenSuitThirdsAnalytics','1.0.5'
+    #s.dependency 'OpenSuitThirdsAnalytics','1.0.5'
     s.dependency 'Yodo1OnlineParameter','6.0.1'
 
 end
