@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
   
 
   s.dependency 'OpenSuitThirdsAnalytics','1.0.8'
-  s.dependency 'Yodo1OnlineParameter','6.0.1'
+  s.dependency 'Yodo1OnlineParameter','6.0.3'
   s.dependency 'Firebase/Analytics','8.12.1'
   s.dependency 'Firebase/Crashlytics','8.12.1'
   
