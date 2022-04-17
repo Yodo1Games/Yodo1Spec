@@ -76,6 +76,6 @@ Pod::Spec.new do |s|
         'c++',
         'z']
 
-    s.dependency 'Yodo1OnlineParameter','6.0.1'
+    s.dependency 'Yodo1OnlineParameter','6.0.3'
     s.dependency 'Yodo1UCenter','6.1.4'
 end
