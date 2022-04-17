@@ -74,7 +74,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1AdvertSDK','6.0.6'
         ss.dependency 'Yodo1ThirdsAnalytics','6.1.2'
         ss.dependency 'Bugly','2.5.91'
-        ss.dependency 'Yodo1Analytics','6.0.1'
+        ss.dependency 'Yodo1Analytics','6.0.2'
         ss.dependency 'OpenSuitThirdsAnalytics', '1.0.8'
     end
 
@@ -124,7 +124,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Yodo1Analytics','6.0.1'
+        ss.dependency 'Yodo1Analytics','6.0.2'
         ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
     end
 
