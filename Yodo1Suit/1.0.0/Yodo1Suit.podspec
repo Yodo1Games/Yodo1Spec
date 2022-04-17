@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1iRate','6.0.0'
         ss.dependency 'Yodo1Replay','6.0.1'
         ss.dependency 'Yodo1Notification','6.0.1'
-        ss.dependency 'Yodo1Privacy','6.0.1'
+        ss.dependency 'Yodo1Privacy','6.0.2'
         ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
     end
 
@@ -111,7 +111,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1iRate','6.0.0'
         ss.dependency 'Yodo1Replay','6.0.1'
         ss.dependency 'Yodo1Notification','6.0.1'
-        ss.dependency 'Yodo1Privacy','6.0.1'
+        ss.dependency 'Yodo1Privacy','6.0.2'
         ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
     end
 
@@ -227,7 +227,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'Yodo1Privacy','6.0.1'
+        ss.dependency 'Yodo1Privacy','6.0.2'
         ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
     end
 
