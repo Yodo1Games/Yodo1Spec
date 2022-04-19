@@ -77,6 +77,6 @@ Pod::Spec.new do |s|
         'z']
 
     
-    s.dependency 'Yodo1OnlineParameter','6.0.3'
+    s.dependency 'Yodo1OnlineParameter','6.0.4'
 
 end
