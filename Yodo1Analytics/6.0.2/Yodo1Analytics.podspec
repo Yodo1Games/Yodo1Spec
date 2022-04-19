@@ -69,6 +69,6 @@ TODO: Add long description of the pod here.
         'c++',
         'z']
 
-    s.dependency 'Yodo1OnlineParameter','6.0.3'
+    s.dependency 'Yodo1OnlineParameter','6.0.4'
 
 end
