@@ -72,7 +72,7 @@ Pod::Spec.new do |s|
   
 
   s.dependency 'OpenSuitThirdsAnalytics','1.0.8'
-  s.dependency 'Yodo1OnlineParameter','6.0.4'
+  s.dependency 'Yodo1OnlineParameter'
   #由原来的UMCCommon变为UMCommon
   s.dependency 'UMCommon', '7.3.5'
   s.dependency 'UMAnalyticsGame', '7.3.5+G'
