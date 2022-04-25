@@ -13,14 +13,14 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/Yodo1Games/Yodo1-SDK-iOS.git', :tag => "#{s.name}#{s.version}" }
     s.ios.deployment_target = '10.0'
 
-    s.subspec 'Yodo1_Suit' do |ss|
+    s.subspec 'Yodo1_Ads' do |ss|
         ss.source_files = [ "*.{h,mm,m}" ]
         
         ss.public_header_files = [ "*.h" ]
 
         ss.vendored_libraries = [ "*.a" ]
 
-        ss.resources = [ "Yodo1Suit.bundle" ]
+        ss.resources = [ "Yodo1Ads.bundle" ]
 
         # ss.vendored_frameworks = ["*.framework"]
         
@@ -93,7 +93,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Replay','6.0.3'
         ss.dependency 'Yodo1Notification','6.0.3'
         ss.dependency 'Yodo1Privacy','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_UnityConfigKey' do |ss|
@@ -112,7 +112,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1Replay','6.0.3'
         ss.dependency 'Yodo1Notification','6.0.3'
         ss.dependency 'Yodo1Privacy','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_Analytics' do |ss|
@@ -125,7 +125,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1Analytics','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_UCenter' do |ss|
@@ -139,7 +139,7 @@ Pod::Spec.new do |s|
         }
         #ss.dependency 'OpenSuitPayment','1.1.1'
         ss.dependency 'Yodo1UCenter','6.1.6'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_Share' do |ss|
@@ -152,7 +152,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'OpenSuitShare','1.0.9'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_iRate' do |ss|
@@ -165,7 +165,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1iRate','6.0.0'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
      s.subspec 'Yodo1_GameCenter' do |ss|
@@ -178,7 +178,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1GameCenter','6.1.0'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
      s.subspec 'Yodo1_iCloud' do |ss|
         ss.xcconfig = {
@@ -190,7 +190,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1iCloud','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     s.subspec 'Yodo1_Notification' do |ss|
         ss.xcconfig = {
@@ -202,7 +202,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1Notification','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_Replay' do |ss|
@@ -215,7 +215,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1Replay','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Yodo1_Privacy' do |ss|
@@ -228,7 +228,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'Yodo1Privacy','6.0.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
 #  ################# 统计 ##################
@@ -242,7 +242,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'AnalyticsAppsFlyer','6.1.3'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
     s.subspec 'Analytics_Umeng' do |ss|
@@ -255,7 +255,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'AnalyticsUmeng','6.0.9'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     s.subspec 'Analytics_Firebase' do |ss|
@@ -268,7 +268,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'AnalyticsFirebase','6.0.9'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
     #================OpenSuit Anaylitic============================
@@ -282,7 +282,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'OpenSuitAnalyticsAppsFlyer','1.1.9'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     s.subspec 'OpenSuit_AnalyticsFirebase' do |ss|
         ss.xcconfig = {
@@ -294,7 +294,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'OpenSuitAnalyticsFirebase','1.0.9'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
     
     s.subspec 'OpenSuit_AnalyticsUmeng' do |ss|
@@ -307,7 +307,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
         ss.dependency 'OpenSuitAnalyticsUmeng','1.0.8'
-        ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
+        ss.dependency 'Yodo1Ads/Yodo1_Ads',"#{s.version}"
     end
 
 end
