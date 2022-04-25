@@ -92,7 +92,7 @@ Pod::Spec.new do |s|
         ss.dependency 'Yodo1ThirdsAnalytics','6.1.2'
         ss.dependency 'Bugly','2.5.91'
         ss.dependency 'Yodo1Analytics','6.0.1'
-        ss.dependency 'OpenSuitThirdsAnalytics', '1.0.6'
+        ss.dependency 'OpenSuitThirdsAnalytics', '1.0.7'
     end
 
     s.subspec 'Yodo1_ConfigKey' do |ss|
