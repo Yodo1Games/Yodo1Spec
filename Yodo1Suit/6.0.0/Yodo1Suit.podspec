@@ -242,7 +242,7 @@ Pod::Spec.new do |s|
             "VALID_ARCHS[sdk=iphoneos*]": "armv7 arm64",
             "VALID_ARCHS[sdk=iphonesimulator*]": "x86_64"
         }
-        ss.dependency 'OpenSuitAnalyticsAppsFlyer','1.2.0.1'
+        ss.dependency 'OpenSuitAnalyticsAppsFlyer','1.2.0.2'
         ss.dependency 'Yodo1Suit/Yodo1_Suit',"#{s.version}"
     end
     s.subspec 'OpenSuit_AnalyticsFirebase' do |ss|
